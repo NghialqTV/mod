@@ -1,29 +1,29 @@
 const ADMIN = {
   name: "Nghialq TV",
   avatar: "assets/img/avatar.png",
-  telegram: "https://t.me/yourchannel"
+  telegram: "https://t.me/NghialqTVMod"
 };
 
 const APPS = [
   {
-    id: "aov",
-    name: "Hack Map AOV 6.0",
-    version: "Cập nhật 03/01",
-    link: "LINK_TẢI_APP"
+    id: "AOV",
+    name: "Menu Unlock Skin Android",
+    version: "Cập nhật 10/01",
+    link: "https://blog.tapvietcode.com/dc-2/?alias=OkB2"
   }
 ];
 
 const KEYS = [
   {
-    name: "Get Key IOS",
-    info: "1.5 Day",
-    link: "LINK_GET_KEY"
+    name: "Get Key MenuMod Android",
+    info: "1 Day",
+    link: "https://duymmo.io.vn/ctvkey/3fun.php"
   }
 ];
 
 const FILES = [
   {
-    title: "Pack Skin Conan",
+    title: "Pack 100 Skin Ver1",
     image: "assets/img/banner.jpg",
     link: "LINK_TẢI_FILE"
   }
