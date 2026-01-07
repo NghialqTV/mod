@@ -1,52 +1,52 @@
 const SOCIAL={
- telegram:"https://t.me/yourchannel",
- youtube:"https://youtube.com/@yourchannel"
+ telegram:"https://t.me/NghialqTVMod",
+ youtube:"https://youtube.com/@nghiaxtv?si=l5KD15psrLFU00aa"
 };
 
 /* ===== TẢI GAME ===== */
 const GAMES = [
  {
-  name: "Hack CF Mobile IOS No Key",
-  update: "Cập nhật 2/1",
-  icon: "assets/img/cf.png",
-  link: "https://link-cf.com"
- },
- {
-  name: "Hack Map AOV 6.0",
-  update: "Cập nhật 03/01",
+  name: "Menu Unlock Skin Anroid",
+  update: "Cập nhật 10/1",
   icon: "assets/img/aov.png",
-  link: "https://link-aov.com"
+  link: "https://blog.tapvietcode.com/dc-2/?alias=OkB2"
  },
  {
-  name: "Unlock Skin LQ Android",
-  update: "Cập nhật 19/12",
-  icon: "assets/img/lq-android.png",
-  link: "https://link-lq.com"
+  name: "Hack Map + Mod Skin Android",
+  update: "Cập nhật 10/01",
+  icon: "assets/img/aov.png",
+  link: "https://blog.tapvietcode.com/dc-2/?alias=OkB2"
+ },
+ {
+  name: "IPA MOD SKIN NO KEY",
+  update: "Cập nhật 10/1",
+  icon: "assets/img/aov.png",
+  link: "https://linkx.me/PHnLtJ3"
  }
 ];
 
 /* ===== GET KEY ===== */
 const KEYS = [
  {
-  name: "Get Key LQ IOS (Mod Skin)",
-  update: "Vượt 1 link – 1.5 Day",
+  name: "Get Key Mod Skin Android",
+  update: "Vượt 2 link – 1 Day",
   icon: "assets/img/key.png",
-  link: "https://link-key-ios.com"
+  link: "https://duymmo.io.vn/ctvkey/3fun.php"
  },
  {
-  name: "Get Key LQ Android",
-  update: "Vượt 1 link – 1 Day",
+  name: "Get Key Hack Map Android",
+  update: "Vượt 2 link – 1 Day",
   icon: "assets/img/key.png",
-  link: "https://link-key-android.com"
+  link: "https://duymmo.io.vn/ctvkey/3fun.php"
  }
 ];
 
 /* ===== FILE MOD ===== */
 const FILES = [
  {
-  name: "Hướng Dẫn Mod Dán File IOS",
-  update: "Cập nhật 2/11",
-  icon: "assets/img/file.png",
-  link: "https://link-file-ios.com"
+  name: "Mod Pack 100 Skin Ver 1",
+  update: "Cập nhật 10/1",
+  icon: "assets/img/file1.png",
+  link: "https://linkx.me/EIqN"
  }
 ];
