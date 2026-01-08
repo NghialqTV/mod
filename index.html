@@ -8,29 +8,33 @@
 </head>
 <body>
 
-<div id="loading">
-  <div class="spinner"></div>
-  <p>Đang tải...</p>
-</div>
-
-<div id="petals"></div>
-
-<header>
-  <button class="dark-btn" onclick="toggleDark()">🌙</button>
+<header class="top">
   <h1>Tải File Mod</h1>
 </header>
 
-<nav>
-  <button onclick="showTab('apps')">📱 Tải App</button>
-  <button onclick="showTab('keys')">🔑 Get Key</button>
-  <button onclick="showTab('files')">📦 Tải File</button>
-</nav>
+<!-- TẢI GAME -->
+<section class="section">
+  <h2 class="section-title">🎮 Tải Game</h2>
+  <div class="list" id="apps"></div>
+</section>
 
-<main>
-  <section id="apps" class="tab"></section>
-  <section id="keys" class="tab"></section>
-  <section id="files" class="tab"></section>
-</main>
+<!-- GET KEY -->
+<section class="section">
+  <h2 class="section-title">🔑 Get Key</h2>
+  <div class="list" id="keys"></div>
+</section>
+
+<!-- TẢI FILE -->
+<section class="section">
+  <h2 class="section-title">📦 Tải File Mod</h2>
+  <div class="list" id="files"></div>
+</section>
+
+<!-- SUPPORT -->
+<section class="section">
+  <h2 class="section-title">🛠 Support / Hướng Dẫn</h2>
+  <div class="list" id="support"></div>
+</section>
 
 <script src="main.js"></script>
 </body>
