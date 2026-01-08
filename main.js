@@ -30,39 +30,27 @@ render("data/apps.json","apps");
 render("data/keys.json","keys");
 
 /* ===== FILE MOD – FIX TUYỆT ĐỐI ẢNH TRẮNG ===== */
-async function renderFiles(){
-  try{
-    const files = await safeFetch("data/files.json");
-    document.getElementById("files").innerHTML =
-      files.map(f => `
-        <div class="card">
-          <img class="icon" src="${f.icon}" loading="lazy">
-          <div class="info">
-            <b>${f.name}</b>
-            <div>${f.version || ""}</div>
+function renderFiles(){
+  fetch("data/files.json")
+    .then(res => res.json())
+    .then(files => {
+      document.getElementById("files").innerHTML =
+        files.map(f => `
+          <div class="card">
+            <img class="icon" src="${f.icon}">
+            <div class="info">
+              <b>${f.name}</b>
+              <div>${f.version}</div>
+            </div>
+            <a href="${f.link}">⬇</a>
           </div>
-          <a href="${f.link}" target="_blank">⬇</a>
-        </div>
 
-        ${f.banner && f.banner.trim() !== "" ? `
-          <div class="file-banner">
-            <img src="${f.banner}" loading="lazy">
+          <div class="file-banner" ${!f.banner ? 'style="display:none"' : ''}>
+            ${f.banner ? `<img src="${f.banner}" onerror="this.parentElement.remove()">` : ``}
           </div>
-        ` : ""}
-      `).join("");
-  }catch(e){
-    document.getElementById("files").innerHTML =
-      `<p style="text-align:center;opacity:.6">Chưa có file</p>`;
-  }
+        `).join("");
+    });
 }
-
-renderFiles();
-
-/* ===== DARK MODE ===== */
-if(localStorage.getItem("dark")==="true"){
-  document.body.classList.add("dark");
-}
-
 /* ===== HOA MAI RƠI ===== */
 const maiFall = document.getElementById("mai-fall");
 
