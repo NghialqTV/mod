@@ -87,20 +87,21 @@ body{
   transform:scale(.9);
 }
 
-/* FILE BANNER */
-/* FIX BANNER */
+/* FILE BANNER – FIX DỨT ĐIỂM */
 .file-banner{
   margin:16px;
-  border-radius:20px;
+  border-radius:22px;
   overflow:hidden;
-  box-shadow:0 10px 22px rgba(0,0,0,.25);
+  box-shadow:0 12px 26px rgba(0,0,0,.28);
+  background:#fff;
 }
 
+/* ÉP BANNER HIỂN THỊ ĐÚNG */
 .file-banner img{
   width:100%;
   height:auto;
   display:block;
-  background:#fff; /* tránh nền trong suốt */
+  object-fit:cover;
 }
 
 /* DARK MODE */
@@ -111,4 +112,7 @@ body.dark{
 body.dark .card{
   background:linear-gradient(180deg,#1e2530,#161b22);
   border-color:#2b3442;
+}
+body.dark .file-banner{
+  background:#0f172a;
 }
