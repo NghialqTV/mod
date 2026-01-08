@@ -19,7 +19,30 @@ function render(url, boxId){
 
 render("data/apps.json", "apps");
 render("data/keys.json", "keys");
-render("data/files.json", "files");
+function renderFiles(){
+  fetch("data/files.json")
+    .then(res => res.json())
+    .then(files => {
+      document.getElementById("files").innerHTML =
+        files.map(f => `
+          <div class="card">
+            <img class="icon" src="${f.icon}">
+            <div class="info">
+              <b>${f.name}</b>
+              <div>${f.version}</div>
+            </div>
+            <a href="${f.link}">⬇</a>
+          </div>
+
+          ${f.banner ? `
+          <div class="file-banner">
+            <img src="${f.banner}">
+          </div>` : ``}
+        `).join("");
+    });
+}
+
+renderFiles();
 
 /* ===== DARK MODE ===== */
 if(localStorage.getItem("dark") === "true"){
