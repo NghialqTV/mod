@@ -1,15 +1,19 @@
 teleBtn.href=SOCIAL.telegram;
 ytBtn.href=SOCIAL.youtube;
 
-apps.innerHTML=APPS.map(a=>`
+apps.innerHTML = APPS.map(a => `
 <div class="card">
  <img src="${a.logo}">
  <div>
   <b>${a.name}</b>
   <div>Version: ${a.version}</div>
-  <a class="btn" href="${a.link}">Tải</a>
+  <a class="btn" href="${a.link}">
+    <img src="assets/img/download.png" class="btn-icon">
+    Tải
+  </a>
  </div>
-</div>`).join("");
+</div>
+`).join("");
 
 const imgs=["assets/img/mai1.png","assets/img/mai2.png","assets/img/mai3.png"];
 const box=document.getElementById("mai-container");
