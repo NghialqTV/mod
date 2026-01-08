@@ -194,3 +194,14 @@ body.dark .card{
   width:100%;
   display:block;
 }
+.file-section-banner{
+  margin: 10px 16px 18px;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 12px 28px rgba(0,0,0,.25);
+}
+
+.file-section-banner img{
+  width:100%;
+  display:block;
+}
