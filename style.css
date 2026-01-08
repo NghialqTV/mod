@@ -190,7 +190,8 @@ body.dark .card{
   box-shadow: 0 12px 28px rgba(0,0,0,.25);
 }
 
-.file-banner img{
-  width:100%;
-  display:block;
+.file-banner:empty{
+  display:none !important;
+  margin:0;
+  padding:0;
 }
