@@ -1,0 +1,122 @@
+body{
+ font-family:sans-serif;
+ background:#f2f6ff;
+ margin:0;
+}
+header{
+ text-align:center;
+ padding:20px;
+ position:relative;
+}
+nav{
+ display:flex;
+ gap:10px;
+ padding:10px;
+}
+nav button{
+ flex:1;
+ padding:12px;
+ border:0;
+ border-radius:10px;
+ background:#4da3ff;
+ color:#fff;
+ font-weight:bold;
+}
+.tab{display:none;padding:10px;}
+.tab.active{display:block;}
+
+.card{
+ background: linear-gradient(180deg,#eef4ff,#e3edff);
+ padding:14px;
+ border-radius:18px;
+ display:flex;
+ gap:12px;
+ margin-bottom:14px;
+ align-items:center;
+ border:1.5px solid #d6e4ff;
+ box-shadow:0 4px 10px rgba(77,163,255,.18), inset 0 1px 0 rgba(255,255,255,.7);
+}
+.card img{
+ width:52px;
+ height:52px;
+ border-radius:14px;
+ box-shadow:0 3px 8px rgba(0,0,0,.25);
+}
+.card a{
+ margin-left:auto;
+ background:linear-gradient(180deg,#5db3ff,#3b8dff);
+ color:#fff;
+ padding:12px;
+ border-radius:12px;
+ text-decoration:none;
+ font-size:18px;
+ box-shadow:0 4px 10px rgba(59,141,255,.45);
+}
+.card a:active{transform:scale(.95);}
+
+.file-banner{
+ margin:8px 0 16px;
+ border-radius:18px;
+ overflow:hidden;
+ box-shadow:0 8px 20px rgba(0,0,0,.25);
+}
+.file-banner img{width:100%;display:block;}
+
+.dark-btn{
+ position:absolute;
+ top:20px;
+ right:20px;
+ border:0;
+ background:#4da3ff;
+ color:#fff;
+ padding:10px;
+ border-radius:50%;
+ font-size:18px;
+}
+
+body.dark{
+ background:#121212;
+ color:#eee;
+}
+body.dark .card{
+ background:linear-gradient(180deg,#1e2530,#161b22);
+ border:1.5px solid #2b3442;
+ box-shadow:0 6px 14px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.05);
+}
+body.dark nav button{background:#333;}
+
+#loading{
+ position:fixed;
+ inset:0;
+ background:#f2f6ff;
+ display:flex;
+ flex-direction:column;
+ justify-content:center;
+ align-items:center;
+ z-index:9999;
+}
+.spinner{
+ width:50px;
+ height:50px;
+ border:5px solid #ddd;
+ border-top:5px solid #4da3ff;
+ border-radius:50%;
+ animation:spin 1s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg);}}
+body.loaded #loading{display:none;}
+
+#petals{
+ position:fixed;
+ inset:0;
+ pointer-events:none;
+ overflow:hidden;
+ z-index:999;
+}
+.petal{
+ position:absolute;
+ top:-40px;
+ font-size:22px;
+ animation:fall linear infinite;
+}
+@keyframes fall{to{transform:translateY(110vh) rotate(360deg);}}

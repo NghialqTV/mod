@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NghĩaLQ TV</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="loading">
+  <div class="spinner"></div>
+  <p>Đang tải...</p>
+</div>
+
+<div id="petals"></div>
+
+<header>
+  <button class="dark-btn" onclick="toggleDark()">🌙</button>
+  <h1>Tải File Mod</h1>
+</header>
+
+<nav>
+  <button onclick="showTab('apps')">📱 Tải App</button>
+  <button onclick="showTab('keys')">🔑 Get Key</button>
+  <button onclick="showTab('files')">📦 Tải File</button>
+</nav>
+
+<main>
+  <section id="apps" class="tab"></section>
+  <section id="keys" class="tab"></section>
+  <section id="files" class="tab"></section>
+</main>
+
+<script src="main.js"></script>
+</body>
+</html>
