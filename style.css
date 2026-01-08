@@ -1,229 +1,111 @@
-body {
-  margin: 0;
-  font-family: system-ui, sans-serif;
-  background: #f3f7ff;
+body{
+ margin:0;
+ font-family:system-ui,sans-serif;
+ background:#f3f7ff;
+ color:#111;
 }
 
-/* Header */
-.top {
-  padding: 20px;
-  text-align: center;
+/* HEADER */
+.top{
+ text-align:center;
+ padding:20px;
+}
+.site-logo{
+ width:80px;
+ height:80px;
+ border-radius:20px;
+ box-shadow:0 6px 16px rgba(0,0,0,.25);
+ margin-bottom:10px;
 }
 
-/* Section */
-.section-title {
-  text-align: center;   /* căn giữa */
-  font-size: 20px;
-  font-weight: 600;
-  margin: 20px 0 14px;
+/* SECTION TITLE */
+.section-title{
+ text-align:center;
+ font-size:20px;
+ font-weight:600;
+ margin:20px 0 14px;
 }
 
-/* List */
-.list {
-  padding: 0 16px;
+/* LIST */
+#apps,#files,#keys{
+ display:flex;
+ flex-direction:column;
+ gap:14px;
+ padding:0 16px;
 }
 
-/* Card */
-.card {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-
-  background: #e9f0ff;
-  border: 1.5px solid #d6e2ff;
-  border-radius: 16px;
-
-  padding: 14px;
-  margin-bottom: 14px;
-  box-shadow: 0 6px 16px rgba(0,0,0,.06);
+/* CARD */
+.card{
+ display:flex;
+ align-items:center;
+ gap:12px;
+ padding:14px;
+ background:#eaf0ff;
+ border:1.5px solid #d6e2ff;
+ border-radius:18px;
+ box-shadow:0 6px 16px rgba(0,0,0,.06);
 }
 
-.card img {
-  width: 52px;
-  height: 52px;
-  border-radius: 12px;
-  object-fit: cover;
+.card img.icon{
+ width:52px;
+ height:52px;
+ border-radius:14px;
+ object-fit:cover;
+ box-shadow:0 4px 10px rgba(0,0,0,.25);
 }
 
-.card .info {
-  flex: 1;
-}
-
-.card .info b {
-  display: block;
-  font-size: 16px;
-}
-
-.card .info span {
-  font-size: 13px;
-  color: #666;
-}
-
-.card a {
-  width: 42px;
-  height: 42px;
-  background: #4da3ff;
-  border-radius: 50%;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-}}
-.card img{
-  width:56px;
-  height:56px;
-  border-radius:14px;
-  object-fit:cover;
-  box-shadow:0 4px 10px rgba(0,0,0,.25);
-}
-<div class="card">
-  <img src="assets/icons/aov.png">
-  <div class="info">
-    <b>Hack Map AOV 6.0</b>
-    <div>Cập nhật 03/01</div>
-  </div>
-  <a href="#">⬇</a>
-</div>
 .card .info{
-  flex:1;
+ flex:1;
 }
 
 .card .info b{
-  display:block;
-  font-size:15px;
+ display:block;
+ font-size:15px;
 }
 
 .card .info div{
-  font-size:13px;
-  opacity:.7;
+ font-size:13px;
+ opacity:.7;
 }
+
+/* DOWNLOAD BUTTON */
 .card a{
-  width:44px;
-  height:44px;
-  border-radius:14px;
-  background:#4da3ff;
-  color:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:20px;
-  text-decoration:none;
-  box-shadow:0 4px 10px rgba(59,141,255,.45);
+ margin-left:auto;
+ width:44px;
+ height:44px;
+ border-radius:14px;
+ background:#4da3ff;
+ color:#fff;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ font-size:20px;
+ text-decoration:none;
+ box-shadow:0 4px 10px rgba(59,141,255,.45);
 }
+
 .card a:active{
-  transform:scale(.92);
+ transform:scale(.92);
 }
-body.dark .card{
-  background:linear-gradient(180deg,#1e2530,#161b22);
-  border-color:#2b3442;
-}
+
+/* BANNER FILE MOD */
 .file-banner{
- margin:8px 0 16px;
+ margin:8px 16px 16px;
  border-radius:18px;
  overflow:hidden;
  box-shadow:0 8px 20px rgba(0,0,0,.25);
 }
-.file-banner img{width:100%;display:block;}
-
-.dark-btn{
- position:absolute;
- top:20px;
- right:20px;
- border:0;
- background:#4da3ff;
- color:#fff;
- padding:10px;
- border-radius:50%;
- font-size:18px;
+.file-banner img{
+ width:100%;
+ display:block;
 }
 
+/* DARK MODE */
 body.dark{
  background:#121212;
  color:#eee;
 }
 body.dark .card{
  background:linear-gradient(180deg,#1e2530,#161b22);
- border:1.5px solid #2b3442;
- box-shadow:0 6px 14px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.05);
-}
-body.dark nav button{background:#333;}
-
-#loading{
- position:fixed;
- inset:0;
- background:#f2f6ff;
- display:flex;
- flex-direction:column;
- justify-content:center;
- align-items:center;
- z-index:9999;
-}
-.spinner{
- width:50px;
- height:50px;
- border:5px solid #ddd;
- border-top:5px solid #4da3ff;
- border-radius:50%;
- animation:spin 1s linear infinite;
-}
-@keyframes spin{to{transform:rotate(360deg);}}
-body.loaded #loading{display:none;}
-
-#petals{
- position:fixed;
- inset:0;
- pointer-events:none;
- overflow:hidden;
- z-index:999;
-}
-.petal{
- position:absolute;
- top:-40px;
- font-size:22px;
- animation:fall linear infinite;
-}
-@keyframes fall{to{transform:translateY(110vh) rotate(360deg);}}
-/* ÉP DANH SÁCH VỀ 1 CỘT */
-#apps, #files, #keys {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-.card{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  padding:14px;
-  border-radius:18px;
-  background:#eaf0ff;
-}
-
-.card img.icon{
-  width:52px;
-  height:52px;
-  border-radius:14px;
-}
-
-.card .info{
-  flex:1;
-}
-
-.card a{
-  background:#4da3ff;
-  color:#fff;
-  width:44px;
-  height:44px;
-  border-radius:14px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:20px;
-}
-.site-logo{
-  width:80px;
-  height:80px;
-  border-radius:20px;
-  margin-bottom:10px;
-  box-shadow:0 6px 16px rgba(0,0,0,.25);
+ border-color:#2b3442;
 }
