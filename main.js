@@ -1,68 +1,50 @@
-function showTab(id){
- document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
- document.getElementById(id).classList.add('active');
-}
-showTab('apps');
-
-function render(url, el, showBanner=false){
+function render(url, boxId){
  fetch(url)
-  .then(r=>r.json())
+  .then(res=>res.json())
   .then(data=>{
-   document.getElementById(el).innerHTML = data.map(i=>`
-    <div class="card">
-
-      ${showBanner && i.banner ? `
-      <div class="file-banner">
-        <img src="${i.banner}">
-      </div>` : ``}
-
-      <img src="${i.icon}">
-      <b>${i.name}</b>
-      <div>${i.version}</div>
-
-      <a href="${i.link}" class="download-btn">
-  <img src="assets/icons/download.png">
-</a>
-    </div>
-   `).join('')
-  })
-}
-
-render('data/apps.json','apps');
-render('data/keys.json','keys');
-render('data/files.json','files', true);
-
-window.addEventListener("load",()=>{document.body.classList.add("loaded");});
-
-function toggleDark(){
- document.body.classList.toggle("dark");
- localStorage.setItem("dark",document.body.classList.contains("dark"));
-}
-if(localStorage.getItem("dark")==="true"){document.body.classList.add("dark");}
-
-const petals=document.getElementById("petals");
-setInterval(()=>{
- const p=document.createElement("div");
- p.className="petal";
- p.innerText="🌼";
- p.style.left=Math.random()*100+"vw";
- p.style.animationDuration=5+Math.random()*5+"s";
- petals.appendChild(p);
- setTimeout(()=>p.remove(),10000);
-},500);
-const filesBox = document.getElementById("files");
-
-fetch("data/files.json")
-  .then(res => res.json())
-  .then(files => {
-    filesBox.innerHTML = files.map(f => `
-      <div class="card">
-        <img class="icon" src="${f.icon}">
-        <div class="info">
-          <b>${f.name}</b>
-          <div>${f.version}</div>
-        </div>
-        <a href="${f.link}">⬇</a>
-      </div>
+   document.getElementById(boxId).innerHTML =
+    data.map(i=>`
+     <div class="card">
+       <img class="icon" src="${i.icon}">
+       <div class="info">
+         <b>${i.name}</b>
+         <div>${i.version}</div>
+       </div>
+       <a href="${i.link}">⬇</a>
+     </div>
     `).join("");
   });
+}
+
+render("data/apps.json","apps");
+render("data/keys.json","keys");
+render("data/files.json","files");
+
+/* DARK MODE */
+if(localStorage.getItem("dark")==="true"){
+ document.body.classList.add("dark");
+}
+window.addEventListener("load",()=>{
+ document.body.classList.add("loaded");
+});
+const maiBox = document.getElementById("mai-fall");
+
+function createMai(){
+  const m = document.createElement("div");
+  m.className = "mai";
+  m.innerText = "🌼";
+
+  m.style.left = Math.random()*100 + "vw";
+  m.style.animationDuration =
+    (6 + Math.random()*4) + "s," +
+    (3 + Math.random()*3) + "s";
+
+  m.style.opacity = Math.random();
+  m.style.fontSize = 16 + Math.random()*20 + "px";
+
+  maiBox.appendChild(m);
+
+  setTimeout(()=>m.remove(),12000);
+}
+
+setInterval(createMai, 450);
