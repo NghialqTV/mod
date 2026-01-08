@@ -168,6 +168,15 @@ body.dark .card{
 .file-banner:empty{
   display:none;
 }
+.file-banner img:not([src]),
+.file-banner img[src=""],
+.file-banner img[src="#"]{
+  display:none;
+}
+
+.file-banner:has(img:not([src])){
+  display:none;
+}
 
 @keyframes maiDrop{
   from{
