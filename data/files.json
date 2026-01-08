@@ -1,9 +1,16 @@
 [
   {
-    "name": "Hướng Dẫn Mod",
+    "name": "Mod Pack 100 Skin",
     "version": "Cập nhật 02/11",
     "icon": "assets/icons/file.png",
     "banner": "assets/banners/banner.jpg",
+    "link": "https://example.com"
+  }
+  {
+    "name": "Mod Full Skin",
+    "version": "Cập nhật 02/11",
+    "icon": "assets/icons/file.png",
+    "banner": "assets/banners/banner1.jpg",
     "link": "https://example.com"
   }
 ]
