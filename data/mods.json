@@ -1,1 +1,23 @@
 
+[
+  {
+    "name": "🔥 Mod Skin Full",
+    "icon": "assets/icons/mod-full.png",
+    "link": "mod-full.html"
+  },
+  {
+    "name": "🎨 Mod Skin Lẻ",
+    "icon": "assets/icons/mod-le.png",
+    "link": "mod-le.html"
+  },
+  {
+    "name": "🧊 Mod Hiệu Ứng",
+    "icon": "assets/icons/mod-effect.png",
+    "link": "mod-hieu-ung.html"
+  },
+  {
+    "name": "⭐ Mod Rank",
+    "icon": "assets/icons/mod-rank.png",
+    "link": "mod-rank.html"
+  }
+]
