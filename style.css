@@ -276,3 +276,54 @@ header h1{
   background-color:#FF0000;
   background-image:url("assets/icons/youtube.png");
 }
+/* ===== MOD SKIN BOX ===== */
+.mod-box{
+  margin: 0 16px 24px;
+  padding: 18px;
+  background: #ffffff;
+  border-radius: 22px;
+  border: 2px dashed #cfdcff;
+  box-shadow: 0 10px 26px rgba(0,0,0,.12);
+  text-align: center;
+}
+
+.mod-box h3{
+  margin: 0 0 14px;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: .5px;
+}
+
+.mod-options{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.mod-item{
+  display: block;
+  padding: 14px 10px;
+  background: #eaf0ff;
+  border-radius: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  color: #111;
+  box-shadow: 0 6px 14px rgba(0,0,0,.08);
+  transition: .2s;
+}
+
+.mod-item:hover{
+  transform: scale(1.06);
+  background: #dbe7ff;
+}
+
+/* DARK MODE */
+body.dark .mod-box{
+  background: linear-gradient(180deg,#1e2530,#161b22);
+  border-color: #2b3442;
+}
+
+body.dark .mod-item{
+  background:#1e2a3a;
+  color:#fff;
+}
