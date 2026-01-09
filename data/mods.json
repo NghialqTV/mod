@@ -1,19 +1,22 @@
-
 [
   {
-    "name": "Bot Mod Skin",
+    "name": "File Mod Lẻ",
+    "icon": "assets/icons/mod.png",
     "link": "mod-full.html"
   },
   {
-    "name": "File Mod Lẻ",
+    "name": "Tài Nguyên",
+    "icon": "assets/icons/mod.png",
     "link": "mod-le.html"
   },
   {
-    "name": "Tài Nguyên",
+    "name": "Mod Map",
+    "icon": "assets/icons/mod.png",
     "link": "mod-hieu-ung.html"
   },
   {
-    "name": "Mod Map",
+    "name": "Camera Xa",
+    "icon": "assets/icons/mod.png",
     "link": "mod-rank.html"
   }
 ]
