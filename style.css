@@ -327,3 +327,14 @@ body.dark .mod-item{
   background:#1e2a3a;
   color:#fff;
 }
+.mod-item{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+}
+
+.mod-item img{
+  width:26px;
+  height:26px;
+}
