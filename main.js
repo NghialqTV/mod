@@ -11,16 +11,7 @@ function render(url, boxId){
               <b>${i.name}</b>
               <div>${i.version}</div>
             </div>
-            <a href="${i.link}" class="download-btn">
-  <svg viewBox="0 0 24 24" class="dl-icon">
-    <path d="M12 3v10m0 0l4-4m-4 4l-4-4M5 21h14"
-          stroke="currentColor"
-          stroke-width="2.4"
-          fill="none"
-          stroke-linecap="round"
-          stroke-linejoin="round"/>
-  </svg>
-</a>
+            <a href="${i.link}">â¬‡</a>
           </div>
         `).join("");
     });
@@ -40,16 +31,7 @@ function renderFiles(){
               <b>${f.name}</b>
               <div>${f.version}</div>
             </div>
-            <a href="${i.link}" class="download-btn">
-  <svg viewBox="0 0 24 24" class="dl-icon">
-    <path d="M12 3v10m0 0l4-4m-4 4l-4-4M5 21h14"
-          stroke="currentColor"
-          stroke-width="2.4"
-          fill="none"
-          stroke-linecap="round"
-          stroke-linejoin="round"/>
-  </svg>
-</a>
+            <a href="${f.link}">â¬‡</a>
           </div>
 
           ${f.banner ? `
