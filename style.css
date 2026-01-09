@@ -380,6 +380,11 @@ body.dark .mod-item{
   width:26px;
   height:26px;
 }
+body.dark .card a{
+  background: linear-gradient(135deg,#1f6bff,#00c6ff);
+  box-shadow:
+    0 10px 24px rgba(0,198,255,.55);
+}
 
 /* ===== DOWNLOAD SVG BUTTON ===== */
 .download-btn{
