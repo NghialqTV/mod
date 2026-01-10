@@ -408,3 +408,46 @@ body.dark .mod-item{
     0 0 15px rgba(255,255,255,.6),
     0 0 25px rgba(77,163,255,.7);
 }
+/* ===== CHỮ CHẠY GIỚI THIỆU ===== */
+.marquee{
+  width:100%;
+  overflow:hidden;
+  margin-top:6px;
+}
+
+.marquee span{
+  display:inline-block;
+  white-space:nowrap;
+  padding-left:100%;
+  font-size:14px;
+  font-weight:600;
+  color:#0b3cff;
+  text-shadow:0 0 6px rgba(77,163,255,.6);
+  animation: marqueeMove 12s linear infinite;
+}
+
+@keyframes marqueeMove{
+  from{ transform: translateX(0); }
+  to{ transform: translateX(-100%); }
+}
+
+body.dark .marquee span{
+  color:#7bb7ff;
+}
+/* ===== FOOTER BẢN QUYỀN ===== */
+.footer{
+  margin-top:40px;
+  padding:14px 10px;
+  text-align:center;
+  font-size:13px;
+  color:#444;
+  background:rgba(255,255,255,.6);
+  backdrop-filter:blur(8px);
+  border-top:1px solid rgba(0,0,0,.1);
+}
+
+body.dark .footer{
+  color:#aaa;
+  background:rgba(20,20,20,.6);
+  border-top:1px solid rgba(255,255,255,.1);
+}
