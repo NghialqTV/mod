@@ -112,3 +112,15 @@ enterBtn.addEventListener("click", () => {
   bgMusic.volume = 0.4;
   bgMusic.play().catch(()=>{});
 });
+/* ===== TOGGLE DARK MODE ===== */
+const toggle = document.getElementById("darkToggle");
+
+if(toggle){
+  toggle.onclick = () => {
+    document.body.classList.toggle("dark");
+    localStorage.setItem(
+      "dark",
+      document.body.classList.contains("dark")
+    );
+  };
+}
