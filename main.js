@@ -1,7 +1,10 @@
 /* ===== RENDER DATA ===== */
 function render(url, boxId){
-  fetch(url, { cache: "force-cache" })
-    .then(res => res.json())
+  fetch(url + "?v=" + Date.now(), { cache: "no-store" })
+    .then(res => {
+      if(!res.ok) throw new Error("Fetch lỗi " + url);
+      return res.json();
+    })
     .then(data => {
       document.getElementById(boxId).innerHTML =
         data.map(i => `
@@ -9,11 +12,16 @@ function render(url, boxId){
             <img class="icon" src="${i.icon}">
             <div class="info">
               <b>${i.name}</b>
-              <div>${i.version}</div>
+              <div>${i.version || ""}</div>
             </div>
-            <a href="${i.link}">✓</a>
+            <a href="${i.link}" target="_blank">✓</a>
           </div>
         `).join("");
+    })
+    .catch(err => {
+      document.getElementById(boxId).innerHTML =
+        `<div style="color:red">Lỗi load dữ liệu</div>`;
+      console.error(err);
     });
 }
 
