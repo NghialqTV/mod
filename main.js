@@ -96,8 +96,8 @@ function speakWelcome(){
     "Thông Báo Từ ADMIN.Anh Em Chịu Khó Vượt Link Để ADMIN Kiếm Tiền Ăn Tết Nhé . Ahihi"
   );
   msg.lang = "vi-VN";
-  msg.volum = 1;
-  msg.rate = 1.2;
+  msg.volum = 2;
+  msg.rate = 1.1;
   msg.pitch = 1.3;
   speechSynthesis.speak(msg);
 }
