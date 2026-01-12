@@ -1,0 +1,10 @@
+[
+  {
+    "id": "update2ipa",
+    "name": "Update 2 IPA IOS NO Key",
+    "desc": "Phiên bản IPA không cần key, hỗ trợ iOS.",
+    "icon": "assets/icons/aov.png",
+    "download": "https://link-tai-file.ipa",
+    "type": "ipa"
+  }
+]
