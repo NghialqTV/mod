@@ -39,14 +39,8 @@ function renderFiles(){
               <b>${f.name}</b>
               <div>${f.version}</div>
             </div>
-            <a href="${f.link}">✓</a>
+            <a href="detail.html?id=${f.detail}">✓</a>
           </div>
-
-          ${f.banner ? `
-            <div class="file-banner">
-              <img src="${f.banner}">
-            </div>
-          ` : ``}
         `).join("");
     });
 }
