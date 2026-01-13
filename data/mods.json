@@ -5,18 +5,18 @@
     "link": "https://beacons.ai/nghialqtv/modskinle"
   },
   {
-    "name": "Tài Nguyên",
+    "name": "Tài Nguyên Full",
     "icon": "assets/icons/mod.png",
     "link": "resources.html"
   },
   {
-    "name": "Mod Map",
+    "name": "Resources",
     "icon": "assets/icons/mod.png",
-    "link": "https://beacons.ai/nghialqtv/tinguyn"
+    "link": "resources.html"
   },
   {
-    "name": "Camera Xa",
+    "name": "All FILE",
     "icon": "assets/icons/mod.png",
-    "link": "https://beacons.ai/nghialqtv/tinguyn"
+    "link": "resources.html"
   }
 ]
