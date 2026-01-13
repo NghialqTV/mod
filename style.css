@@ -544,3 +544,17 @@ body.dark .dark-toggle{
 body.dark .social{
   border:2px solid rgba(255,255,255,.15);
 }
+.back-btn{
+  display:inline-block;
+  padding:12px 20px;
+  border-radius:16px;
+  background:#4da3ff;
+  color:#fff;
+  text-decoration:none;
+  font-weight:700;
+  box-shadow:0 6px 16px rgba(77,163,255,.45);
+}
+
+.back-btn:hover{
+  transform:scale(1.08);
+}
