@@ -1,0 +1,15 @@
+[
+  {
+    "name": "Resources Mod Skin",
+    "version": "v18.12",
+    "icon": "assets/icons/resources-fix.png",
+    "link": "https://your-link-download.com",
+    "banner": "assets/banners/res-fix.jpg"
+  },
+  {
+    "name": "Camera Xa",
+    "version": "v18.12",
+    "icon": "assets/icons/resources.png",
+    "link": "https://your-link.com"
+  }
+]
