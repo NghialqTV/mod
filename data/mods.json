@@ -1,11 +1,11 @@
 [
   {
-    "name": "File Mod Lẻ",
+    "name": "File Lẻ",
     "icon": "assets/icons/mod.png",
     "link": "https://beacons.ai/nghialqtv/modskinle"
   },
   {
-    "name": "Tài Nguyên Full",
+    "name": "Tài Nguyên",
     "icon": "assets/icons/mod.png",
     "link": "resources.html"
   },
@@ -15,8 +15,8 @@
     "link": "resources.html"
   },
   {
-    "name": "All FILE",
+    "name": "BOT TELE",
     "icon": "assets/icons/mod.png",
-    "link": "resources.html"
+    "link": "https://t.me/ModSkinNghiaTVBot"
   }
 ]
