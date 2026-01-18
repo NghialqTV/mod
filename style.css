@@ -558,3 +558,48 @@ body.dark .social{
 .back-btn:hover{
   transform:scale(1.08);
 }
+.app-card{
+  background:#fff;
+  border-radius:18px;
+  padding:14px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:14px;
+  box-shadow:0 6px 20px rgba(0,0,0,.08);
+}
+
+.app-left{
+  display:flex;
+  align-items:center;
+}
+
+.app-icon{
+  width:56px;
+  height:56px;
+  border-radius:14px;
+  margin-right:12px;
+}
+
+.app-info h3{
+  font-size:16px;
+  margin:0;
+}
+
+.app-info p{
+  font-size:13px;
+  color:#888;
+  margin-top:4px;
+}
+
+.check-btn{
+  width:42px;
+  height:42px;
+  background:#4da3ff;
+  color:#fff;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:18px;
+}
