@@ -32,7 +32,13 @@
   },
    {
     "name": "AOV Hack Map IOS",
-    "version": "Hack Map AoV",
+    "version": "Hack Map AoV - Link Cài Trực Tiếp",
+    "icon": "assets/icons/app.png",
+    "link": "https://link4sub.com/1iCxoXYFHm"
+  },
+  {
+    "name": "AOV Mod Skin IOS",
+    "version": "Mod Skin No Map - Cài Trực Tiếp - Mai Có",
     "icon": "assets/icons/app.png",
     "link": "https://link4sub.com/1iCxoXYFHm"
   }
