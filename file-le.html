@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>File Lẻ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: #fff;
+    }
+
+    header {
+      padding: 16px;
+      text-align: center;
+      background: #020617;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .container {
+      padding: 16px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 12px;
+    }
+
+    .file-box {
+      background: #111827;
+      border-radius: 10px;
+      padding: 12px;
+      cursor: pointer;
+      transition: 0.2s;
+      border: 1px solid #1f2937;
+    }
+
+    .file-box:hover {
+      transform: scale(1.03);
+      border-color: #38bdf8;
+    }
+
+    .file-title {
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+
+    .file-desc {
+      font-size: 12px;
+      color: #9ca3af;
+    }
+
+    .back {
+      display: block;
+      text-align: center;
+      margin: 20px;
+      color: #38bdf8;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>📁 FILE LẺ</header>
+
+<div class="container" id="fileList">
+  <!-- JS render -->
+</div>
+
+<a class="back" href="resources.html">⬅ Quay lại Resources</a>
+
+<script>
+/* =========================
+   DATA FILE LẺ – THÊM Ở ĐÂY
+   ========================= */
+const fileLeData = [
+  {
+    id: 1,
+    name: "Bot Auto Mod Skin",
+    desc: "Bot hỗ trợ mod skin",
+    link: "https://t.me/ModSkinNghiaTVBot"
+  },
+  {
+    id: 2,
+    name: "Nakroth Thứ Nguyên Vệ Thần",
+    desc: "Full HD - Camxa 5%",
+    link: "#"
+  },
+  {
+    id: 3,
+    name: " Billow Thiên Tướng Độ Oác",
+    desc: "Full HD - Camxa 5%",
+    link: "#"
+  }
+];
+
+/* =========================
+   RENDER RA GIAO DIỆN
+   ========================= */
+const container = document.getElementById("fileList");
+
+fileLeData.forEach(item => {
+  const box = document.createElement("div");
+  box.className = "file-box";
+
+  box.innerHTML = `
+    <div class="file-title">${item.name}</div>
+    <div class="file-desc">${item.desc}</div>
+  `;
+
+  box.onclick = () => {
+    if (item.link && item.link !== "#") {
+      window.open(item.link, "_blank");
+    } else {
+      alert("Chưa có link cho file này!");
+    }
+  };
+
+  container.appendChild(box);
+});
+</script>
+
+</body>
+</html>
