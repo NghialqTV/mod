@@ -2,125 +2,188 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <title>File Lẻ</title>
+  <title>File Lẻ | NghĩaLQ TV</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
+    :root {
+      --bg: #0b1220;
+      --card: #111827;
+      --border: #1f2937;
+      --primary: #38bdf8;
+      --text: #e5e7eb;
+      --sub: #9ca3af;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0f172a;
-      color: #fff;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont;
+      background: linear-gradient(180deg, #020617, #0b1220);
+      color: var(--text);
     }
 
     header {
-      padding: 16px;
+      padding: 22px 16px;
       text-align: center;
-      background: #020617;
-      font-size: 20px;
-      font-weight: bold;
+      border-bottom: 1px solid var(--border);
+      background: rgba(2,6,23,0.9);
+      backdrop-filter: blur(6px);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    header p {
+      margin-top: 6px;
+      font-size: 13px;
+      color: var(--sub);
     }
 
     .container {
       padding: 16px;
+      max-width: 900px;
+      margin: auto;
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-      gap: 12px;
+      grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+      gap: 14px;
     }
 
-    .file-box {
-      background: #111827;
-      border-radius: 10px;
-      padding: 12px;
+    .card {
+      background: linear-gradient(180deg, #0f172a, #020617);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
       cursor: pointer;
-      transition: 0.2s;
-      border: 1px solid #1f2937;
+      transition: 0.25s ease;
+      position: relative;
+      overflow: hidden;
     }
 
-    .file-box:hover {
-      transform: scale(1.03);
-      border-color: #38bdf8;
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(56,189,248,0.15), transparent 60%);
+      opacity: 0;
+      transition: 0.3s;
     }
 
-    .file-title {
-      font-size: 14px;
-      font-weight: bold;
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--primary);
+    }
+
+    .icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background: #020617;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      margin-bottom: 12px;
+      border: 1px solid var(--border);
+    }
+
+    .title {
+      font-size: 15px;
+      font-weight: 600;
       margin-bottom: 6px;
     }
 
-    .file-desc {
+    .desc {
       font-size: 12px;
-      color: #9ca3af;
+      color: var(--sub);
+      line-height: 1.4;
     }
 
     .back {
       display: block;
       text-align: center;
-      margin: 20px;
-      color: #38bdf8;
+      margin: 28px auto 20px;
+      width: fit-content;
+      padding: 10px 16px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      color: var(--primary);
       text-decoration: none;
+      transition: 0.2s;
+    }
+
+    .back:hover {
+      background: rgba(56,189,248,0.1);
     }
   </style>
 </head>
 
 <body>
 
-<header>📁 FILE LẺ</header>
+<header>
+  <h1>📁 File Lẻ</h1>
+  <p>Danh sách file – tool – bot riêng lẻ</p>
+</header>
 
-<div class="container" id="fileList">
-  <!-- JS render -->
-</div>
+<div class="container" id="list"></div>
 
-<a class="back" href="resources.html">⬅ Quay lại Resources</a>
+<a class="back" href="resources.html">⬅ Quay lại Tài Nguyên</a>
 
 <script>
-/* =========================
-   DATA FILE LẺ – THÊM Ở ĐÂY
-   ========================= */
-const fileLeData = [
+/* ========= DATA FILE LẺ ========= */
+const data = [
   {
-    id: 1,
-    name: "Bot Auto Mod Skin",
-    desc: "Bot hỗ trợ mod skin",
+    icon: "🤖",
+    name: "Bot Telegram VIP",
+    desc: "Bot hỗ trợ mod skin Liên Quân",
     link: "https://t.me/ModSkinNghiaTVBot"
   },
   {
-    id: 2,
-    name: "Nakroth Thứ Nguyên Vệ Thần",
-    desc: "Full HD - Camxa 5%",
+    icon: "🧩",
+    name: "Tool Giải Mã",
+    desc: "Tool decode / unpack asset",
     link: "#"
   },
   {
-    id: 3,
-    name: " Billow Thiên Tướng Độ Oác",
-    desc: "Full HD - Camxa 5%",
+    icon: "🎮",
+    name: "Mod Skin LQ",
+    desc: "File mod skin cập nhật mới",
     link: "#"
   }
 ];
 
-/* =========================
-   RENDER RA GIAO DIỆN
-   ========================= */
-const container = document.getElementById("fileList");
+/* ========= RENDER ========= */
+const list = document.getElementById("list");
 
-fileLeData.forEach(item => {
-  const box = document.createElement("div");
-  box.className = "file-box";
+data.forEach(item => {
+  const div = document.createElement("div");
+  div.className = "card";
 
-  box.innerHTML = `
-    <div class="file-title">${item.name}</div>
-    <div class="file-desc">${item.desc}</div>
+  div.innerHTML = `
+    <div class="icon">${item.icon}</div>
+    <div class="title">${item.name}</div>
+    <div class="desc">${item.desc}</div>
   `;
 
-  box.onclick = () => {
+  div.onclick = () => {
     if (item.link && item.link !== "#") {
       window.open(item.link, "_blank");
     } else {
-      alert("Chưa có link cho file này!");
+      alert("File này chưa có link!");
     }
   };
 
-  container.appendChild(box);
+  list.appendChild(div);
 });
 </script>
 
