@@ -68,7 +68,7 @@ const maiFall = document.getElementById("mai-fall");
 function createMai(){
   const m = document.createElement("div");
   m.className = "mai";
-  m.innerText = "🌼";
+  m.innerText = "💸"; // hoặc "💰"
 
   m.style.left = Math.random() * 100 + "vw";
   m.style.fontSize = (14 + Math.random() * 10) + "px";
