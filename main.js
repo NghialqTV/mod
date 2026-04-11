@@ -101,7 +101,7 @@ const bgMusic = document.getElementById("bgMusic");
 
 function speakWelcome(){
   const msg = new SpeechSynthesisUtterance(
-    "Thông Báo Từ ADMIN.Anh Em Chịu Khó Vượt Link Để ADMIN Kiếm Tiền Ăn Tết Nhé . Ahihi"
+    "Thông Báo Từ ADMIN.Anh Em Chịu Khó Vượt Link Để ADMIN Kiếm Tiền Cưới Vợ Nhé . Ahihi"
   );
   msg.lang = "vi-VN";
   msg.volum = 2;
