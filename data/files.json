@@ -1,30 +1,9 @@
 [
   {
-    "name": "Mod 100 Skin 3IN1 Ver4",
+    "name": "Mod 60 Skin Ver1",
     "version": "Android - IOS",
-    "icon": "assets/icons/file.png",
-    "banner": "assets/banners/ver4.png",
-    "link": "https://linkx.me/q7Gcj"
-  },
-  {
-    "name": "Mod 80 Skin Ver3",
-    "version": "Android - IOS",
-    "icon": "assets/icons/file.png",
-    "banner": "assets/banners/ver3.png",
-    "link": "https://linkx.me/v90Alm"
-  },
-  {
-    "name": "Mod 55 Skin Ver1",
-    "version": "Android - IOS - Có Nút",
     "icon": "assets/icons/file.png",
     "banner": "assets/banners/ver1.png",
-    "link": "https://linkx.me/LNci"
-  },
-  {
-    "name": "Mod 60 Skin Ver2",
-    "version": "Android - IOS",
-    "icon": "assets/icons/file.png",
-    "banner": "assets/banners/ver2.png",
     "link": "https://linkx.me/DORMS"
   }
 ]
