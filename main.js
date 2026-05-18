@@ -1,4 +1,5 @@
 /* ===== MONETAG ADS ===== */
+
 function openWithAd(url){
 
   // chống spam
@@ -6,13 +7,13 @@ function openWithAd(url){
 
   window.adLoading = true;
 
-  // thử mở quảng cáo
-  const ad = window.open(
+  // mở quảng cáo
+  window.open(
     "https://omg10.com/4/11023287",
     "_blank"
   );
 
-  // dù quảng cáo lỗi vẫn mở link chính
+  // mở link chính
   setTimeout(() => {
     window.location.href = url;
   }, 800);
@@ -22,7 +23,6 @@ function openWithAd(url){
     window.adLoading = false;
   }, 2500);
 
-}
 }
 
 /* ===== RENDER DATA ===== */
@@ -214,8 +214,6 @@ function speakWelcome(){
 
 enterBtn.addEventListener("click", () => {
 
-  welcomeScreen.style.display = "none";
-
-  speakWelcome();
-
-  bgMusic
+  // ẩn overlay hoàn toàn
+  welcomeScreen.style.opacity = "0";
+  welcomeScreen
