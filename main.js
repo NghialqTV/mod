@@ -1,5 +1,4 @@
 /* ===== MONETAG ADS ===== */
-
 function openWithAd(url){
 
   // chống spam
@@ -7,27 +6,23 @@ function openWithAd(url){
 
   window.adLoading = true;
 
-  // mở quảng cáo trực tiếp
+  // thử mở quảng cáo
   const ad = window.open(
     "https://omg10.com/4/11023287",
     "_blank"
   );
 
-  // nếu bị chặn popup thì mở cùng tab
-  if(!ad || ad.closed || typeof ad.closed == "undefined"){
-    window.location.href = "https://omg10.com/4/11023287";
-    return;
-  }
-
-  // mở link chính sau ads
+  // dù quảng cáo lỗi vẫn mở link chính
   setTimeout(() => {
     window.location.href = url;
-  }, 1200);
+  }, 800);
 
   // reset
   setTimeout(() => {
     window.adLoading = false;
-  }, 3000);
+  }, 2500);
+
+}
 }
 
 /* ===== RENDER DATA ===== */
