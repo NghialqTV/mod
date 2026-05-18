@@ -7,6 +7,59 @@
 <link rel="stylesheet" href="style.css">
 <link rel="preload" as="image" href="assets/icons/logo.png">
 </head>
+<script>
+async function openWithAd(url){
+
+  // chống spam
+  if(window.adLoading) return;
+  window.adLoading = true;
+
+  // mở quảng cáo
+  window.open(
+    "https://omg10.com/4/11023287",
+    "_blank"
+  );
+
+  // delay rồi mở nội dung
+  setTimeout(()=>{
+    window.location.href = url;
+  },1500);
+
+  setTimeout(()=>{
+    window.adLoading = false;
+  },3000);
+}
+
+// ADS CHO TOÀN BỘ LINK
+document.addEventListener("DOMContentLoaded",()=>{
+
+  document.querySelectorAll("a").forEach(link=>{
+
+    link.addEventListener("click",function(e){
+
+      const url = this.href;
+
+      if(!url) return;
+
+      // bỏ qua telegram/youtube
+      if(
+        url.includes("t.me") ||
+        url.includes("youtube.com")
+      ){
+        return;
+      }
+
+      e.preventDefault();
+
+      openWithAd(url);
+
+    });
+
+  });
+
+});
+</script>
+  
 <body>
 <!-- 🔊 WELCOME AUDIO SCREEN -->
 <div id="welcome-screen" style="
@@ -89,6 +142,66 @@
 <div id="files"></div>
 
 <script src="main.js"></script>
+
+<!-- MONETAG -->
+<script src='//libtl.com/sdk.js'
+        data-zone='YOUR_ZONE_ID'
+        data-sdk='show_XXXX'>
+</script>
+
+<script>
+async function openWithAd(url){
+
+  if(window.adLoading) return;
+  window.adLoading = true;
+
+  try{
+
+    if(typeof show_XXXX === "function"){
+      await show_XXXX();
+    }
+
+  }catch(e){
+    console.log(e);
+  }
+
+  window.location.href = url;
+
+  setTimeout(()=>{
+    window.adLoading = false;
+  },3000);
+}
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+  document.querySelectorAll("a").forEach(link=>{
+
+    link.addEventListener("click",async function(e){
+
+      const url = this.href;
+
+      if(!url) return;
+
+      // bỏ qua telegram/youtube
+      if(
+        url.includes("t.me") ||
+        url.includes("youtube.com")
+      ){
+        return;
+      }
+
+      e.preventDefault();
+
+      await openWithAd(url);
+
+    });
+
+  });
+
+});
+</script>
+
+<footer class="footer">
 <footer class="footer">
   © 2026 NghĩaLQ TV • All Rights Reserved  
   <br>
