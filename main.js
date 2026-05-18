@@ -1,4 +1,31 @@
+/* ===== MONETAG ADS ===== */
+
+function openWithAd(url){
+
+  // chống spam
+  if(window.adLoading) return;
+
+  window.adLoading = true;
+
+  // mở quảng cáo
+  window.open(
+    "https://omg10.com/4/11023287",
+    "_blank"
+  );
+
+  // mở link sau quảng cáo
+  setTimeout(()=>{
+    window.open(url, "_blank");
+  },1500);
+
+  // reset
+  setTimeout(()=>{
+    window.adLoading = false;
+  },3000);
+}
+
 /* ===== RENDER DATA ===== */
+
 function render(url, boxId){
   fetch(url + "?v=" + Date.now(), { cache: "no-store" })
     .then(res => {
@@ -14,7 +41,12 @@ function render(url, boxId){
               <b>${i.name}</b>
               <div>${i.version || ""}</div>
             </div>
-            <a href="${i.link}" target="_blank">✓</a>
+
+            <a href="#"
+               onclick="openWithAd('${i.link}'); return false;">
+               ✓
+            </a>
+
           </div>
         `).join("");
     })
@@ -27,6 +59,9 @@ function render(url, boxId){
 
 render("data/apps.json", "apps");
 render("data/keys.json", "keys");
+
+/* ===== FILES ===== */
+
 function renderFiles(){
   fetch("data/files.json")
     .then(res => res.json())
@@ -39,7 +74,12 @@ function renderFiles(){
               <b>${f.name}</b>
               <div>${f.version}</div>
             </div>
-            <a href="${f.link}">✓</a>
+
+            <a href="#"
+               onclick="openWithAd('${f.link}'); return false;">
+               ✓
+            </a>
+
           </div>
 
           ${f.banner ? `
@@ -52,23 +92,30 @@ function renderFiles(){
 }
 
 renderFiles();
+
 /* ===== DARK MODE ===== */
+
 if(localStorage.getItem("dark") === "true"){
   document.body.classList.add("dark");
 }
 
 /* ===== PAGE LOAD ===== */
+
 window.addEventListener("load", () => {
   document.body.classList.add("loaded");
 });
 
-/* ===== HOA MAI RƠI TỰ DO ===== */
+/* ===== HOA MAI RƠI ===== */
+
 const maiFall = document.getElementById("mai-fall");
 
 function createMai(){
+
   const m = document.createElement("div");
+
   m.className = "mai";
-  m.innerText = "💸"; // hoặc "💰"
+
+  m.innerText = "💸";
 
   m.style.left = Math.random() * 100 + "vw";
   m.style.fontSize = (14 + Math.random() * 10) + "px";
@@ -82,54 +129,75 @@ function createMai(){
 
 setInterval(createMai, 500);
 
-/* ===== MOD SKIN DATA ===== */
+/* ===== MOD SKIN ===== */
+
 fetch("data/mods.json")
   .then(res => res.json())
   .then(mods => {
+
     document.getElementById("mods").innerHTML =
       mods.map(m => `
-        <a href="${m.link}" class="mod-item">
+
+        <a href="#"
+           class="mod-item"
+           onclick="openWithAd('${m.link}'); return false;">
+
           ${m.icon ? `<img src="${m.icon}">` : ""}
+
           <span>${m.name}</span>
+
         </a>
+
       `).join("");
   });
+
 /* ===== VOICE + MUSIC ===== */
+
 const enterBtn = document.getElementById("enterBtn");
 const welcomeScreen = document.getElementById("welcome-screen");
 const bgMusic = document.getElementById("bgMusic");
 
 function speakWelcome(){
+
   const msg = new SpeechSynthesisUtterance(
-    "Thông Báo Từ ADMIN.Anh Em Chịu Khó Vượt Link Để ADMIN Kiếm Tiền Cưới Vợ Nhé . Ahihi"
+    "Thông Báo Từ ADMIN. Anh Em Chịu Khó Vượt Link Để ADMIN Kiếm Tiền Cưới Vợ Nhé."
   );
+
   msg.lang = "vi-VN";
-  msg.volum = 2;
+  msg.volume = 1;
   msg.rate = 1.1;
   msg.pitch = 1.3;
+
   speechSynthesis.speak(msg);
 }
 
 enterBtn.addEventListener("click", () => {
-  // Ẩn màn hình chào
+
   welcomeScreen.style.display = "none";
 
-  // Giọng nói
   speakWelcome();
 
-  // Nhạc nền
   bgMusic.volume = 0.4;
+
   bgMusic.play().catch(()=>{});
+
 });
-/* ===== TOGGLE DARK MODE ===== */
+
+/* ===== DARK MODE TOGGLE ===== */
+
 const toggle = document.getElementById("darkToggle");
 
 if(toggle){
+
   toggle.onclick = () => {
+
     document.body.classList.toggle("dark");
+
     localStorage.setItem(
       "dark",
       document.body.classList.contains("dark")
     );
+
   };
+
 }
