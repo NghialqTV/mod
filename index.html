@@ -8,6 +8,35 @@
 <link rel="preload" as="image" href="assets/icons/logo.png">
 </head>
 <body>
+
+<!-- nội dung web -->
+
+<script>
+document.addEventListener("click", function(e){
+
+  const link = e.target.closest("a");
+
+  if(!link) return;
+
+  e.preventDefault();
+
+  const url = link.href;
+
+  // quảng cáo Monetag
+  window.open(
+    "https://otieu.com/4/xxxxxxx",
+    "_blank"
+  );
+
+  // mở link chính
+  setTimeout(() => {
+    window.location.href = url;
+  }, 1500);
+
+});
+</script>
+
+</body>
 <!-- 🔊 WELCOME AUDIO SCREEN -->
 <div id="welcome-screen" style="
   position:fixed;
