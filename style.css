@@ -558,3 +558,6 @@ body.dark .social{
 .back-btn:hover{
   transform:scale(1.08);
 }
+#welcome-screen{
+  transition: .4s;
+}
