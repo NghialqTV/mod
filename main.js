@@ -68,7 +68,7 @@ const maiFall = document.getElementById("mai-fall");
 function createMai(){
   const m = document.createElement("div");
   m.className = "mai";
-  m.innerText = "🌟"; // hoặc "💰"
+  m.innerText = "💸"; // hoặc "💰"
 
   m.style.left = Math.random() * 100 + "vw";
   m.style.fontSize = (14 + Math.random() * 10) + "px";
@@ -101,7 +101,7 @@ const bgMusic = document.getElementById("bgMusic");
 
 function speakWelcome(){
   const msg = new SpeechSynthesisUtterance(
-    "Thông Báo Từ ADMIN , Anh Em Vào Nó Nhảy Quảng Cáo Thì Quay Trở Lại Trang Nhé !"
+    "Thông Báo Từ ADMIN.Anh Em Chịu Khó Vượt Link Để ADMIN Kiếm Tiền Cưới Vợ Nhé . Ahihi"
   );
   msg.lang = "vi-VN";
   msg.volum = 2;
