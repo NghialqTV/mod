@@ -1,19 +1,20 @@
 body{
   margin:0;
   font-family:system-ui,sans-serif;
-  background:#05040b;
+  background:transparent;
   color:#f5f7ff;
   position:relative;
   overflow-x:hidden;
 }
 
-/* NỀN 2 ẢNH: ANDROID BÊN TRÁI + iOS BÊN PHẢI */
+/* NỀN CHÍNH: ẢNH ANDROID BÊN TRÁI + ẢNH iOS BÊN PHẢI */
 .dual-bg{
   position:fixed;
   inset:0;
-  z-index:-10;
+  z-index:0;
   overflow:hidden;
-  background:#030506;
+  pointer-events:none;
+  background:#020307;
 }
 .dual-bg-side{
   position:absolute;
@@ -21,20 +22,19 @@ body{
   bottom:0;
   width:50%;
   background-repeat:no-repeat;
-  background-size:100% 100%;
-  background-position:center;
-  filter:saturate(1.08) brightness(.50);
-  transform:scale(1.015);
+  background-size:200% 100%;
+  filter:saturate(1.15) brightness(.52);
+  opacity:.95;
 }
-/* Android = ảnh xanh ở bên trái */
 .dual-bg-side.bg-android{
   left:0;
   background-image:url("assets/backgrounds/bg-android.png");
+  background-position:left center;
 }
-/* iOS = ảnh tím/xanh ở bên phải */
 .dual-bg-side.bg-ios{
   right:0;
   background-image:url("assets/backgrounds/bg-ios.png");
+  background-position:right center;
 }
 .dual-bg-vignette{
   position:absolute;
@@ -42,14 +42,19 @@ body{
   pointer-events:none;
   background:
     linear-gradient(90deg,
-      rgba(0,0,0,.20) 0%,
-      rgba(0,0,0,.48) 44%,
-      rgba(0,0,0,.58) 50%,
-      rgba(0,0,0,.48) 56%,
-      rgba(0,0,0,.20) 100%),
-    radial-gradient(circle at 50% 45%,rgba(0,0,0,0),rgba(0,0,0,.48) 88%);
+      rgba(0,0,0,.08) 0%,
+      rgba(0,0,0,.32) 44%,
+      rgba(0,0,0,.52) 50%,
+      rgba(0,0,0,.32) 56%,
+      rgba(0,0,0,.08) 100%),
+    linear-gradient(180deg,rgba(0,0,0,.18),rgba(0,0,0,.45));
 }
 
+/* Tất cả giao diện nằm phía trên ảnh nền */
+body > *:not(.dual-bg){
+  position:relative;
+  z-index:1;
+}
 body::before{
   content:"";
   position:fixed;
@@ -60,7 +65,7 @@ body::before{
 }
 
 body.dark{
-  background:#05040b;
+  background:transparent;
   color:#f5f7ff;
 }
 
@@ -1052,10 +1057,10 @@ body.dark .key-card-info span{color:#a0a9ba}
 .app-text p,.key-card-info span{color:#bfc3d7 !important;}
 
 @media(max-width:560px){
-  .dual-bg-side{width:100%;opacity:.45;}
-  .dual-bg-side.bg-android{left:-18%;width:68%;}
-  .dual-bg-side.bg-ios{right:-18%;width:68%;}
-  .dual-bg-vignette{background:linear-gradient(90deg,rgba(4,3,12,.74),rgba(4,3,12,.86));}
+  .dual-bg-side{width:50%;opacity:.58;filter:saturate(1.05) brightness(.42);}
+  .dual-bg-side.bg-android{left:0;}
+  .dual-bg-side.bg-ios{right:0;}
+  .dual-bg-vignette{background:linear-gradient(90deg,rgba(4,3,12,.52),rgba(4,3,12,.78));}
   .app-actions{grid-template-columns:1fr 1fr;gap:9px;padding-left:14px;padding-right:14px;}
   .download-btn,.getkey-btn{min-height:56px;font-size:15px;border-radius:16px;}
 }
