@@ -1,8 +1,67 @@
 body{
   margin:0;
   font-family:system-ui,sans-serif;
-  background:#f3f7ff;
-  color:#111;
+  background:#05040b;
+  color:#f5f7ff;
+  position:relative;
+  overflow-x:hidden;
+}
+
+/* NỀN 2 ẢNH: ANDROID BÊN TRÁI + iOS BÊN PHẢI */
+.dual-bg{
+  position:fixed;
+  inset:0;
+  z-index:-10;
+  overflow:hidden;
+  background:#030506;
+}
+.dual-bg-side{
+  position:absolute;
+  top:0;
+  bottom:0;
+  width:50%;
+  background-repeat:no-repeat;
+  background-size:100% 100%;
+  background-position:center;
+  filter:saturate(1.08) brightness(.50);
+  transform:scale(1.015);
+}
+/* Android = ảnh xanh ở bên trái */
+.dual-bg-side.bg-android{
+  left:0;
+  background-image:url("assets/backgrounds/bg-android.png");
+}
+/* iOS = ảnh tím/xanh ở bên phải */
+.dual-bg-side.bg-ios{
+  right:0;
+  background-image:url("assets/backgrounds/bg-ios.png");
+}
+.dual-bg-vignette{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    linear-gradient(90deg,
+      rgba(0,0,0,.20) 0%,
+      rgba(0,0,0,.48) 44%,
+      rgba(0,0,0,.58) 50%,
+      rgba(0,0,0,.48) 56%,
+      rgba(0,0,0,.20) 100%),
+    radial-gradient(circle at 50% 45%,rgba(0,0,0,0),rgba(0,0,0,.48) 88%);
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-5;
+  pointer-events:none;
+  background:radial-gradient(circle at 50% 0%,rgba(120,70,255,.10),transparent 38%),rgba(4,5,14,.12);
+}
+
+body.dark{
+  background:#05040b;
+  color:#f5f7ff;
 }
 
 /* HEADER */
@@ -132,10 +191,6 @@ body.dark .card{
 }
 
 /* DARK */
-body.dark{
-  background:#121212;
-  color:#eee;
-}
 body.dark .card{
   background:linear-gradient(180deg,#1e2530,#161b22);
   border-color:#2b3442;
@@ -895,4 +950,112 @@ body.dark .key-card-info span{color:#a0a9ba}
   .download-btn,.getkey-btn{font-size:17px;min-height:54px}
   .getkey-btn{flex:.64}
   .app-avatar{width:82px;height:82px;flex-basis:82px}
+}
+
+
+/* ===== NEON DOWNLOAD + GET KEY ===== */
+.app-actions{
+  display:grid;
+  grid-template-columns:1.08fr .92fr;
+  gap:12px;
+  padding:12px 18px 20px;
+}
+.download-btn,.getkey-btn{
+  position:relative;
+  min-height:60px;
+  border-radius:18px;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  text-decoration:none;
+  font-weight:900;
+  font-size:18px;
+  letter-spacing:.2px;
+  color:#fff !important;
+  border:1px solid rgba(255,255,255,.18);
+  isolation:isolate;
+  transition:transform .22s ease,box-shadow .22s ease,filter .22s ease;
+}
+.download-btn::before,.getkey-btn::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  z-index:-2;
+  background:linear-gradient(120deg,transparent 15%,rgba(255,255,255,.42) 50%,transparent 85%);
+  transform:translateX(-120%);
+  transition:transform .65s ease;
+}
+.download-btn::after,.getkey-btn::after{
+  content:"";
+  position:absolute;
+  inset:2px;
+  z-index:-1;
+  border-radius:15px;
+  background:linear-gradient(135deg,rgba(8,12,28,.86),rgba(27,12,65,.82));
+}
+.download-btn{
+  background:linear-gradient(135deg,#00e5a8,#00a8ff 48%,#7048ff);
+  box-shadow:0 0 0 1px rgba(0,229,168,.18),0 10px 30px rgba(0,202,255,.25),0 0 24px rgba(0,229,168,.22);
+}
+.getkey-btn{
+  background:linear-gradient(135deg,#a855ff,#ff2bd6 52%,#6b4dff);
+  box-shadow:0 0 0 1px rgba(255,70,232,.18),0 10px 30px rgba(190,67,255,.28),0 0 24px rgba(255,50,220,.22);
+}
+.download-btn:hover,.getkey-btn:hover{
+  transform:translateY(-3px) scale(1.02);
+  filter:brightness(1.12);
+}
+.download-btn:hover::before,.getkey-btn:hover::before{transform:translateX(120%);}
+.download-icon{
+  width:31px;height:31px;border-radius:10px;
+  display:grid;place-items:center;
+  font-size:24px;line-height:1;
+  background:rgba(255,255,255,.14);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.14),0 0 12px rgba(255,255,255,.16);
+}
+.key-icon{
+  width:24px;height:24px;
+  border:2px solid #fff;
+  border-radius:50%;
+  font-size:0;position:relative;
+  box-shadow:0 0 10px rgba(255,255,255,.7);
+}
+.key-icon:after{
+  content:"";position:absolute;width:13px;height:3px;border-radius:4px;
+  background:#fff;right:-10px;bottom:-3px;transform:rotate(-45deg);
+}
+
+/* Get Key list button */
+.key-open{
+  padding:12px 17px;
+  border-radius:15px;
+  color:#fff !important;
+  background:linear-gradient(135deg,#8b5cf6,#ec4899);
+  border:1px solid rgba(255,255,255,.18);
+  box-shadow:0 0 18px rgba(168,85,247,.35);
+  text-decoration:none;
+  font-weight:900;
+  white-space:nowrap;
+}
+
+/* Dark glass cards over the new backgrounds */
+.app-card,.key-card,.card,.mod-box{
+  background:linear-gradient(145deg,rgba(10,10,24,.82),rgba(20,13,40,.72)) !important;
+  border-color:rgba(150,110,255,.28) !important;
+  box-shadow:0 16px 40px rgba(0,0,0,.42),0 0 24px rgba(91,55,180,.12);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+}
+.app-text h3,.key-card-info b,.section-title,.mod-box h3{color:#fff !important;text-shadow:0 0 10px rgba(130,90,255,.25);}
+.app-text p,.key-card-info span{color:#bfc3d7 !important;}
+
+@media(max-width:560px){
+  .dual-bg-side{width:100%;opacity:.45;}
+  .dual-bg-side.bg-android{left:-18%;width:68%;}
+  .dual-bg-side.bg-ios{right:-18%;width:68%;}
+  .dual-bg-vignette{background:linear-gradient(90deg,rgba(4,3,12,.74),rgba(4,3,12,.86));}
+  .app-actions{grid-template-columns:1fr 1fr;gap:9px;padding-left:14px;padding-right:14px;}
+  .download-btn,.getkey-btn{min-height:56px;font-size:15px;border-radius:16px;}
 }
