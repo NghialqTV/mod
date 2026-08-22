@@ -1,85 +1,32 @@
-/* ===== RENDER APP + GET KEY ===== */
-function renderApps(){
-  fetch("data/apps.json?v=" + Date.now(), {cache:"no-store"})
+/* ===== RENDER DATA ===== */
+function render(url, boxId){
+  fetch(url + "?v=" + Date.now(), { cache: "no-store" })
     .then(res => {
-      if(!res.ok) throw new Error("Fetch lỗi apps.json");
+      if(!res.ok) throw new Error("Fetch lỗi " + url);
       return res.json();
     })
     .then(data => {
-      document.getElementById("apps").innerHTML = data.map((i, index) => {
-        const keyLink = i.keyLink || "";
-        const hasKey = keyLink.trim() !== "";
-        const bg = i.banner || i.icon || "assets/icons/app.png";
-        return `
-          <article class="app-card" style="--app-bg:url('${bg}')">
-            <div class="app-bg"></div>
-            <div class="app-overlay"></div>
-            <div class="app-content">
-              <div class="app-top">
-                <img class="app-icon" src="${i.icon}" alt="">
-                <span class="platform-badge">${i.platform || (i.name.toLowerCase().includes("ios") ? " iOS" : "Android")}</span>
-              </div>
-              <div class="app-info">
-                <h3>${i.name}</h3>
-                <p>${i.version || ""}</p>
-              </div>
-              <div class="app-actions">
-                <a class="btn-download" href="${i.link}" target="_blank" rel="noopener">
-                  <span>Tải Xuống</span><span class="btn-icon">⇩</span>
-                </a>
-                ${hasKey ? `
-                <a class="btn-key" href="${keyLink}" target="_blank" rel="noopener">
-                  <span class="key-symbol">🔑</span><span>Get Key</span>
-                </a>` : `
-                <span class="btn-key disabled"><span class="key-symbol">🔒</span><span>NO KEY</span></span>`}
-              </div>
+      document.getElementById(boxId).innerHTML =
+        data.map(i => `
+          <div class="card">
+            <img class="icon" src="${i.icon}">
+            <div class="info">
+              <b>${i.name}</b>
+              <div>${i.version || ""}</div>
             </div>
-          </article>`;
-      }).join("");
+            <a href="${i.link}" target="_blank">✓</a>
+          </div>
+        `).join("");
     })
     .catch(err => {
-      document.getElementById("apps").innerHTML =
+      document.getElementById(boxId).innerHTML =
         `<div style="color:red">Lỗi load dữ liệu</div>`;
       console.error(err);
     });
 }
 
-function renderKeys(){
-  fetch("data/keys.json?v=" + Date.now(), {cache:"no-store"})
-    .then(res => {
-      if(!res.ok) throw new Error("Fetch lỗi keys.json");
-      return res.json();
-    })
-    .then(data => {
-      document.getElementById("keys").innerHTML = data.map(i => {
-        const bg = i.banner || i.icon || "assets/icons/key.png";
-        return `
-          <article class="key-card" style="--key-bg:url('${bg}')">
-            <div class="key-bg"></div>
-            <div class="key-overlay"></div>
-            <div class="key-content">
-              <img class="key-icon" src="${i.icon}" alt="">
-              <div class="key-info">
-                <b>${i.name}</b>
-                <span>${i.version || ""}</span>
-              </div>
-              <a class="btn-key only" href="${i.link}" target="_blank" rel="noopener">
-                <span class="key-symbol">🔑</span><span>Get Key</span>
-              </a>
-            </div>
-          </article>`;
-      }).join("");
-    })
-    .catch(err => {
-      document.getElementById("keys").innerHTML =
-        `<div style="color:red">Lỗi load dữ liệu</div>`;
-      console.error(err);
-    });
-}
-
-renderApps();
-renderKeys();
-
+render("data/apps.json", "apps");
+render("data/keys.json", "keys");
 function renderFiles(){
   fetch("data/files.json")
     .then(res => res.json())
