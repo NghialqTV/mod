@@ -11,7 +11,15 @@ function render(url, boxId){
           <div class="card">
             <img class="icon" src="${i.icon}">
             <div class="info">
-              <b>${i.name}</b>
+              <div class="title-row">
+                <b>${i.name}</b>
+                ${i.platform ? `
+                  <span class="platform-badge ${i.platform}">
+                    <img src="assets/icons/${i.platform}.svg" alt="${i.platform === "android" ? "Android" : "iOS"}">
+                    <span>${i.platform === "android" ? "Android" : "iOS"}</span>
+                  </span>
+                ` : ""}
+              </div>
               <div>${i.version || ""}</div>
             </div>
             <a href="${i.link}" target="_blank">✓</a>
@@ -94,33 +102,6 @@ fetch("data/mods.json")
         </a>
       `).join("");
   });
-/* ===== VOICE + MUSIC ===== */
-const enterBtn = document.getElementById("enterBtn");
-const welcomeScreen = document.getElementById("welcome-screen");
-const bgMusic = document.getElementById("bgMusic");
-
-function speakWelcome(){
-  const msg = new SpeechSynthesisUtterance(
-    "Thông Báo Từ ADMIN , Anh Em Vào Nó Nhảy Quảng Cáo Thì Quay Trở Lại Trang Nhé !"
-  );
-  msg.lang = "vi-VN";
-  msg.volum = 2;
-  msg.rate = 1.1;
-  msg.pitch = 1.3;
-  speechSynthesis.speak(msg);
-}
-
-enterBtn.addEventListener("click", () => {
-  // Ẩn màn hình chào
-  welcomeScreen.style.display = "none";
-
-  // Giọng nói
-  speakWelcome();
-
-  // Nhạc nền
-  bgMusic.volume = 0.4;
-  bgMusic.play().catch(()=>{});
-});
 /* ===== TOGGLE DARK MODE ===== */
 const toggle = document.getElementById("darkToggle");
 
@@ -133,3 +114,28 @@ if(toggle){
     );
   };
 }
+
+
+/* ===== PROFESSIONAL PAGE LOADER ===== */
+(function(){
+  const loader = document.getElementById("page-loader");
+  if(!loader) return;
+
+  const startedAt = performance.now();
+  const MIN_TIME = 850;
+
+  function hideLoader(){
+    const elapsed = performance.now() - startedAt;
+    const wait = Math.max(0, MIN_TIME - elapsed);
+    setTimeout(() => {
+      loader.classList.add("hide");
+      setTimeout(() => loader.remove(), 500);
+    }, wait);
+  }
+
+  if(document.readyState === "complete"){
+    hideLoader();
+  }else{
+    window.addEventListener("load", hideLoader, {once:true});
+  }
+})();

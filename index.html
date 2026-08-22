@@ -10,6 +10,20 @@
 </head>
 <body>
 
+<!-- ===== PROFESSIONAL PAGE LOADER ===== -->
+<div id="page-loader" aria-label="Đang tải trang">
+  <div class="loader-card">
+    <div class="loader-logo-wrap">
+      <img src="assets/icons/logo.png" alt="Nghĩalq TV" class="loader-logo">
+      <span class="loader-ring"></span>
+    </div>
+    <div class="loader-brand">Nghĩalq TV</div>
+    <div class="loader-status">Đang tải dữ liệu...</div>
+    <div class="loader-progress"><span></span></div>
+  </div>
+</div>
+
+
 <!-- nội dung web -->
 
 <script>
@@ -38,31 +52,6 @@ document.addEventListener("click", function(e){
 </script>
 
 </body>
-<!-- 🔊 WELCOME AUDIO SCREEN -->
-<div id="welcome-screen" style="
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.75);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  z-index:10000;
-">
-  <button id="enterBtn" style="
-    padding:18px 28px;
-    font-size:18px;
-    font-weight:700;
-    border:none;
-    border-radius:18px;
-    background:linear-gradient(135deg,#1f6bff,#00c6ff);
-    color:#fff;
-    box-shadow:0 10px 26px rgba(0,198,255,.6);
-  ">
-     Chạm để vào trang
-  </button>
-</div>
-
-<audio id="bgMusic" src="assets/audio/bg.mp3" loop></audio>
 <div id="mai-fall"></div>
   
 <header class="top">
