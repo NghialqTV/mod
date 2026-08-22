@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
@@ -26,32 +25,6 @@
 
 <!-- nội dung web -->
 
-<script>
-document.addEventListener("click", function(e){
-
-  const link = e.target.closest("a");
-
-  if(!link) return;
-
-  e.preventDefault();
-
-  const url = link.href;
-
-  // quảng cáo Tiktok
-  window.open(
-    "https://vt.tiktok.com/ZS9hMGDRsw7pS-r6Q4B/",
-    "_blank"
-  );
-
-  // mở link chính
-  setTimeout(() => {
-    window.location.href = url;
-  }, 1500);
-
-});
-</script>
-
-</body>
 <div id="mai-fall"></div>
   
 <header class="top">
@@ -107,11 +80,55 @@ document.addEventListener("click", function(e){
 
 <div id="files"></div>
 
+<!-- ===== PREVIEW GALLERY ===== -->
+<div id="preview-modal" class="preview-modal" aria-hidden="true">
+  <div class="preview-panel">
+    <div class="preview-head">
+      <div>
+        <span class="preview-kicker">APP PREVIEW</span>
+        <h3 id="preview-title">Preview</h3>
+      </div>
+      <button type="button" class="modal-close" data-close-preview aria-label="Đóng">×</button>
+    </div>
+    <div id="preview-gallery" class="preview-gallery"></div>
+  </div>
+</div>
+
+<div id="image-lightbox" class="image-lightbox" aria-hidden="true">
+  <button type="button" class="lightbox-close" data-close-lightbox aria-label="Đóng">×</button>
+  <img src="" alt="Preview">
+</div>
 <script src="main.js"></script>
 <footer class="footer">
   © 2026 Nghĩalq TV • All Rights Reserved  
   <br>
   Design by <b>Nghĩalq TV</b>
 </footer>
+<script>
+document.addEventListener("click", function(e){
+
+  const link = e.target.closest("a");
+
+  if(!link) return;
+
+  e.preventDefault();
+
+  const url = link.href;
+
+  // quảng cáo Tiktok
+  window.open(
+    "https://vt.tiktok.com/ZS9hMGDRsw7pS-r6Q4B/",
+    "_blank"
+  );
+
+  // mở link chính
+  setTimeout(() => {
+    window.location.href = url;
+  }, 1500);
+
+});
+</script>
+
+
 </body>
 </html>

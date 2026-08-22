@@ -678,3 +678,294 @@ body.dark .loader-card{
 
 body.dark .loader-brand{color:#f8fafc}
 body.dark .loader-status{color:#94a3b8}
+
+
+/* =========================================================
+   REFERENCE APP CARDS + PREVIEW GALLERY
+   ========================================================= */
+body{
+  transition:background .25s ease,color .25s ease;
+}
+#apps,#keys,#files{
+  max-width:720px;
+  margin:0 auto;
+  padding:0 16px;
+}
+.app-card{
+  display:block;
+  padding:0;
+  overflow:hidden;
+  border-radius:24px;
+  background:linear-gradient(145deg,#ffffff,#eef3fb);
+  border:1px solid rgba(148,163,184,.25);
+  box-shadow:0 12px 28px rgba(15,23,42,.10);
+  animation-delay:calc(var(--card-index) * 60ms);
+}
+.card-main{
+  min-height:118px;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:16px;
+}
+.app-card .icon{
+  width:64px !important;
+  height:64px !important;
+  min-width:64px;
+  border-radius:18px !important;
+  box-shadow:0 8px 18px rgba(15,23,42,.22) !important;
+}
+.app-card .info{
+  min-width:0;
+}
+.app-name{
+  display:block;
+  font-size:18px !important;
+  line-height:1.2;
+  margin-bottom:5px;
+}
+.update-line{
+  font-size:14px !important;
+  color:#64748b;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.meta-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  margin-top:9px;
+}
+.platform-badge,.preview-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  height:30px;
+  box-sizing:border-box;
+  padding:0 10px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:800;
+}
+.platform-badge{
+  border:1px solid rgba(77,163,255,.34);
+  background:rgba(77,163,255,.12);
+  color:#59adff;
+}
+.platform-badge.android{
+  color:#3ddc84;
+  background:rgba(61,220,132,.11);
+  border-color:rgba(61,220,132,.32);
+}
+.platform-badge.ios img{
+  filter:brightness(0) invert(1);
+}
+.platform-badge img{
+  width:16px;
+  height:16px;
+  object-fit:contain;
+}
+.preview-btn{
+  border:1px solid rgba(77,163,255,.30);
+  background:rgba(77,163,255,.10);
+  color:#2486e8;
+  cursor:pointer;
+  font-family:inherit;
+  transition:.2s;
+}
+.preview-btn b{
+  min-width:18px;
+  height:18px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  background:rgba(77,163,255,.16);
+  font-size:10px;
+}
+.preview-btn:hover{
+  transform:translateY(-1px);
+  background:rgba(77,163,255,.18);
+}
+.preview-icon{
+  font-size:15px;
+  line-height:1;
+}
+.download-btn{
+  flex:0 0 58px;
+  width:58px !important;
+  height:58px !important;
+  border-radius:20px !important;
+  background:linear-gradient(145deg,#168cf5,#0874d9) !important;
+  color:#fff;
+  font-size:28px !important;
+  box-shadow:0 9px 20px rgba(14,116,217,.36) !important;
+}
+.download-btn span{
+  transform:translateY(-1px);
+}
+.notice{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:12px 16px;
+  background:rgba(77,70,229,.09);
+  border-top:1px solid rgba(99,102,241,.12);
+  color:#6366d9;
+  font-weight:800;
+  font-size:14px;
+}
+.notice.warning{
+  background:rgba(245,158,11,.10);
+  color:#f59e0b;
+}
+.load-error{
+  margin:0 16px;
+  padding:18px;
+  border-radius:18px;
+  background:#fee2e2;
+  color:#b91c1c;
+}
+
+/* Dark reference style */
+body.dark{
+  background:
+    radial-gradient(circle at 20% 0%,rgba(30,111,255,.08),transparent 35%),
+    #0d0f14;
+  color:#f5f7fb;
+}
+body.dark .app-card{
+  background:linear-gradient(145deg,#1b1d22,#15171c);
+  border-color:#2b2e35;
+  box-shadow:0 14px 32px rgba(0,0,0,.35);
+}
+body.dark .update-line{color:#9aa3b2}
+body.dark .platform-badge,
+body.dark .preview-btn{
+  background:rgba(70,160,255,.10);
+  border-color:rgba(70,160,255,.24);
+}
+body.dark .platform-badge.android{
+  background:rgba(61,220,132,.10);
+  border-color:rgba(61,220,132,.24);
+}
+body.dark .notice{
+  background:rgba(99,102,241,.10);
+  color:#8c8ff8;
+}
+body.dark .notice.warning{
+  background:rgba(245,158,11,.09);
+  color:#ffab35;
+}
+
+/* Preview modal */
+body.modal-open{overflow:hidden}
+.preview-modal,.image-lightbox{
+  position:fixed;
+  inset:0;
+  z-index:1000000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+  box-sizing:border-box;
+  background:rgba(2,6,23,.72);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transition:.22s ease;
+}
+.preview-modal.show,.image-lightbox.show{
+  opacity:1;
+  visibility:visible;
+  pointer-events:auto;
+}
+.preview-panel{
+  width:min(94vw,720px);
+  max-height:88vh;
+  overflow:auto;
+  border-radius:26px;
+  padding:18px;
+  background:#17191f;
+  border:1px solid rgba(255,255,255,.10);
+  box-shadow:0 25px 80px rgba(0,0,0,.5);
+}
+.preview-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:14px;
+}
+.preview-kicker{
+  display:block;
+  font-size:10px;
+  letter-spacing:1.5px;
+  font-weight:900;
+  color:#55aaff;
+}
+.preview-head h3{
+  margin:3px 0 0;
+  color:#fff;
+  font-size:22px;
+}
+.modal-close,.lightbox-close{
+  border:0;
+  cursor:pointer;
+  color:#fff;
+  background:#282c34;
+  width:40px;
+  height:40px;
+  border-radius:14px;
+  font-size:25px;
+}
+.preview-gallery{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+}
+.preview-image-wrap{
+  padding:0;
+  border:0;
+  background:#0c0e12;
+  border-radius:18px;
+  overflow:hidden;
+  cursor:pointer;
+  min-height:120px;
+}
+.preview-image-wrap img{
+  display:block;
+  width:100%;
+  height:100%;
+  max-height:480px;
+  object-fit:cover;
+  transition:transform .25s;
+}
+.preview-image-wrap:hover img{transform:scale(1.025)}
+.image-lightbox{
+  z-index:1000001;
+  padding:12px;
+}
+.image-lightbox img{
+  max-width:96vw;
+  max-height:92vh;
+  object-fit:contain;
+  border-radius:16px;
+  box-shadow:0 25px 80px rgba(0,0,0,.55);
+}
+.lightbox-close{
+  position:fixed;
+  top:18px;
+  right:18px;
+  z-index:2;
+}
+@media(max-width:520px){
+  .card-main{padding:14px;gap:12px}
+  .app-card .icon{width:60px !important;height:60px !important;min-width:60px}
+  .app-name{font-size:17px !important}
+  .download-btn{flex-basis:54px;width:54px !important;height:54px !important}
+  .preview-gallery{grid-template-columns:1fr}
+}
