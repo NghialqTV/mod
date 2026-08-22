@@ -1,33 +1,37 @@
 [
-   {
+  {
     "name": "Menu Mod skin Android",
     "version": " Cập Nhật 19/8",
     "icon": "assets/icons/app.png",
-    "link": "https://nghialqtv.github.io/SubUnlock/?id=modmenuandroid64"
+    "link": "https://nghialqtv.github.io/SubUnlock/?id=modmenuandroid64",
+    "platform": "android"
   },
   {
     "name": "Menu Hack Map Android",
     "version": " Cập Nhật 19/8",
     "icon": "assets/icons/app.png",
-    "link": "https://nghialqtv.github.io/SubUnlock/?id=hackmenuandroid64"
+    "link": "https://nghialqtv.github.io/SubUnlock/?id=hackmenuandroid64",
+    "platform": "android"
   },
   {
     "name": "IPA NO KEY",
     "version": "Cập Nhật 19/8",
     "icon": "assets/icons/appipa.png",
-    "link": "https://nghialqtv.github.io/mod/ipa.html"
+    "link": "https://nghialqtv.github.io/mod/ipa.html",
+    "platform": "ios"
   },
   {
     "name": "AOV Mod Skin IOS",
     "version": "Cập Nhật 19/8",
     "icon": "assets/icons/app.png",
-    "link": "https://nghialqtv.github.io/SubUnlock/?id=modmenuios"
+    "link": "https://nghialqtv.github.io/SubUnlock/?id=modmenuios",
+    "platform": "ios"
   },
   {
     "name": "AOV Hack Map IOS",
     "version": "Cập Nhật 19/8",
     "icon": "assets/icons/app.png",
-    "link": "https://nghialqtv.github.io/SubUnlock/?id=hacenuios"
-   }
-   
+    "link": "https://nghialqtv.github.io/SubUnlock/?id=hackmenuios",
+    "platform": "ios"
+  }
 ]
