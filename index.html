@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
 <meta charset="UTF-8">
@@ -7,10 +8,7 @@
 <link rel="stylesheet" href="style.css">
 <link rel="preload" as="image" href="assets/icons/logo.png">
 </head>
-<body class="dark">
-
-<!-- NEON DUAL BACKGROUND -->
-<div class="dual-bg" aria-hidden="true"><div class="dual-bg-side bg-android"></div><div class="dual-bg-side bg-ios"></div><div class="dual-bg-vignette"></div></div>
+<body>
 
 <!-- nội dung web -->
 
@@ -39,18 +37,32 @@ document.addEventListener("click", function(e){
 });
 </script>
 
-<!-- PROFESSIONAL LOADING SCREEN -->
-<div id="site-loader" aria-label="Đang tải trang">
-  <div class="loader-orb">
-    <div class="loader-ring"></div>
-    <img src="assets/icons/logo.png" alt="Nghĩalq TV" class="loader-logo">
-  </div>
-  <div class="loader-brand">Nghĩalq TV</div>
-  <div class="loader-status"><span id="loader-status-text">Đang khởi tạo...</span><span id="loader-percent">0%</span></div>
-  <div class="loader-progress"><span id="loader-progress-bar"></span></div>
-  <div class="loader-dots"><i></i><i></i><i></i></div>
+</body>
+<!-- 🔊 WELCOME AUDIO SCREEN -->
+<div id="welcome-screen" style="
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.75);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:10000;
+">
+  <button id="enterBtn" style="
+    padding:18px 28px;
+    font-size:18px;
+    font-weight:700;
+    border:none;
+    border-radius:18px;
+    background:linear-gradient(135deg,#1f6bff,#00c6ff);
+    color:#fff;
+    box-shadow:0 10px 26px rgba(0,198,255,.6);
+  ">
+     Chạm để vào trang
+  </button>
 </div>
 
+<audio id="bgMusic" src="assets/audio/bg.mp3" loop></audio>
 <div id="mai-fall"></div>
   
 <header class="top">
@@ -88,11 +100,11 @@ document.addEventListener("click", function(e){
 </header>
 <button id="darkToggle" class="dark-toggle">🌙</button>
 <!-- 🎮 TẢI GAME -->
-<h2 class="section-title">🎮 Tải Game</h2>
+<h2 class="section-title">🎮 APP</h2>
 <div id="apps"></div>
   
 <!-- 🔑 GET KEY -->
-<h2 class="section-title">🔑 Get Key</h2>
+<h2 class="section-title">🔑 GET KEY</h2>
 <div id="keys"></div>
 
 <!-- 🌝 Mua Key -->
