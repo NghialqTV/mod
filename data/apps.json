@@ -27,10 +27,7 @@
     "note": "⚠️ Lưu ý khi dùng Map",
     "previewTitle": "Preview",
     "noteType": "warning",
-    "noteAction": "map-warning",
-    "linkTachGoc": "https://nghialqtv.github.io/SubUnlock/?id=hackmenuandroid64",
-    "linkGopGoc": "https://nghialqtv.github.io/SubUnlock/?id=hackmenuandroid64",
-    "getKeyLink": "https://nghialqtv.github.io/SubUnlock/?id=hackmenuandroid64"
+    "noteAction": "map-warning"
   },
   {
     "name": "Map Sáng AOV Android V2",
@@ -89,6 +86,6 @@
     "note": "📔 Danh sách skin lỗi mạng khi Unlock",
     "previewTitle": "Preview",
     "noteType": "link",
-    "noteLink": "https://unlock.tumadam.com/note-list-skin.html",
+    "noteLink": "https://unlock.tumadam.com/note-list-skin.html"
   }
 ]
