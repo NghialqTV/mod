@@ -1305,3 +1305,199 @@ body.dark .section-title span{
   .download-icon{font-size:23px !important}
   .download-label{font-size:9px}
 }
+
+
+/* ===== BRAND + MOD SKIN PRO UI ===== */
+.username.brand-title{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  margin:8px 0 4px;
+  font-size:clamp(34px, 9vw, 54px);
+  line-height:1.05;
+  font-weight:950;
+  letter-spacing:-1.2px;
+  text-align:center;
+}
+
+.username.brand-title .brand-text{
+  display:inline-block;
+  background:linear-gradient(135deg,#111827 5%,#1769e8 42%,#6b35e8 72%,#ec4899 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  text-shadow:0 8px 24px rgba(43,112,230,.16);
+  filter:drop-shadow(0 3px 5px rgba(40,90,180,.10));
+}
+
+.username.brand-title .verify{
+  width:25px;
+  height:25px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  flex:0 0 25px;
+}
+
+.username.brand-title .verify svg{
+  width:25px;
+  height:25px;
+  filter:drop-shadow(0 0 8px rgba(29,161,242,.55));
+}
+
+.mod-box{
+  margin:0 16px 30px;
+  padding:22px 18px 20px;
+  border-radius:26px;
+  background:linear-gradient(145deg,rgba(255,255,255,.94),rgba(239,245,255,.86));
+  border:1px solid rgba(164,196,244,.45);
+  box-shadow:
+    0 14px 35px rgba(42,91,150,.12),
+    inset 0 1px 0 rgba(255,255,255,.9);
+  position:relative;
+  overflow:hidden;
+}
+
+.mod-box::before{
+  content:"";
+  position:absolute;
+  width:150px;
+  height:150px;
+  top:-95px;
+  right:-45px;
+  border-radius:50%;
+  background:rgba(74,144,255,.10);
+  filter:blur(4px);
+  pointer-events:none;
+}
+
+.mod-box h3.mod-skin-title{
+  margin:0 0 18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:13px;
+  font-size:26px;
+  line-height:1;
+  font-weight:950;
+  letter-spacing:1.8px;
+  text-transform:uppercase;
+  color:#16233d;
+}
+
+.mod-box h3.mod-skin-title::before,
+.mod-box h3.mod-skin-title::after{
+  content:"";
+  width:44px;
+  height:3px;
+  border-radius:999px;
+  background:linear-gradient(90deg,transparent,#278ff2);
+  box-shadow:0 0 10px rgba(39,143,242,.22);
+}
+
+.mod-box h3.mod-skin-title::after{
+  background:linear-gradient(90deg,#278ff2,transparent);
+}
+
+.mod-box h3.mod-skin-title span{
+  background:linear-gradient(135deg,#17233d,#176fe8,#6840e8);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+.mod-item{
+  min-height:62px;
+  display:flex !important;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  padding:13px 12px !important;
+  border:1px solid rgba(112,157,225,.13);
+  background:linear-gradient(145deg,#f4f7ff,#eaf1ff) !important;
+  color:#17213a !important;
+  border-radius:18px !important;
+  font-size:17px;
+  font-weight:800;
+  box-shadow:0 7px 17px rgba(55,91,150,.09);
+  transition:transform .2s ease,box-shadow .2s ease,filter .2s ease;
+}
+
+.mod-item:hover{
+  transform:translateY(-3px);
+  box-shadow:0 11px 24px rgba(55,110,210,.18);
+  filter:brightness(1.02);
+}
+
+.mod-item img{
+  width:25px !important;
+  height:25px !important;
+  object-fit:contain;
+}
+
+body.dark .mod-box{
+  background:linear-gradient(145deg,#182231,#111a26);
+  border-color:rgba(95,139,205,.25);
+  box-shadow:0 16px 40px rgba(0,0,0,.35);
+}
+
+body.dark .mod-box h3.mod-skin-title{
+  color:#fff;
+}
+
+body.dark .mod-box h3.mod-skin-title span{
+  background:linear-gradient(135deg,#fff,#5db8ff,#b98cff);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+body.dark .mod-item{
+  background:linear-gradient(145deg,#1e2c3e,#182334) !important;
+  color:#f3f7ff !important;
+  border-color:rgba(130,170,235,.18);
+}
+
+@media(max-width:520px){
+  .username.brand-title{
+    font-size:40px;
+    letter-spacing:-1px;
+    gap:8px;
+  }
+
+  .username.brand-title .verify,
+  .username.brand-title .verify svg{
+    width:22px;
+    height:22px;
+    flex-basis:22px;
+  }
+
+  .mod-box{
+    margin:0 14px 28px;
+    padding:20px 14px 16px;
+    border-radius:24px;
+  }
+
+  .mod-box h3.mod-skin-title{
+    font-size:24px;
+    letter-spacing:1.3px;
+    gap:10px;
+  }
+
+  .mod-box h3.mod-skin-title::before,
+  .mod-box h3.mod-skin-title::after{
+    width:30px;
+    height:2px;
+  }
+
+  .mod-options{
+    gap:10px;
+  }
+
+  .mod-item{
+    min-height:58px;
+    font-size:15px;
+    border-radius:17px !important;
+  }
+}
