@@ -82,11 +82,7 @@ function render(url, boxId){
         return `
         <article class="card app-card ${boxId === "keys" ? `key-card key-card-${escapeHtml(String(i.platform || "ios").toLowerCase())}` : ""}" data-key-link="${boxId === "keys" ? escapeHtml(i.link || "") : ""}" style="--card-index:${index}">
           <div class="card-main">
-            <img class="icon ${boxId === "keys" ? "key-icon" : ""}" src="${
-              boxId === "keys"
-                ? "assets/icons/key.png"
-                : (platform === "android" ? "assets/icons/android.svg" : escapeHtml(i.icon || "assets/icons/app.png"))
-            }" alt="">
+            <img class="icon ${boxId === "keys" ? "key-icon" : ""}" src="${boxId === "keys" ? "assets/icons/key.png" : escapeHtml(i.icon || "assets/icons/app.png")}" alt="">
             <div class="info">
               <b class="app-name">${escapeHtml(i.name)}</b>
               <div class="update-line">• ${escapeHtml(i.version || "")}</div>
@@ -190,35 +186,34 @@ function closeLightbox(){
 
 /* ===== ANDROID DOWNLOAD CHOICE + PASTE LINK ===== */
 
-/* ===== GLOBAL AD GATE =====
-   Chỉ cần sửa AD_URL bên dưới để đổi link quảng cáo.
-   Quảng cáo được mở khi người dùng bấm các mục/nút điều hướng.
+/* ===== QUẢNG CÁO CHUNG =====
+   CHỈ CẦN SỬA AD_URL để đổi link quảng cáo.
+   Các mục/link/nút trên trang sẽ gọi quảng cáo chung này.
 */
 const AD_URL = "https://vt.tiktok.com/ZS9hMGDRsw7pS-r6Q4B/";
-const AD_DELAY = 900;
 
 function openAd(){
   if(!AD_URL) return;
-  try{
-    const adWindow = window.open(AD_URL, "_blank", "noopener,noreferrer");
-    if(adWindow) adWindow.opener = null;
-  }catch(e){
+  try {
+    const w = window.open(AD_URL, "_blank", "noopener,noreferrer");
+    if(w) w.opener = null;
+  } catch(e) {
     console.warn("Không mở được quảng cáo:", e);
   }
 }
 
-function openUrlWithAd(url){
+/* Dùng cho các luồng chuyển trang sau khi quảng cáo đã được mở. */
+function openKeyWithAd(url){
   if(!url) return;
-  openAd();
   setTimeout(() => {
-    try{
+    try {
       const parsed = new URL(url, window.location.href);
       if(!/^https?:$/i.test(parsed.protocol)) return;
       window.location.href = parsed.href;
-    }catch(e){
+    } catch(e) {
       console.error("Link không hợp lệ:", e);
     }
-  }, AD_DELAY);
+  }, 300);
 }
 
 const ANDROID_V2_LINKS = {
@@ -262,7 +257,7 @@ function openAndroidUrl(url){
   try {
     const parsed = new URL(url, window.location.href);
     if(!/^https?:$/i.test(parsed.protocol)) return;
-    window.location.href = parsed.href;
+    setTimeout(() => { window.location.href = parsed.href; }, 300);
   } catch(e) {
     console.error("Link không hợp lệ:", e);
   }
@@ -278,9 +273,33 @@ function handleAndroidAction(action){
   };
 
   const url = links[action] || "";
-  closeAndroidChoice();
-  openUrlWithAd(url);
+  if(action === "key"){
+    closeAndroidChoice();
+    openKeyWithAd(url);
+    return;
+  }
+
+  openAndroidUrl(url);
 }
+
+/* ===== MỞ QUẢNG CÁO KHI BẤM MỤC TRÊN TRANG ===== */
+document.addEventListener("click", function(e){
+  const target = e.target.closest(
+    'a[href], .app-card, .mod-item, .download-btn, .preview-btn, ' +
+    '.notice-link, .notice-button, .android-choice-btn, [data-android-action], ' +
+    '.key-card'
+  );
+  if(!target) return;
+
+  // Không quảng cáo cho các thao tác đóng modal / xem ảnh bên trong modal.
+  if(target.closest("#preview-modal, #image-lightbox, #android-choice-modal")) return;
+  if(target.matches('[data-close-preview], [data-close-lightbox], [data-close-android-choice], [data-close-map-warning]')) return;
+
+  // Không quảng cáo cho phần tử chỉ dùng để đóng/đổi giao diện.
+  if(target.id === "dark-toggle" || target.id === "theme-toggle") return;
+
+  openAd();
+}, true);
 
 document.addEventListener("click", e => {
   const androidBtn = e.target.closest(".android-choice-btn");
@@ -309,31 +328,11 @@ document.addEventListener("keydown", e => {
 });
 
 
-/* ===== QUẢNG CÁO CHUNG CHO CÁC MỤC CÓ THỂ BẤM =====
-   Không chặn nút đóng modal, đổi giao diện và các control nội bộ.
-   Với link <a>, quảng cáo mở ngay trong click event rồi link tiếp tục đi.
-*/
-document.addEventListener("click", e => {
-  const target = e.target.closest("a[href], .preview-btn, [data-open-map-warning], .android-choice-btn, [data-android-action]");
-  if(!target) return;
-
-  if(
-    target.matches("[data-close-preview], [data-close-lightbox], [data-close-android-choice], [data-close-map-warning]") ||
-    target.closest("#preview-modal, #image-lightbox, #map-warning-modal") && !target.matches("[data-open-map-warning]") ||
-    target.matches(".key-card")
-  ) return;
-
-  // Key card và Android choice được xử lý bằng hàm điều hướng riêng bên dưới.
-  if(target.closest(".key-card") || target.matches(".android-choice-btn, [data-android-action]")) return;
-
-  openAd();
-}, true);
-
 document.addEventListener("click", e => {
   const keyCard = e.target.closest(".key-card[data-key-link]");
   if(keyCard && keyCard.dataset.keyLink){
     e.preventDefault();
-    openUrlWithAd(keyCard.dataset.keyLink);
+    openKeyWithAd(keyCard.dataset.keyLink);
     return;
   }
 
