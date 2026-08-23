@@ -80,7 +80,7 @@ function render(url, boxId){
         const isAndroidApp = boxId === "apps" && platform === "android";
 
         return `
-        <article class="card app-card ${boxId === "keys" ? `key-card key-card-${escapeHtml(String(i.platform || "ios").toLowerCase())}` : ""}" style="--card-index:${index}">
+        <article class="card app-card ${boxId === "keys" ? `key-card key-card-${escapeHtml(String(i.platform || "ios").toLowerCase())}` : ""}" data-key-link="${boxId === "keys" ? escapeHtml(i.link || "") : ""}" style="--card-index:${index}">
           <div class="card-main">
             <img class="icon ${boxId === "keys" ? "key-icon" : ""}" src="${boxId === "keys" ? "assets/icons/key.png" : escapeHtml(i.icon || "assets/icons/app.png")}" alt="">
             <div class="info">
@@ -308,6 +308,13 @@ document.addEventListener("keydown", e => {
 
 
 document.addEventListener("click", e => {
+  const keyCard = e.target.closest(".key-card[data-key-link]");
+  if(keyCard && keyCard.dataset.keyLink){
+    e.preventDefault();
+    window.location.href = keyCard.dataset.keyLink;
+    return;
+  }
+
   if(e.target.closest("[data-close-preview]")) closePreview();
   if(e.target.closest("[data-close-lightbox]")) closeLightbox();
 });

@@ -2100,7 +2100,7 @@ body.dark .app-card .notice-button.warning{
   background:linear-gradient(145deg,#0f5b9d,#1675c8) !important;
   border:0 !important;
   box-shadow:0 10px 22px rgba(20,99,168,.22), inset 0 1px 1px rgba(255,255,255,.18) !important;
-  filter:invert(1) !important;
+  filter:none !important;
   animation:none !important;
 }
 #keys .key-card.key-card-android .key-icon{
@@ -3079,3 +3079,14 @@ body.dark .android-paste-btn{
   .android-paste-row input{height:46px;font-size:13px}
   .android-paste-btn{height:46px;min-width:58px;padding:0 11px}
 }
+
+/* ===== GET KEY COLORS + TAP FIX ===== */
+#keys .key-card .key-icon{
+  background:linear-gradient(145deg,#0f5b9d,#1675c8) !important;
+  filter:none !important;
+}
+#keys .key-card.key-card-android .key-icon{
+  background:linear-gradient(145deg,#07572b,#159447) !important;
+  filter:none !important;
+}
+#keys .key-card{cursor:pointer !important;}
