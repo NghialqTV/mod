@@ -9,7 +9,7 @@
       "assets/previews/menu-list.jpg",
       "assets/previews/unlock-note.jpg"
     ],
-    "note": "Danh sách skin lỗi mạng khi Unlock",
+    "note": "📔 Danh sách skin lỗi mạng khi Unlock",
     "previewTitle": "Preview",
     "noteType": "link",
     "noteLink": "https://unlock.tumadam.com/note-list-skin.html"
@@ -24,7 +24,7 @@
       "assets/previews/menu-list.jpg",
       "assets/previews/map-warning.jpg"
     ],
-    "note": "Lưu ý khi dùng Map",
+    "note": "⚠️ Lưu ý khi dùng Map",
     "previewTitle": "Preview",
     "noteType": "warning",
     "noteAction": "map-warning"
@@ -39,7 +39,7 @@
       "assets/previews/menu-list.jpg",
       "assets/previews/map-warning.jpg"
     ],
-    "note": "Lưu ý khi dùng Map",
+    "note": "⚠️ Lưu ý khi dùng Map",
     "previewTitle": "Preview",
     "noteType": "warning",
     "noteAction": "map-warning"
@@ -65,7 +65,7 @@
       "assets/previews/menu-list.jpg",
       "assets/previews/unlock-note.jpg"
     ],
-    "note": "Danh sách skin lỗi mạng khi Unlock",
+    "note": "📔 Danh sách skin lỗi mạng khi Unlock",
     "previewTitle": "Preview",
     "noteType": "link",
     "noteLink": "https://unlock.tumadam.com/note-list-skin.html"
@@ -80,7 +80,7 @@
       "assets/previews/menu-list.jpg",
       "assets/previews/map-warning.jpg"
     ],
-    "note": "Lưu ý khi dùng Map",
+    "note": "⚠️ Lưu ý khi dùng Map",
     "previewTitle": "Preview",
     "noteType": "warning",
     "noteAction": "map-warning"
