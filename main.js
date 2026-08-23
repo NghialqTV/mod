@@ -186,6 +186,26 @@ function closeLightbox(){
 
 /* ===== ANDROID DOWNLOAD CHOICE + PASTE LINK ===== */
 
+/* ===== KEY AD GATE =====
+   Khi bấm Key: mở quảng cáo ở tab mới trước, sau đó mở link Key.
+*/
+const KEY_AD_URL = "https://vt.tiktok.com/ZS9hMGDRsw7pS-r6Q4B/";
+
+function openKeyWithAd(url){
+  if(!url) return;
+
+  // Gọi trực tiếp trong click event để trình duyệt cho phép mở tab quảng cáo.
+  try {
+    window.open(KEY_AD_URL, "_blank", "noopener,noreferrer");
+  } catch(e) {
+    console.warn("Không mở được tab quảng cáo:", e);
+  }
+
+  setTimeout(() => {
+    window.location.href = url;
+  }, 1500);
+}
+
 const ANDROID_V2_LINKS = {
   getKeyLink: "https://nghialqtv.github.io/SubUnlock/?id=keyandroidv2",
   linkTachGoc: "https://nghialqtv.github.io/SubUnlock/?id=hackv2tachgoc",
@@ -242,7 +262,14 @@ function handleAndroidAction(action){
     key: currentAndroidApp.getKeyLink || ANDROID_V2_LINKS.getKeyLink
   };
 
-  openAndroidUrl(links[action] || "");
+  const url = links[action] || "";
+  if(action === "key"){
+    closeAndroidChoice();
+    openKeyWithAd(url);
+    return;
+  }
+
+  openAndroidUrl(url);
 }
 
 document.addEventListener("click", e => {
@@ -276,7 +303,7 @@ document.addEventListener("click", e => {
   const keyCard = e.target.closest(".key-card[data-key-link]");
   if(keyCard && keyCard.dataset.keyLink){
     e.preventDefault();
-    window.location.href = keyCard.dataset.keyLink;
+    openKeyWithAd(keyCard.dataset.keyLink);
     return;
   }
 
