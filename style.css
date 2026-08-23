@@ -97,7 +97,7 @@ body.dark .card{
 }
 
 .card .info div{
-  font-size:14px;
+  font-size:13px;
   opacity:.8;
 }
 
@@ -687,32 +687,32 @@ body{
   transition:background .25s ease,color .25s ease;
 }
 #apps,#keys,#files{
-  max-width:720px;
+  max-width:640px;
   margin:0 auto;
-  padding:0 16px;
+  padding:0 12px;
 }
 .app-card{
   display:block;
   padding:0;
   overflow:hidden;
-  border-radius:24px;
+  border-radius:20px;
   background:linear-gradient(145deg,#ffffff,#eef3fb);
   border:1px solid rgba(148,163,184,.25);
   box-shadow:0 12px 28px rgba(15,23,42,.10);
   animation-delay:calc(var(--card-index) * 60ms);
 }
 .card-main{
-  min-height:118px;
+  min-height:104px;
   display:flex;
   align-items:center;
-  gap:14px;
-  padding:16px;
+  gap:11px;
+  padding:12px 14px;
 }
 .app-card .icon{
-  width:64px !important;
-  height:64px !important;
-  min-width:64px;
-  border-radius:18px !important;
+  width:56px !important;
+  height:56px !important;
+  min-width:56px;
+  border-radius:15px !important;
   box-shadow:0 8px 18px rgba(15,23,42,.22) !important;
 }
 .app-card .info{
@@ -720,12 +720,12 @@ body{
 }
 .app-name{
   display:block;
-  font-size:18px !important;
+  font-size:16px !important;
   line-height:1.2;
   margin-bottom:5px;
 }
 .update-line{
-  font-size:14px !important;
+  font-size:13px !important;
   color:#64748b;
   white-space:nowrap;
   overflow:hidden;
@@ -734,18 +734,18 @@ body{
 .meta-row{
   display:flex;
   flex-wrap:wrap;
-  gap:7px;
-  margin-top:9px;
+  gap:6px;
+  margin-top:7px;
 }
 .platform-badge,.preview-btn{
   display:inline-flex;
   align-items:center;
   gap:6px;
-  height:30px;
+  height:28px;
   box-sizing:border-box;
-  padding:0 10px;
+  padding:0 9px;
   border-radius:999px;
-  font-size:12px;
+  font-size:11px;
   font-weight:800;
 }
 .platform-badge{
@@ -793,13 +793,13 @@ body{
   line-height:1;
 }
 .download-btn{
-  flex:0 0 58px;
-  width:58px !important;
-  height:58px !important;
-  border-radius:20px !important;
+  flex:0 0 52px;
+  width:52px !important;
+  height:52px !important;
+  border-radius:17px !important;
   background:linear-gradient(145deg,#168cf5,#0874d9) !important;
   color:#fff;
-  font-size:28px !important;
+  font-size:25px !important;
   box-shadow:0 9px 20px rgba(14,116,217,.36) !important;
 }
 .download-btn span{
@@ -809,7 +809,7 @@ body{
   display:flex;
   align-items:center;
   gap:8px;
-  padding:12px 16px;
+  padding:10px 13px;
   background:rgba(77,70,229,.09);
   border-top:1px solid rgba(99,102,241,.12);
   color:#6366d9;
@@ -963,10 +963,15 @@ body.modal-open{overflow:hidden}
   z-index:2;
 }
 @media(max-width:520px){
-  .card-main{padding:14px;gap:12px}
-  .app-card .icon{width:60px !important;height:60px !important;min-width:60px}
-  .app-name{font-size:17px !important}
-  .download-btn{flex-basis:54px;width:54px !important;height:54px !important}
+  #apps,#keys,#files{padding:0 10px}
+  .card-main{padding:11px 12px;gap:10px}
+  .app-card .icon{width:54px !important;height:54px !important;min-width:54px}
+  .app-name{font-size:15px !important}
+  .update-line{font-size:12px !important}
+  .meta-row{gap:5px;margin-top:6px}
+  .platform-badge,.preview-btn{height:27px;padding:0 8px;font-size:10.5px}
+  .download-btn{flex-basis:50px;width:50px !important;height:50px !important;border-radius:16px !important}
+  .notice{padding:9px 12px;font-size:12px}
   .preview-gallery{grid-template-columns:1fr}
 }
 
