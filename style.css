@@ -1955,3 +1955,261 @@ body.dark #keys .key-open-icon{
 @media(prefers-reduced-motion:reduce){
   #keys .card-main > .icon{animation:none !important;}
 }
+
+
+/* ===== NOTICE / SKIN ERROR - SQUARE PROFESSIONAL STYLE ===== */
+.app-card .notice-link,
+.app-card .notice-button,
+.app-card .notice{
+  width:calc(100% - 16px);
+  margin:8px;
+  min-height:54px;
+  height:auto;
+  box-sizing:border-box;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:10px 13px;
+  border-radius:14px;
+  border:1px solid rgba(99,102,241,.18);
+  text-decoration:none;
+  overflow:hidden;
+  box-shadow:0 2px 8px rgba(30,64,175,.05);
+}
+
+.app-card .notice-link{
+  background:linear-gradient(135deg,rgba(239,246,255,.98),rgba(248,250,255,.98));
+  color:#3977d8;
+}
+
+.app-card .notice-button,
+.app-card .notice.warning,
+.app-card .notice-button.warning{
+  background:linear-gradient(135deg,rgba(255,247,237,.98),rgba(255,251,245,.98));
+  color:#ef8b24;
+  border-color:rgba(245,158,11,.18);
+}
+
+.app-card .notice-icon{
+  display:flex !important;
+  align-items:center;
+  justify-content:center;
+  flex:0 0 38px;
+  width:38px;
+  height:38px;
+  border-radius:10px;
+  color:#fff;
+}
+
+.app-card .notice-icon-list{
+  background:linear-gradient(145deg,#2f83df,#1768c8);
+  box-shadow:0 5px 12px rgba(37,99,235,.20);
+}
+
+.app-card .notice-icon-warning{
+  background:linear-gradient(145deg,#ffad42,#f28a19);
+  box-shadow:0 5px 12px rgba(245,158,11,.18);
+}
+
+.app-card .notice-text{
+  flex:1 1 auto;
+  min-width:0;
+  line-height:1.3;
+  font-size:15px;
+  font-weight:800;
+  overflow-wrap:anywhere;
+  word-break:break-word;
+}
+
+.app-card .notice-arrow{
+  flex:0 0 auto;
+  margin-left:auto;
+  font-size:24px;
+  line-height:1;
+  font-weight:700;
+  opacity:.8;
+}
+
+.app-card .notice-link:hover,
+.app-card .notice-button:hover{
+  transform:translateY(-1px);
+  filter:brightness(.99);
+}
+
+body.dark .app-card .notice-link{
+  background:linear-gradient(135deg,#18243a,#1b263b);
+  border-color:rgba(96,165,250,.22);
+  color:#72adff;
+}
+
+body.dark .app-card .notice-button,
+body.dark .app-card .notice.warning,
+body.dark .app-card .notice-button.warning{
+  background:linear-gradient(135deg,#332716,#2b2419);
+  border-color:rgba(245,158,11,.22);
+  color:#ffb04b;
+}
+
+@media(max-width:520px){
+  .app-card .notice-link,
+  .app-card .notice-button,
+  .app-card .notice{
+    width:calc(100% - 12px);
+    margin:6px;
+    min-height:52px;
+    padding:9px 11px;
+    gap:10px;
+    border-radius:13px;
+  }
+  .app-card .notice-icon{
+    flex-basis:36px;
+    width:36px;
+    height:36px;
+    border-radius:9px;
+  }
+  .app-card .notice-text{font-size:14px}
+}
+
+
+/* =========================================================
+   GET KEY — MATCH REFERENCE UI
+   ========================================================= */
+.getkey-heading{
+  margin:26px 0 18px;
+  padding:0 4px;
+}
+.getkey-kicker{
+  width:max-content;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:9px 25px;
+  border-radius:999px;
+  color:#5ca2e6;
+  background:linear-gradient(180deg,#edf7ff,#e1eefb);
+  border:1px solid #b8d3ee;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.95);
+  font-size:18px;
+  font-weight:850;
+  letter-spacing:4px;
+}
+.getkey-kicker-icon{
+  letter-spacing:0;
+  font-size:22px;
+  line-height:1;
+  transform:rotate(-12deg);
+}
+.getkey-main-title{
+  margin:15px 0 0;
+  font-size:clamp(38px,8vw,56px);
+  line-height:1.04;
+  font-weight:900;
+  letter-spacing:-1.8px;
+  color:#20242a;
+}
+#keys .key-card{
+  position:relative;
+  overflow:hidden;
+  border-radius:25px !important;
+  background:rgba(255,255,255,.94) !important;
+  border:1px solid rgba(215,218,223,.75) !important;
+  box-shadow:0 12px 28px rgba(32,43,58,.08) !important;
+  margin-bottom:14px !important;
+}
+#keys .key-card .card-main{
+  min-height:126px !important;
+  padding:18px 38px !important;
+  gap:28px !important;
+}
+#keys .key-card .key-icon{
+  width:128px !important;
+  height:128px !important;
+  min-width:128px !important;
+  padding:27px !important;
+  object-fit:contain !important;
+  box-sizing:border-box !important;
+  border-radius:28px !important;
+  background:linear-gradient(145deg,#0f5b9d,#1675c8) !important;
+  border:0 !important;
+  box-shadow:0 10px 22px rgba(20,99,168,.22), inset 0 1px 1px rgba(255,255,255,.18) !important;
+  filter:none !important;
+  animation:none !important;
+}
+#keys .key-card.key-card-android .key-icon{
+  background:linear-gradient(145deg,#07572b,#159447) !important;
+  box-shadow:0 10px 22px rgba(16,116,62,.22), inset 0 1px 1px rgba(255,255,255,.18) !important;
+}
+#keys .key-card .info{
+  position:relative;
+  z-index:3;
+}
+#keys .key-card .app-name{
+  display:block;
+  font-size:22px !important;
+  line-height:1.2 !important;
+  font-weight:850 !important;
+  color:#20242a !important;
+  margin-bottom:8px !important;
+}
+#keys .key-card .update-line{
+  font-size:17px !important;
+  line-height:1.25 !important;
+  color:#555a62 !important;
+}
+#keys .key-card .meta-row{display:none !important;}
+#keys .key-card .key-open-btn{
+  position:absolute !important;
+  inset:0 !important;
+  z-index:4 !important;
+  width:100% !important;
+  min-width:0 !important;
+  height:100% !important;
+  min-height:0 !important;
+  flex:none !important;
+  padding:0 !important;
+  border:0 !important;
+  border-radius:25px !important;
+  background:transparent !important;
+  box-shadow:none !important;
+  opacity:0 !important;
+}
+#keys .key-card .key-open-icon{display:none !important;}
+#keys .key-card:hover{
+  transform:translateY(-1px);
+}
+@media(max-width:520px){
+  .getkey-heading{margin:22px 0 15px;}
+  .getkey-kicker{
+    padding:8px 20px;
+    font-size:16px;
+    letter-spacing:3.2px;
+  }
+  .getkey-kicker-icon{font-size:20px;}
+  .getkey-main-title{
+    margin-top:13px;
+    font-size:40px;
+    letter-spacing:-1.5px;
+  }
+  #keys .key-card .card-main{
+    min-height:118px !important;
+    padding:14px 18px !important;
+    gap:18px !important;
+  }
+  #keys .key-card .key-icon{
+    width:104px !important;
+    height:104px !important;
+    min-width:104px !important;
+    padding:23px !important;
+    border-radius:25px !important;
+  }
+  #keys .key-card .app-name{font-size:20px !important;}
+  #keys .key-card .update-line{font-size:16px !important;}
+}
+body.dark .getkey-main-title{color:#f4f7fa !important;}
+body.dark .getkey-kicker{
+  background:linear-gradient(180deg,#1b3148,#193047);
+  border-color:rgba(100,170,230,.35);
+}
+body.dark #keys .key-card{background:#17212b !important;border-color:rgba(255,255,255,.08) !important;}
+body.dark #keys .key-card .app-name{color:#f4f7fa !important;}
+body.dark #keys .key-card .update-line{color:#aeb8c2 !important;}

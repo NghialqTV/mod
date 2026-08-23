@@ -39,16 +39,15 @@ function noteRow(item){
 
   const icon = item.noteType === "warning"
     ? `<span class="notice-icon notice-icon-warning" aria-hidden="true">
-         <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
-           <path d="M12 3.5 21 19a1.3 1.3 0 0 1-1.12 1.95H4.12A1.3 1.3 0 0 1 3 19L12 3.5Z" fill="currentColor"/>
-           <path d="M12 8v5.2M12 16.7v.2" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+         <svg viewBox="0 0 24 24" width="20" height="20" fill="none">
+           <path d="M12 3.25 21.1 19a1.35 1.35 0 0 1-1.17 2.03H4.07A1.35 1.35 0 0 1 2.9 19L12 3.25Z" fill="currentColor"/>
+           <path d="M12 8v5.2M12 16.8v.2" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/>
          </svg>
        </span>`
     : `<span class="notice-icon notice-icon-list" aria-hidden="true">
-         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-           <rect x="5" y="3.5" width="14" height="17" rx="2.2"/>
-           <path d="M9 3.5v-1h6v1"/>
-           <path d="M9 8h6M9 12h6M9 16h4"/>
+         <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+           <path d="M7 4.5h10a1.5 1.5 0 0 1 1.5 1.5v12A1.5 1.5 0 0 1 17 19.5H7A1.5 1.5 0 0 1 5.5 18V6A1.5 1.5 0 0 1 7 4.5Z"/>
+           <path d="m8.2 9 1.2 1.2 2-2M13.5 9h3M8.2 13l1.2 1.2 2-2M13.5 13h3M8.2 17l1.2 1.2 2-2M13.5 17h3"/>
          </svg>
        </span>`;
 
@@ -75,9 +74,9 @@ function render(url, boxId){
     })
     .then(data => {
       document.getElementById(boxId).innerHTML = data.map((i, index) => `
-        <article class="card app-card" style="--card-index:${index}">
+        <article class="card app-card ${boxId === "keys" ? `key-card key-card-${escapeHtml(String(i.platform || "ios").toLowerCase())}` : ""}" style="--card-index:${index}">
           <div class="card-main">
-            <img class="icon" src="${escapeHtml(i.icon || "assets/icons/app.png")}" alt="">
+            <img class="icon ${boxId === "keys" ? "key-icon" : ""}" src="${escapeHtml(i.icon || "assets/icons/app.png")}" alt="">
             <div class="info">
               <b class="app-name">${escapeHtml(i.name)}</b>
               <div class="update-line">• ${escapeHtml(i.version || "")}</div>
