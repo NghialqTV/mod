@@ -213,22 +213,6 @@ if(localStorage.getItem("dark") === "true"){
   document.body.classList.add("dark");
 }
 
-/* ===== HOA MAI RƠI ===== */
-const maiFall = document.getElementById("mai-fall");
-function createMai(){
-  if(!maiFall) return;
-  const m=document.createElement("div");
-  m.className="mai";
-  m.innerText="🌟";
-  m.style.left=Math.random()*100+"vw";
-  m.style.fontSize=(14+Math.random()*10)+"px";
-  m.style.animationDuration=(5+Math.random()*4)+"s";
-  m.style.opacity=Math.random()*.6+.4;
-  maiFall.appendChild(m);
-  setTimeout(()=>m.remove(),10000);
-}
-setInterval(createMai,900);
-
 /* ===== MOD SKIN DATA ===== */
 fetch("data/mods.json?v="+Date.now())
   .then(res=>res.json())
