@@ -1,6 +1,6 @@
 [
   {
-    "name": "Mod skin Android",
+    "name": "Menu Mod skin Android",
     "version": " Cập Nhật 19/8",
     "icon": "assets/icons/app.png",
     "link": "https://nghialqtv.github.io/SubUnlock/?id=modmenuandroid64",
@@ -9,13 +9,13 @@
       "assets/previews/menu-list.jpg",
       "assets/previews/unlock-note.jpg"
     ],
-    "note": "📋 Danh sách skin gặp lỗi khi unlock",
+    "note": "Danh sách skin lỗi mạng khi Unlock",
     "previewTitle": "Preview",
     "noteType": "link",
     "noteLink": "https://unlock.tumadam.com/note-list-skin.html"
   },
   {
-    "name": "Map Sáng Android V1",
+    "name": "Menu Hack Map Android",
     "version": " Cập Nhật 19/8",
     "icon": "assets/icons/app.png",
     "link": "https://nghialqtv.github.io/SubUnlock/?id=hackmenuandroid64",
@@ -24,13 +24,13 @@
       "assets/previews/menu-list.jpg",
       "assets/previews/map-warning.jpg"
     ],
-    "note": "⚠️ Lưu ý khi dùng Map",
+    "note": "Lưu ý khi dùng Map",
     "previewTitle": "Preview",
     "noteType": "warning",
     "noteAction": "map-warning"
   },
   {
-    "name": "Map Sáng Android V2",
+    "name": "Menu Hack Map Android V2",
     "version": " Cập Nhật 19/8",
     "icon": "assets/icons/app.png",
     "link": "https://nghialqtv.github.io/SubUnlock/?id=hackv2tachgoc",
@@ -39,7 +39,7 @@
       "assets/previews/menu-list.jpg",
       "assets/previews/map-warning.jpg"
     ],
-    "note": "⚠️ Lưu ý khi dùng Map",
+    "note": "Lưu ý khi dùng Map",
     "previewTitle": "Preview",
     "noteType": "warning",
     "noteAction": "map-warning"
@@ -56,7 +56,7 @@
     "noteType": "info"
   },
   {
-    "name": "Mod Skin IOS",
+    "name": "AOV Mod Skin IOS",
     "version": "Cập Nhật 19/8",
     "icon": "assets/icons/app.png",
     "link": "https://nghialqtv.github.io/SubUnlock/?id=modmenuios",
@@ -65,13 +65,13 @@
       "assets/previews/menu-list.jpg",
       "assets/previews/unlock-note.jpg"
     ],
-    "note": "📋 Danh sách skin gặp lỗi khi unlock",
+    "note": "Danh sách skin lỗi mạng khi Unlock",
     "previewTitle": "Preview",
     "noteType": "link",
     "noteLink": "https://unlock.tumadam.com/note-list-skin.html"
   },
   {
-    "name": "Map Sáng IOS",
+    "name": "AOV Hack Map IOS",
     "version": "Cập Nhật 19/8",
     "icon": "assets/icons/app.png",
     "link": "https://nghialqtv.github.io/SubUnlock/?id=hacenuios",
@@ -80,7 +80,7 @@
       "assets/previews/menu-list.jpg",
       "assets/previews/map-warning.jpg"
     ],
-    "note": "⚠️ Lưu ý khi dùng Map",
+    "note": "Lưu ý khi dùng Map",
     "previewTitle": "Preview",
     "noteType": "warning",
     "noteAction": "map-warning"
