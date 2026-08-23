@@ -2595,3 +2595,120 @@ body.dark .youtube-follow-info span{
     font-size:19px;
   }
 }
+
+/* ===== FIX MOBILE STATS / YOUTUBE OVERFLOW ===== */
+html,body{
+  width:100%;
+  max-width:100%;
+  overflow-x:hidden !important;
+}
+
+.site-stats-section,
+.stats-card,
+.youtube-follow-card{
+  width:100%;
+  max-width:100%;
+  box-sizing:border-box;
+}
+
+.stats-card{
+  grid-template-columns:minmax(0,1fr) 1px minmax(0,1fr);
+}
+
+.stat-item{
+  min-width:0;
+  overflow:hidden;
+}
+
+.stat-chart{
+  width:100%;
+  height:40px !important;
+  overflow:hidden;
+  transform:none !important;
+}
+
+.stat-chart svg{
+  display:block !important;
+  width:78px !important;
+  height:40px !important;
+  max-width:78px !important;
+  max-height:40px !important;
+  min-width:0 !important;
+  margin:0 auto !important;
+}
+
+.youtube-follow-icon{
+  flex:0 0 auto;
+  overflow:hidden;
+}
+
+.youtube-follow-icon img{
+  display:block !important;
+  width:48px !important;
+  height:48px !important;
+  max-width:48px !important;
+  max-height:48px !important;
+  min-width:0 !important;
+  min-height:0 !important;
+  object-fit:contain !important;
+}
+
+.youtube-follow-card > *{
+  min-width:0;
+}
+
+@media (max-width:700px){
+  .site-stats-section{
+    width:calc(100% - 28px);
+    margin-left:14px;
+    margin-right:14px;
+  }
+  .stats-card{
+    width:100%;
+    min-height:200px;
+  }
+  .stat-chart{
+    height:30px !important;
+  }
+  .stat-chart svg{
+    width:62px !important;
+    height:30px !important;
+    max-width:62px !important;
+    max-height:30px !important;
+  }
+  .youtube-follow-card{
+    width:100%;
+  }
+  .youtube-follow-icon img{
+    width:38px !important;
+    height:38px !important;
+    max-width:38px !important;
+    max-height:38px !important;
+  }
+}
+
+/* CSS zigzag chart: avoids SVG sizing bugs on mobile browsers */
+.stat-zigzag{
+  display:block;
+  width:78px;
+  height:38px;
+  margin:0 auto;
+  position:relative;
+  overflow:hidden;
+}
+.stat-zigzag::before{
+  content:"";
+  position:absolute;
+  left:4px;
+  top:4px;
+  width:68px;
+  height:25px;
+  border-top:6px solid #4d74e8;
+  border-right:6px solid #4d74e8;
+  transform:skewY(-24deg) rotate(14deg);
+  border-radius:3px;
+}
+@media(max-width:700px){
+  .stat-zigzag{width:62px;height:28px}
+  .stat-zigzag::before{width:54px;height:20px;border-width:5px}
+}
