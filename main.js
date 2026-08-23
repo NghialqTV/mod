@@ -88,7 +88,6 @@ function render(url, boxId){
             </div>
             <a class="${boxId === "keys" ? "download-btn key-open-btn" : "download-btn"}" href="${escapeHtml(i.link || "#")}" target="_blank" rel="noopener" aria-label="${boxId === "keys" ? "Mở Get Key" : "Tải xuống"}">
               <span class="${boxId === "keys" ? "key-open-icon" : "download-icon"}" aria-hidden="true">${boxId === "keys" ? "↗" : "⇩"}</span>
-              ${boxId === "keys" ? "" : '<span class="download-label">Tải</span>'}
             </a>
           </div>
           ${noteRow(i)}
@@ -117,7 +116,6 @@ function renderFiles(){
             </div>
             <a class="download-btn" href="${escapeHtml(f.link || "#")}" target="_blank" rel="noopener" aria-label="Tải xuống">
               <span class="download-icon" aria-hidden="true">⇩</span>
-              <span class="download-label">Tải</span>
             </a>
           </div>
         </article>

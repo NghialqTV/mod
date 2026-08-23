@@ -1884,3 +1884,74 @@ body.dark #keys .key-open-icon{
     height:17px;
   }
 }
+
+
+/* ===== KEY ICON ANIMATION + CLEAN DOWNLOAD BUTTON ===== */
+#keys .card-main > .icon{
+  animation:keyIconFloat 2.8s ease-in-out infinite !important;
+  transform-origin:50% 55% !important;
+  will-change:transform,filter !important;
+}
+
+@keyframes keyIconFloat{
+  0%,100%{
+    transform:translateY(0) rotate(-3deg) scale(1);
+    filter:drop-shadow(0 4px 8px rgba(37,99,235,.12));
+  }
+  25%{
+    transform:translateY(-3px) rotate(2deg) scale(1.025);
+    filter:drop-shadow(0 7px 12px rgba(37,99,235,.20));
+  }
+  50%{
+    transform:translateY(-1px) rotate(5deg) scale(1.04);
+    filter:drop-shadow(0 9px 15px rgba(37,99,235,.24));
+  }
+  75%{
+    transform:translateY(-3px) rotate(1deg) scale(1.025);
+    filter:drop-shadow(0 7px 12px rgba(37,99,235,.20));
+  }
+}
+
+#keys .card:hover .card-main > .icon{
+  animation-play-state:paused !important;
+  transform:translateY(-4px) rotate(6deg) scale(1.06) !important;
+}
+
+/* Download button: icon only, no "Tải" text */
+.download-btn{
+  flex-basis:76px !important;
+  width:76px !important;
+  min-width:76px !important;
+  height:62px !important;
+  padding:0 !important;
+  gap:0 !important;
+}
+.download-btn .download-icon{
+  width:38px !important;
+  height:38px !important;
+  flex:0 0 38px !important;
+  border-radius:12px !important;
+  font-size:25px !important;
+}
+.download-btn .download-label{display:none !important;}
+
+@media(max-width:520px){
+  .download-btn{
+    flex-basis:66px !important;
+    width:66px !important;
+    min-width:66px !important;
+    height:58px !important;
+    border-radius:17px !important;
+  }
+  .download-btn .download-icon{
+    width:34px !important;
+    height:34px !important;
+    flex-basis:34px !important;
+    border-radius:10px !important;
+    font-size:23px !important;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  #keys .card-main > .icon{animation:none !important;}
+}
