@@ -33,18 +33,38 @@ function previewButton(item){
 
 function noteRow(item){
   if(!item.note) return "";
+
   const cls = item.noteType === "warning" ? "notice warning" : "notice";
+  const text = escapeHtml(item.note.replace(/^[\\s]*(?:⚠️|📋|📔)+[\\s]*/u, ""));
+
+  const icon = item.noteType === "warning"
+    ? `<span class="notice-icon notice-icon-warning" aria-hidden="true">
+         <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+           <path d="M12 3.5 21 19a1.3 1.3 0 0 1-1.12 1.95H4.12A1.3 1.3 0 0 1 3 19L12 3.5Z" fill="currentColor"/>
+           <path d="M12 8v5.2M12 16.7v.2" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+         </svg>
+       </span>`
+    : `<span class="notice-icon notice-icon-list" aria-hidden="true">
+         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+           <rect x="5" y="3.5" width="14" height="17" rx="2.2"/>
+           <path d="M9 3.5v-1h6v1"/>
+           <path d="M9 8h6M9 12h6M9 16h4"/>
+         </svg>
+       </span>`;
+
   if(item.noteLink){
     return `<a class="${cls} notice-link" href="${escapeHtml(item.noteLink)}" target="_blank" rel="noopener">
-      <span>${escapeHtml(item.note.replace(/^[\s]*(?:⚠️|📋|📔)+[\s]*/u, ""))}</span><span class="notice-arrow" aria-hidden="true">↗</span>
+      ${icon}<span class="notice-text">${text}</span><span class="notice-arrow" aria-hidden="true">↗</span>
     </a>`;
   }
+
   if(item.noteAction === "map-warning"){
     return `<button type="button" class="${cls} notice-button" data-open-map-warning>
-      <span>${escapeHtml(item.note.replace(/^[\s]*(?:⚠️|📋|📔)+[\s]*/u, ""))}</span><span class="notice-arrow" aria-hidden="true">›</span>
+      ${icon}<span class="notice-text">${text}</span><span class="notice-arrow" aria-hidden="true">›</span>
     </button>`;
   }
-  return `<div class="${cls}"><span>${escapeHtml(item.note.replace(/^[\s]*(?:⚠️|📋|📔)+[\s]*/u, ""))}</span></div>`;
+
+  return `<div class="${cls}">${icon}<span class="notice-text">${text}</span></div>`;
 }
 
 function render(url, boxId){
