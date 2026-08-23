@@ -1,21 +1,21 @@
 [
-  {
-    "name": "Menu Mod skin Android",
-    "version": " Cập Nhật 19/8",
+{
+    "name": "Map Sáng AOV IOS",
+    "version": "Cập Nhật 19/8",
     "icon": "assets/icons/app.png",
-    "link": "https://nghialqtv.github.io/SubUnlock/?id=modmenuandroid64",
-    "platform": "android",
+    "link": "https://nghialqtv.github.io/SubUnlock/?id=hackmenuios",
+    "platform": "ios",
     "preview": [
       "assets/previews/menu-list.jpg",
-      "assets/previews/unlock-note.jpg"
+      "assets/previews/map-warning.jpg"
     ],
-    "note": "📔 Danh sách skin lỗi mạng khi Unlock",
+    "note": "⚠️ Lưu ý khi dùng Map",
     "previewTitle": "Preview",
-    "noteType": "link",
-    "noteLink": "https://unlock.tumadam.com/note-list-skin.html"
-  },
+    "noteType": "warning",
+    "noteAction": "map-warning"
+  }
   {
-    "name": "Menu Hack Map Android",
+    "name": "Map Sáng AOV Android V1",
     "version": " Cập Nhật 19/8",
     "icon": "assets/icons/app.png",
     "link": "https://nghialqtv.github.io/SubUnlock/?id=hackmenuandroid64",
@@ -30,7 +30,7 @@
     "noteAction": "map-warning"
   },
   {
-    "name": "Menu Hack Map Android V2",
+    "name": "Map Sáng AOV Android V2",
     "version": " Cập Nhật 19/8",
     "icon": "assets/icons/app.png",
     "link": "https://nghialqtv.github.io/SubUnlock/?id=hackv2tachgoc",
@@ -56,7 +56,7 @@
     "noteType": "info"
   },
   {
-    "name": "AOV Mod Skin IOS",
+    "name": "Unlock Skin IOS",
     "version": "Cập Nhật 19/8",
     "icon": "assets/icons/app.png",
     "link": "https://nghialqtv.github.io/SubUnlock/?id=modmenuios",
@@ -71,18 +71,18 @@
     "noteLink": "https://unlock.tumadam.com/note-list-skin.html"
   },
   {
-    "name": "AOV Hack Map IOS",
-    "version": "Cập Nhật 19/8",
+    "name": "Unlock Skin Android",
+    "version": " Cập Nhật 19/8",
     "icon": "assets/icons/app.png",
-    "link": "https://nghialqtv.github.io/SubUnlock/?id=hacenuios",
-    "platform": "ios",
+    "link": "https://nghialqtv.github.io/SubUnlock/?id=modmenuandroid64",
+    "platform": "android",
     "preview": [
       "assets/previews/menu-list.jpg",
-      "assets/previews/map-warning.jpg"
+      "assets/previews/unlock-note.jpg"
     ],
-    "note": "⚠️ Lưu ý khi dùng Map",
+    "note": "📔 Danh sách skin lỗi mạng khi Unlock",
     "previewTitle": "Preview",
-    "noteType": "warning",
-    "noteAction": "map-warning"
-  }
+    "noteType": "link",
+    "noteLink": "https://unlock.tumadam.com/note-list-skin.html"
+  },
 ]

@@ -1,14 +1,23 @@
 [
   {
-    "name": "Key Hack Map - Mod Skin Android",
-    "version": "Vượt 1 lần",
-    "icon": "assets/icons/key.png",
+    "name": "Key iOS",
+    "version": "Vượt 2 Lần",
+    "icon": "assets/icons/key-white.png",
+    "platform": "ios",
+    "link": "https://nghialqtv.github.io/SubUnlock/?id=keymenuios"
+  },
+  {
+    "name": "Key Android V1",
+    "version": "Vượt 1 Lần",
+    "icon": "assets/icons/key-white.png",
+    "platform": "ios",
     "link": "https://nghialqtv.github.io/SubUnlock/?id=keyandroid"
   },
   {
-    "name": "Key Mod Skin - Hack Map IOS",
-    "version": "Vượt 2 lần",
-    "icon": "assets/icons/key.png",
-    "link": "https://nghialqtv.github.io/SubUnlock/?id=keymenuios"
+    "name": "Key Android V2",
+    "version": "Vượt 1 Lần",
+    "icon": "assets/icons/key-white.png",
+    "platform": "android",
+    "link": "https://nghialqtv.github.io/SubUnlock/?id=keyandroidv2"
   }
 ]
