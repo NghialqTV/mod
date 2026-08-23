@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nghĩalq TV</title>
-<link rel="stylesheet" href="style.css?v=20260823fix2">
+<link rel="stylesheet" href="style.css?v=androidv2linkslogo1">
 <link rel="preload" as="image" href="assets/icons/logo.png">
 
 <style id="key-icon-rotate-effect">
@@ -150,6 +150,57 @@
 <div id="image-lightbox" class="image-lightbox" aria-hidden="true">
   <button type="button" class="lightbox-close" data-close-lightbox aria-label="Đóng">×</button>
   <img src="" alt="Preview">
+</div>
+
+
+<!-- ===== ANDROID CHOICE MODAL ===== -->
+<div id="android-choice-modal" class="android-choice-modal" aria-hidden="true">
+  <div class="android-choice-panel" role="dialog" aria-modal="true" aria-labelledby="android-choice-title">
+    <div class="android-choice-icon">
+      <img src="assets/icons/android.svg" alt="Android">
+    </div>
+
+    <h3 id="android-choice-title">Tải App Android</h3>
+    <p id="android-choice-subtitle">
+      Vui lòng chọn phiên bản muốn sử dụng
+    </p>
+
+    <div class="android-choice-actions">
+      <button type="button" class="android-choice-option primary" data-android-action="tach">
+        <span class="android-option-icon">▣</span>
+        <span>Tải MOD TÁCH GỐC</span>
+      </button>
+
+      <button type="button" class="android-choice-option secondary" data-android-action="gop">
+        <span class="android-option-icon">▣</span>
+        <span>Tải MOD GỘP GỐC</span>
+      </button>
+
+      <button type="button" class="android-choice-option key" data-android-action="key">
+        <span class="android-option-icon">⚿</span>
+        <span>Get Key Free</span>
+      </button>
+    </div>
+
+    <div class="android-paste-box">
+      <div class="android-paste-label">Hoặc dán link tải của bạn</div>
+      <div class="android-paste-row">
+        <input id="android-paste-link" type="url"
+          inputmode="url" autocomplete="off"
+          placeholder="Dán link https://...">
+        <button type="button" class="android-paste-btn" data-paste-android-link>
+          Dán
+        </button>
+      </div>
+      <button type="button" class="android-open-link-btn" data-android-action="paste">
+        Mở Link Đã Dán
+      </button>
+    </div>
+
+    <button type="button" class="android-choice-cancel" data-close-android-choice>
+      × &nbsp; Huỷ bỏ
+    </button>
+  </div>
 </div>
 
 <!-- ===== MAP WARNING MODAL ===== -->

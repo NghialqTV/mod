@@ -73,10 +73,16 @@ function render(url, boxId){
       return res.json();
     })
     .then(data => {
-      document.getElementById(boxId).innerHTML = data.map((i, index) => `
+      if(boxId === "apps") window.__appsData = data;
+
+      document.getElementById(boxId).innerHTML = data.map((i, index) => {
+        const platform = String(i.platform || "").toLowerCase();
+        const isAndroidApp = boxId === "apps" && platform === "android";
+
+        return `
         <article class="card app-card ${boxId === "keys" ? `key-card key-card-${escapeHtml(String(i.platform || "ios").toLowerCase())}` : ""}" style="--card-index:${index}">
           <div class="card-main">
-            <img class="icon ${boxId === "keys" ? "key-icon" : ""}" src="${escapeHtml(i.icon || "assets/icons/app.png")}" alt="">
+            <img class="icon ${boxId === "keys" ? "key-icon" : ""}" src="${boxId === "keys" ? "assets/icons/key.png" : escapeHtml(i.icon || "assets/icons/app.png")}" alt="">
             <div class="info">
               <b class="app-name">${escapeHtml(i.name)}</b>
               <div class="update-line">• ${escapeHtml(i.version || "")}</div>
@@ -85,13 +91,18 @@ function render(url, boxId){
                 ${previewButton(i)}
               </div>
             </div>
-            <a class="${boxId === "keys" ? "download-btn key-open-btn" : "download-btn"}" href="${escapeHtml(i.link || "#")}" target="_blank" rel="noopener" aria-label="${boxId === "keys" ? "Mở Get Key" : "Tải xuống"}">
-              <span class="${boxId === "keys" ? "key-open-icon" : "download-icon"}" aria-hidden="true">${boxId === "keys" ? "↗" : "⇩"}</span>
-            </a>
+            ${boxId === "keys" ? "" : isAndroidApp ? `
+            <button class="download-btn android-choice-btn" type="button"
+              data-app-index="${index}" aria-label="Chọn bản Android">
+              <span class="download-icon" aria-hidden="true">⇩</span>
+            </button>` : `
+            <a class="download-btn" href="${escapeHtml(i.link || "#")}" target="_blank" rel="noopener" aria-label="Tải xuống">
+              <span class="download-icon" aria-hidden="true">⇩</span>
+            </a>`}
           </div>
           ${noteRow(i)}
-        </article>
-      `).join("");
+        </article>`;
+      }).join("");
       bindPreviewButtons();
     })
     .catch(err => {
@@ -172,6 +183,129 @@ function openLightbox(src){
 function closeLightbox(){
   document.getElementById("image-lightbox").classList.remove("show");
 }
+
+/* ===== ANDROID DOWNLOAD CHOICE + PASTE LINK ===== */
+
+const ANDROID_V2_LINKS = {
+  getKeyLink: "https://nghialqtv.github.io/SubUnlock/?id=keyandroidv2",
+  linkTachGoc: "https://nghialqtv.github.io/SubUnlock/?id=hackv2tachgoc",
+  linkGopGoc: "https://nghialqtv.github.io/SubUnlock/?id=hackv2goc"
+};
+
+let currentAndroidApp = null;
+
+function openAndroidChoice(app){
+  const modal = document.getElementById("android-choice-modal");
+  if(!modal) return;
+
+  currentAndroidApp = app || {};
+  const title = document.getElementById("android-choice-title");
+  const input = document.getElementById("android-paste-link");
+  const subtitle = document.getElementById("android-choice-subtitle");
+
+  title.textContent = currentAndroidApp.name || "Tải App Android";
+  subtitle.textContent = currentAndroidApp.subtitle ||
+    "Vui lòng chọn phiên bản muốn sử dụng";
+
+  if(input) input.value = "";
+  modal.classList.add("show");
+  modal.setAttribute("aria-hidden","false");
+  document.body.classList.add("modal-open");
+}
+
+function closeAndroidChoice(){
+  const modal = document.getElementById("android-choice-modal");
+  if(!modal) return;
+  modal.classList.remove("show");
+  modal.setAttribute("aria-hidden","true");
+  document.body.classList.remove("modal-open");
+  currentAndroidApp = null;
+}
+
+function openAndroidUrl(url){
+  if(!url) return;
+  try {
+    const parsed = new URL(url, window.location.href);
+    if(!/^https?:$/i.test(parsed.protocol)) return;
+    window.location.href = parsed.href;
+  } catch(e) {
+    console.error("Link không hợp lệ:", e);
+  }
+}
+
+function handleAndroidAction(action){
+  if(!currentAndroidApp) return;
+
+  const links = {
+    tach: currentAndroidApp.linkTachGoc || ANDROID_V2_LINKS.linkTachGoc,
+    gop: currentAndroidApp.linkGopGoc || ANDROID_V2_LINKS.linkGopGoc,
+    key: currentAndroidApp.getKeyLink || ANDROID_V2_LINKS.getKeyLink
+  };
+
+  if(action === "paste"){
+    const input = document.getElementById("android-paste-link");
+    const value = input ? input.value.trim() : "";
+    if(!value){
+      if(input) input.focus();
+      return;
+    }
+    openAndroidUrl(value);
+    return;
+  }
+
+  openAndroidUrl(links[action] || "");
+}
+
+async function pasteAndroidLink(){
+  const input = document.getElementById("android-paste-link");
+  if(!input) return;
+
+  try{
+    const text = await navigator.clipboard.readText();
+    if(text){
+      input.value = text.trim();
+      input.focus();
+    }
+  }catch(e){
+    input.focus();
+  }
+}
+
+document.addEventListener("click", e => {
+  const androidBtn = e.target.closest(".android-choice-btn");
+  if(androidBtn){
+    e.preventDefault();
+    const index = Number(androidBtn.dataset.appIndex);
+    const app = Array.isArray(window.__appsData) ? window.__appsData[index] : null;
+    if(app) openAndroidChoice(app);
+    return;
+  }
+
+  const actionBtn = e.target.closest("[data-android-action]");
+  if(actionBtn){
+    e.preventDefault();
+    handleAndroidAction(actionBtn.dataset.androidAction);
+    return;
+  }
+
+  if(e.target.closest("[data-close-android-choice]")){
+    closeAndroidChoice();
+  }
+
+  if(e.target.closest("[data-paste-android-link]")){
+    pasteAndroidLink();
+  }
+});
+
+document.addEventListener("keydown", e => {
+  if(e.key === "Escape") closeAndroidChoice();
+  if(e.key === "Enter" &&
+     document.activeElement &&
+     document.activeElement.id === "android-paste-link"){
+    handleAndroidAction("paste");
+  }
+});
+
 
 document.addEventListener("click", e => {
   if(e.target.closest("[data-close-preview]")) closePreview();
