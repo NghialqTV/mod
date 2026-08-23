@@ -1656,3 +1656,113 @@ body.dark .download-btn{
     inset 0 1px 0 rgba(255,255,255,.31),
     inset 0 -4px 9px rgba(0,25,65,.24) !important;
 }
+
+
+/* ===== GET KEY — EXTERNAL LINK BUTTON ===== */
+#keys .key-open-btn{
+  flex:0 0 72px !important;
+  width:72px !important;
+  min-width:72px !important;
+  height:72px !important;
+  min-height:72px !important;
+  padding:0 !important;
+  border-radius:17px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:0 !important;
+  color:#20242a !important;
+  background:linear-gradient(145deg,#ffffff 0%,#f7f8fa 55%,#eef0f3 100%) !important;
+  border:1px solid #d9dde3 !important;
+  box-shadow:
+    0 5px 13px rgba(0,0,0,.055),
+    0 1px 2px rgba(0,0,0,.035),
+    inset 0 1px 0 rgba(255,255,255,.95) !important;
+  text-decoration:none !important;
+  transform:translateZ(0);
+  transition:
+    transform .18s ease,
+    box-shadow .18s ease,
+    background .18s ease;
+}
+
+#keys .key-open-btn::before,
+#keys .key-open-btn::after{
+  display:none !important;
+}
+
+#keys .key-open-icon{
+  width:42px !important;
+  height:42px !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  border-radius:12px !important;
+  color:#22262c !important;
+  background:rgba(255,255,255,.55) !important;
+  border:1px solid rgba(214,218,224,.8) !important;
+  font-size:29px !important;
+  line-height:1 !important;
+  font-weight:400 !important;
+  font-family:Arial,sans-serif !important;
+  text-shadow:none !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.9),
+    0 2px 5px rgba(0,0,0,.035) !important;
+}
+
+#keys .key-open-btn:hover{
+  transform:translateY(-2px);
+  background:linear-gradient(145deg,#ffffff,#f2f4f7) !important;
+  box-shadow:
+    0 9px 19px rgba(0,0,0,.09),
+    0 0 0 3px rgba(80,140,200,.055),
+    inset 0 1px 0 rgba(255,255,255,1) !important;
+}
+
+#keys .key-open-btn:hover .key-open-icon{
+  transform:translate(1px,-1px);
+}
+
+#keys .key-open-icon{
+  transition:transform .18s ease;
+}
+
+#keys .key-open-btn:active{
+  transform:scale(.94);
+  box-shadow:
+    0 3px 7px rgba(0,0,0,.07),
+    inset 0 2px 5px rgba(0,0,0,.045) !important;
+}
+
+body.dark #keys .key-open-btn{
+  background:linear-gradient(145deg,#27313b,#202830) !important;
+  border-color:rgba(255,255,255,.13) !important;
+  color:#f4f7fa !important;
+  box-shadow:
+    0 7px 17px rgba(0,0,0,.28),
+    inset 0 1px 0 rgba(255,255,255,.08) !important;
+}
+
+body.dark #keys .key-open-icon{
+  color:#f4f7fa !important;
+  background:rgba(255,255,255,.055) !important;
+  border-color:rgba(255,255,255,.10) !important;
+}
+
+@media(max-width:520px){
+  #keys .key-open-btn{
+    flex-basis:72px !important;
+    width:72px !important;
+    min-width:72px !important;
+    height:72px !important;
+    min-height:72px !important;
+    border-radius:17px !important;
+  }
+
+  #keys .key-open-icon{
+    width:41px !important;
+    height:41px !important;
+    font-size:28px !important;
+  }
+}
