@@ -34,6 +34,16 @@ function previewButton(item){
 function noteRow(item){
   if(!item.note) return "";
   const cls = item.noteType === "warning" ? "notice warning" : "notice";
+  if(item.noteLink){
+    return `<a class="${cls} notice-link" href="${escapeHtml(item.noteLink)}" target="_blank" rel="noopener">
+      <span>${item.noteType === "warning" ? "⚠️" : "📋"}</span><span>${escapeHtml(item.note)}</span><span class="notice-arrow">↗</span>
+    </a>`;
+  }
+  if(item.noteAction === "map-warning"){
+    return `<button type="button" class="${cls} notice-button" data-open-map-warning>
+      <span>⚠️</span><span>${escapeHtml(item.note)}</span><span class="notice-arrow">›</span>
+    </button>`;
+  }
   return `<div class="${cls}"><span>⚠️</span><span>${escapeHtml(item.note)}</span></div>`;
 }
 
@@ -52,6 +62,7 @@ function render(url, boxId){
               <b class="app-name">${escapeHtml(i.name)}</b>
               <div class="update-line">• ${escapeHtml(i.version || "")}</div>
               <div class="meta-row">
+                ${platformBadge(i.platform)}
                 ${previewButton(i)}
               </div>
             </div>
@@ -154,6 +165,29 @@ document.addEventListener("keydown", e => {
 render("data/apps.json", "apps");
 render("data/keys.json", "keys");
 renderFiles();
+
+
+/* ===== MAP WARNING MODAL ===== */
+const mapWarningModal = document.getElementById("map-warning-modal");
+function openMapWarning(){
+  if(!mapWarningModal) return;
+  mapWarningModal.classList.add("show");
+  mapWarningModal.setAttribute("aria-hidden","false");
+  document.body.classList.add("modal-open");
+}
+function closeMapWarning(){
+  if(!mapWarningModal) return;
+  mapWarningModal.classList.remove("show");
+  mapWarningModal.setAttribute("aria-hidden","true");
+  document.body.classList.remove("modal-open");
+}
+document.addEventListener("click", e => {
+  if(e.target.closest("[data-open-map-warning]")) openMapWarning();
+  if(e.target.closest("[data-close-map-warning]")) closeMapWarning();
+});
+document.addEventListener("keydown", e => {
+  if(e.key === "Escape") closeMapWarning();
+});
 
 /* ===== DARK MODE ===== */
 if(localStorage.getItem("dark") === "true"){
