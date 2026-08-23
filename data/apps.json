@@ -5,9 +5,14 @@
     "icon": "assets/icons/app.png",
     "link": "https://nghialqtv.github.io/SubUnlock/?id=modmenuandroid64",
     "platform": "android",
-    "preview": [],
-    "note": "",
-    "previewTitle": "Preview"
+    "preview": [
+      "assets/previews/menu-list.jpg",
+      "assets/previews/unlock-note.jpg"
+    ],
+    "note": "📋 Danh sách skin gặp lỗi khi unlock",
+    "previewTitle": "Preview",
+    "noteType": "link",
+    "noteLink": "https://unlock.tumadam.com/note-list-skin.html"
   },
   {
     "name": "Menu Hack Map Android",
@@ -15,9 +20,14 @@
     "icon": "assets/icons/app.png",
     "link": "https://nghialqtv.github.io/SubUnlock/?id=hackmenuandroid64",
     "platform": "android",
-    "preview": [],
-    "note": "",
-    "previewTitle": "Preview"
+    "preview": [
+      "assets/previews/menu-list.jpg",
+      "assets/previews/map-warning.jpg"
+    ],
+    "note": "⚠️ Lưu ý khi dùng Map",
+    "previewTitle": "Preview",
+    "noteType": "warning",
+    "noteAction": "map-warning"
   },
   {
     "name": "Menu Hack Map Android V2",
@@ -25,9 +35,14 @@
     "icon": "assets/icons/app.png",
     "link": "https://nghialqtv.github.io/SubUnlock/?id=hackv2tachgoc",
     "platform": "android",
-    "preview": [],
-    "note": "",
-    "previewTitle": "Preview"
+    "preview": [
+      "assets/previews/menu-list.jpg",
+      "assets/previews/map-warning.jpg"
+    ],
+    "note": "⚠️ Lưu ý khi dùng Map",
+    "previewTitle": "Preview",
+    "noteType": "warning",
+    "noteAction": "map-warning"
   },
   {
     "name": "IPA NO KEY",
@@ -37,7 +52,8 @@
     "platform": "ios",
     "preview": [],
     "note": "",
-    "previewTitle": "Preview"
+    "previewTitle": "Preview",
+    "noteType": "info"
   },
   {
     "name": "AOV Mod Skin IOS",
@@ -45,9 +61,14 @@
     "icon": "assets/icons/app.png",
     "link": "https://nghialqtv.github.io/SubUnlock/?id=modmenuios",
     "platform": "ios",
-    "preview": [],
-    "note": "",
-    "previewTitle": "Preview"
+    "preview": [
+      "assets/previews/menu-list.jpg",
+      "assets/previews/unlock-note.jpg"
+    ],
+    "note": "📋 Danh sách skin gặp lỗi khi unlock",
+    "previewTitle": "Preview",
+    "noteType": "link",
+    "noteLink": "https://unlock.tumadam.com/note-list-skin.html"
   },
   {
     "name": "AOV Hack Map IOS",
@@ -55,8 +76,13 @@
     "icon": "assets/icons/app.png",
     "link": "https://nghialqtv.github.io/SubUnlock/?id=hacenuios",
     "platform": "ios",
-    "preview": [],
-    "note": "",
-    "previewTitle": "Preview"
+    "preview": [
+      "assets/previews/menu-list.jpg",
+      "assets/previews/map-warning.jpg"
+    ],
+    "note": "⚠️ Lưu ý khi dùng Map",
+    "previewTitle": "Preview",
+    "noteType": "warning",
+    "noteAction": "map-warning"
   }
 ]
