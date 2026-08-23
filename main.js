@@ -36,15 +36,15 @@ function noteRow(item){
   const cls = item.noteType === "warning" ? "notice warning" : "notice";
   if(item.noteLink){
     return `<a class="${cls} notice-link" href="${escapeHtml(item.noteLink)}" target="_blank" rel="noopener">
-      <span>${item.noteType === "warning" ? "⚠️" : "📋"}</span><span>${escapeHtml(item.note)}</span><span class="notice-arrow">↗</span>
+      <span>${escapeHtml(item.note.replace(/^[\s]*(?:⚠️|📋|📔)+[\s]*/u, ""))}</span><span class="notice-arrow" aria-hidden="true">↗</span>
     </a>`;
   }
   if(item.noteAction === "map-warning"){
     return `<button type="button" class="${cls} notice-button" data-open-map-warning>
-      <span>⚠️</span><span>${escapeHtml(item.note)}</span><span class="notice-arrow">›</span>
+      <span>${escapeHtml(item.note.replace(/^[\s]*(?:⚠️|📋|📔)+[\s]*/u, ""))}</span><span class="notice-arrow" aria-hidden="true">›</span>
     </button>`;
   }
-  return `<div class="${cls}"><span>⚠️</span><span>${escapeHtml(item.note)}</span></div>`;
+  return `<div class="${cls}"><span>${escapeHtml(item.note.replace(/^[\s]*(?:⚠️|📋|📔)+[\s]*/u, ""))}</span></div>`;
 }
 
 function render(url, boxId){
@@ -67,7 +67,8 @@ function render(url, boxId){
               </div>
             </div>
             <a class="download-btn" href="${escapeHtml(i.link || "#")}" target="_blank" rel="noopener" aria-label="Tải xuống">
-              <span>⇩</span>
+              <span class="download-icon" aria-hidden="true">⇩</span>
+              <span class="download-label">Tải</span>
             </a>
           </div>
           ${noteRow(i)}
@@ -95,7 +96,8 @@ function renderFiles(){
               <div class="update-line">• ${escapeHtml(f.version || "")}</div>
             </div>
             <a class="download-btn" href="${escapeHtml(f.link || "#")}" target="_blank" rel="noopener" aria-label="Tải xuống">
-              <span>⇩</span>
+              <span class="download-icon" aria-hidden="true">⇩</span>
+              <span class="download-label">Tải</span>
             </a>
           </div>
         </article>
