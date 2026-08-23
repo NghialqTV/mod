@@ -9,7 +9,7 @@ function platformBadge(platform){
   if(!platform) return "";
   const p = String(platform).toLowerCase();
   const label = p === "android" ? "Android" : p === "ios" ? "iOS" : p;
-  const icon = (p === "android" || p === "ios") ? `assets/icons/${p}.svg` : "";
+  const icon = p === "android" ? "assets/icons/android-v2.png" : p === "ios" ? "assets/icons/ios.svg" : "";
   return `
     <span class="platform-badge ${escapeHtml(p)}">
       ${icon ? `<img src="${icon}" alt="${label}">` : ""}
