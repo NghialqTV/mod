@@ -255,52 +255,36 @@ if(toggle){
 })();
 
 
-/* ===== SITE VISIT STATISTICS =====
-   CounterAPI được dùng để đồng bộ lượt truy cập giữa các thiết bị.
-   Nếu API tạm thời không phản hồi, hệ thống tự dùng bộ đếm local làm dự phòng.
+/* ===== DISPLAY-ONLY VISIT STATISTICS =====
+   Số liệu mô phỏng để hiển thị giao diện, không phải analytics thực.
 */
-async function initSiteVisitStats(){
+function initSiteVisitStats(){
   const totalEl = document.getElementById("total-visits");
   const todayEl = document.getElementById("today-visits");
   if(!totalEl || !todayEl) return;
 
-  const namespace = "nghialqtv-web";
+  const formatNumber = n => Number(n || 0).toLocaleString("vi-VN");
   const now = new Date();
   const dateKey = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,"0")}-${String(now.getDate()).padStart(2,"0")}`;
-  const formatNumber = n => Number(n || 0).toLocaleString("vi-VN");
 
-  try{
-    const [totalRes, todayRes] = await Promise.all([
-      fetch(`https://api.counterapi.dev/v1/${namespace}/total/up`, {cache:"no-store"}),
-      fetch(`https://api.counterapi.dev/v1/${namespace}/today-${dateKey}/up`, {cache:"no-store"})
-    ]);
+  // Mốc hiển thị mô phỏng theo giao diện mẫu.
+  const BASE_TOTAL = 371428;
+  const BASE_TODAY = 31268;
 
-    if(!totalRes.ok || !todayRes.ok) throw new Error("Counter API unavailable");
-
-    const totalData = await totalRes.json();
-    const todayData = await todayRes.json();
-    const total = Number(totalData.count ?? totalData.up_count ?? 0);
-    const today = Number(todayData.count ?? todayData.up_count ?? 0);
-
-    totalEl.textContent = formatNumber(total);
-    todayEl.textContent = `+${formatNumber(today)}`;
-    return;
-  }catch(error){
-    console.warn("Không thể đồng bộ lượt truy cập online, dùng bộ đếm cục bộ.", error);
+  const storedDate = localStorage.getItem("nghialqtv_fake_visit_date");
+  let sessionAdd = Number(localStorage.getItem("nghialqtv_fake_session_add") || 0);
+  if(storedDate !== dateKey){
+    sessionAdd = 0;
+    localStorage.setItem("nghialqtv_fake_visit_date", dateKey);
   }
 
-  const localTotalKey = "nghialqtv_total_visits_local";
-  const localDateKey = "nghialqtv_today_date";
-  const localTodayKey = "nghialqtv_today_visits";
-  const storedDate = localStorage.getItem(localDateKey);
+  // Mỗi lần mở trang chỉ tăng nhẹ để số liệu không đứng yên.
+  if(!sessionStorage.getItem("nghialqtv_fake_counted")){
+    sessionAdd += 1;
+    localStorage.setItem("nghialqtv_fake_session_add", String(sessionAdd));
+    sessionStorage.setItem("nghialqtv_fake_counted", "1");
+  }
 
-  let total = Number(localStorage.getItem(localTotalKey) || 0) + 1;
-  let today = storedDate === dateKey ? Number(localStorage.getItem(localTodayKey) || 0) + 1 : 1;
-
-  localStorage.setItem(localTotalKey, String(total));
-  localStorage.setItem(localDateKey, dateKey);
-  localStorage.setItem(localTodayKey, String(today));
-
-  totalEl.textContent = formatNumber(total);
-  todayEl.textContent = `+${formatNumber(today)}`;
+  totalEl.textContent = formatNumber(BASE_TOTAL + sessionAdd);
+  todayEl.textContent = `+${formatNumber(BASE_TODAY + sessionAdd)}`;
 }

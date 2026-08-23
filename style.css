@@ -2596,23 +2596,28 @@ body.dark .youtube-follow-info span{
   }
 }
 
-/* ===== FIX MOBILE STATS / YOUTUBE OVERFLOW ===== */
-html,body{
+
+/* ===== FIX THỐNG KÊ MOBILE / CHỐNG SVG & ẢNH PHÓNG TO ===== */
+html, body{
   width:100%;
   max-width:100%;
   overflow-x:hidden !important;
 }
 
 .site-stats-section,
-.stats-card,
-.youtube-follow-card{
-  width:100%;
-  max-width:100%;
+.site-stats-section *{
   box-sizing:border-box;
 }
 
+.site-stats-section{
+  width:auto;
+  max-width:100%;
+}
+
 .stats-card{
-  grid-template-columns:minmax(0,1fr) 1px minmax(0,1fr);
+  width:100%;
+  min-width:0;
+  overflow:hidden !important;
 }
 
 .stat-item{
@@ -2622,93 +2627,105 @@ html,body{
 
 .stat-chart{
   width:100%;
+  max-width:100%;
   height:40px !important;
   overflow:hidden;
   transform:none !important;
 }
 
-.stat-chart svg{
+.site-stats-section .stat-chart svg{
   display:block !important;
   width:78px !important;
-  height:40px !important;
   max-width:78px !important;
+  min-width:78px !important;
+  height:40px !important;
   max-height:40px !important;
-  min-width:0 !important;
+  min-height:40px !important;
   margin:0 auto !important;
+  transform:none !important;
 }
 
-.youtube-follow-icon{
-  flex:0 0 auto;
-  overflow:hidden;
+.site-stats-section .youtube-follow-icon{
+  width:88px !important;
+  min-width:88px !important;
+  height:88px !important;
+  min-height:88px !important;
+  overflow:hidden !important;
 }
 
-.youtube-follow-icon img{
+.site-stats-section .youtube-follow-icon img{
   display:block !important;
   width:48px !important;
-  height:48px !important;
   max-width:48px !important;
+  min-width:48px !important;
+  height:48px !important;
   max-height:48px !important;
-  min-width:0 !important;
-  min-height:0 !important;
+  min-height:48px !important;
   object-fit:contain !important;
 }
 
-.youtube-follow-card > *{
+.youtube-follow-card{
+  width:100%;
+  max-width:100%;
   min-width:0;
+  overflow:hidden;
+}
+
+.youtube-follow-info{
+  min-width:0 !important;
+  overflow:hidden;
+}
+
+.youtube-follow-info strong,
+.youtube-follow-info span{
+  overflow-wrap:anywhere;
+}
+
+.youtube-subscribe{
+  min-width:0;
+  max-width:100%;
 }
 
 @media (max-width:700px){
   .site-stats-section{
-    width:calc(100% - 28px);
-    margin-left:14px;
-    margin-right:14px;
+    margin-left:14px !important;
+    margin-right:14px !important;
   }
-  .stats-card{
-    width:100%;
-    min-height:200px;
-  }
-  .stat-chart{
-    height:30px !important;
-  }
-  .stat-chart svg{
-    width:62px !important;
-    height:30px !important;
-    max-width:62px !important;
-    max-height:30px !important;
-  }
-  .youtube-follow-card{
-    width:100%;
-  }
-  .youtube-follow-icon img{
-    width:38px !important;
-    height:38px !important;
-    max-width:38px !important;
-    max-height:38px !important;
-  }
-}
 
-/* CSS zigzag chart: avoids SVG sizing bugs on mobile browsers */
-.stat-zigzag{
-  display:block;
-  width:78px;
-  height:38px;
-  margin:0 auto;
-  position:relative;
-  overflow:hidden;
-}
-.stat-zigzag::before{
-  content:"";
-  position:absolute;
-  left:4px;
-  top:4px;
-  width:68px;
-  height:25px;
-  border-top:6px solid #4d74e8;
-  border-right:6px solid #4d74e8;
-  transform:skewY(-24deg) rotate(14deg);
-  border-radius:3px;
-}
-@media(max-width:700px){
-  .stat-zigzag{width:62px;height:28px}
-  .stat-zigzag::before{width:54px;height:20px;border-width:5px}
+  .stats-card{
+    min-height:200px !important;
+    grid-template-columns:minmax(0,1fr) 1px minmax(0,1fr) !important;
+    padding:24px 10px 22px !important;
+  }
+
+  .site-stats-section .stat-chart svg{
+    width:62px !important;
+    max-width:62px !important;
+    min-width:62px !important;
+    height:30px !important;
+    max-height:30px !important;
+    min-height:30px !important;
+  }
+
+  .site-stats-section .youtube-follow-card{
+    grid-template-columns:70px minmax(0,1fr) !important;
+    width:100% !important;
+    padding:20px !important;
+  }
+
+  .site-stats-section .youtube-follow-icon{
+    width:70px !important;
+    min-width:70px !important;
+    height:70px !important;
+    min-height:70px !important;
+  }
+
+  .site-stats-section .youtube-follow-icon img{
+    width:38px !important;
+    max-width:38px !important;
+    min-width:38px !important;
+    height:38px !important;
+    max-height:38px !important;
+    min-height:38px !important;
+  }
 }
