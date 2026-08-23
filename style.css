@@ -1502,3 +1502,226 @@ body.dark .mod-item{
   }
 }
 \n\n/* ===== NOTICE ICONS + PREMIUM DOWNLOAD ===== */\n.app-card .notice-icon{\n  width:30px !important;\n  height:30px !important;\n  min-width:30px !important;\n  display:inline-flex !important;\n  align-items:center !important;\n  justify-content:center !important;\n  border-radius:10px !important;\n  font-family:Arial,sans-serif !important;\n  font-size:21px !important;\n  font-weight:900 !important;\n  line-height:1 !important;\n  flex:0 0 30px !important;\n  box-shadow:0 5px 12px rgba(50,80,150,.13) !important;\n}\n.app-card .list-icon{\n  color:#2563eb !important;\n  background:linear-gradient(145deg,#e8f1ff,#cfe1ff) !important;\n  border:1px solid #b7d1ff !important;\n  font-size:25px !important;\n  padding-bottom:4px;\n}\n.app-card .warning-icon{\n  color:#d97706 !important;\n  background:linear-gradient(145deg,#fff5d6,#ffe7a1) !important;\n  border:1px solid #ffd36a !important;\n}\n.app-card .notice-text{\n  flex:1 1 auto !important;\n  min-width:0 !important;\n  font-weight:650 !important;\n}\n.app-card .notice-link,\n.app-card .notice-button,\n.app-card .notice{\n  gap:11px !important;\n}\n\n.download-btn{\n  width:104px !important;\n  height:72px !important;\n  min-width:104px !important;\n  padding:0 14px !important;\n  display:flex !important;\n  align-items:center !important;\n  justify-content:center !important;\n  gap:7px !important;\n  border:1px solid rgba(255,255,255,.45) !important;\n  border-radius:22px !important;\n  background:linear-gradient(145deg,#2563eb 0%,#1677e8 48%,#06b6d4 100%) !important;\n  color:#fff !important;\n  box-shadow:0 12px 24px rgba(37,99,235,.28), inset 0 1px 1px rgba(255,255,255,.4) !important;\n  position:relative !important;\n  overflow:hidden !important;\n  transition:transform .2s ease, box-shadow .2s ease, filter .2s ease !important;\n}\n.download-btn::before{\n  content:\"\" !important;\n  position:absolute !important;\n  left:8%; right:8%; top:6px; height:35%;\n  border-radius:999px !important;\n  background:linear-gradient(180deg,rgba(255,255,255,.27),rgba(255,255,255,0)) !important;\n  pointer-events:none !important;\n}\n.download-btn:hover{\n  transform:translateY(-3px) !important;\n  filter:saturate(1.08) brightness(1.04) !important;\n  box-shadow:0 16px 30px rgba(37,99,235,.35), inset 0 1px 1px rgba(255,255,255,.5) !important;\n}\n.download-btn:active{transform:scale(.95) !important;}\n.download-icon{\n  font-size:29px !important;\n  font-weight:800 !important;\n  line-height:1 !important;\n  text-shadow:0 2px 4px rgba(0,0,0,.18) !important;\n  z-index:1 !important;\n}\n.download-label{\n  font-size:16px !important;\n  font-weight:850 !important;\n  letter-spacing:.2px !important;\n  z-index:1 !important;\n}\n@media(max-width:520px){\n  .download-btn{width:94px !important;min-width:94px !important;height:64px !important;border-radius:20px !important;gap:5px !important;}\n  .download-icon{font-size:26px !important;}\n  .download-label{font-size:14px !important;}\n  .app-card .notice-icon{width:28px !important;height:28px !important;min-width:28px !important;flex-basis:28px !important;font-size:19px !important;}\n}\n
+
+/* ===== GET KEY ICON - PREMIUM ===== */
+#keys .card-main > .icon{
+  width:76px !important;
+  height:76px !important;
+  min-width:76px !important;
+  object-fit:contain !important;
+  padding:14px !important;
+  box-sizing:border-box !important;
+  border-radius:22px !important;
+  background:linear-gradient(145deg,#eaf5ff 0%,#d5e9ff 45%,#c5dcff 100%) !important;
+  border:1px solid rgba(74,144,226,.28) !important;
+  box-shadow:0 10px 22px rgba(37,99,235,.18), inset 0 1px 1px rgba(255,255,255,.9) !important;
+  filter:drop-shadow(0 4px 8px rgba(37,99,235,.12));
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+#keys .card:hover .card-main > .icon{
+  transform:translateY(-2px) scale(1.03);
+  box-shadow:0 13px 26px rgba(37,99,235,.24), inset 0 1px 1px rgba(255,255,255,.95) !important;
+}
+#keys .app-name{
+  font-weight:850 !important;
+}
+#keys .update-line{
+  margin-top:4px;
+}
+
+/* GET KEY section title */
+.section-title.getkey-title{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:10px !important;
+}
+.section-title.getkey-title::before{
+  content:"🔑" !important;
+  width:auto !important;
+  height:auto !important;
+  background:none !important;
+  box-shadow:none !important;
+  font-size:25px !important;
+  transform:rotate(-10deg);
+}
+.section-title.getkey-title::after{
+  width:34px !important;
+}
+
+@media(max-width:520px){
+  #keys .card-main > .icon{
+    width:68px !important;
+    height:68px !important;
+    min-width:68px !important;
+    padding:12px !important;
+    border-radius:20px !important;
+  }
+  .section-title.getkey-title::before{font-size:22px !important;}
+}
+
+body.dark #keys .card-main > .icon{
+  background:linear-gradient(145deg,#1e3650,#17365a) !important;
+  border-color:rgba(103,177,255,.3) !important;
+  box-shadow:0 11px 24px rgba(0,0,0,.3), inset 0 1px 1px rgba(255,255,255,.08) !important;
+}
+
+
+/* ===== PRO DOWNLOAD BUTTON v9 ===== */
+.download-btn,
+.download-button,
+.btn-download,
+button.download,
+a.download{
+  position:relative;
+  display:inline-flex !important;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  min-width:88px;
+  min-height:68px;
+  padding:0 18px !important;
+  border:1px solid rgba(255,255,255,.34) !important;
+  border-radius:22px !important;
+  background:
+    linear-gradient(145deg,#39a9ff 0%,#1687e8 48%,#086ed0 100%) !important;
+  color:#fff !important;
+  font-weight:800 !important;
+  box-shadow:
+    0 12px 24px rgba(15,126,224,.24),
+    inset 0 1px 0 rgba(255,255,255,.38),
+    inset 0 -3px 7px rgba(0,61,130,.16) !important;
+  text-decoration:none !important;
+  overflow:hidden;
+  isolation:isolate;
+  transition:transform .18s ease, box-shadow .18s ease, filter .18s ease;
+}
+
+.download-btn::before,
+.download-button::before,
+.btn-download::before,
+button.download::before,
+a.download::before{
+  content:"";
+  position:absolute;
+  top:-60%;
+  left:-35%;
+  width:55%;
+  height:220%;
+  transform:rotate(22deg);
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.25),transparent);
+  transition:left .45s ease;
+  pointer-events:none;
+}
+
+.download-btn:hover,
+.download-button:hover,
+.btn-download:hover,
+button.download:hover,
+a.download:hover{
+  transform:translateY(-2px);
+  filter:saturate(1.08);
+  box-shadow:
+    0 16px 30px rgba(15,126,224,.32),
+    0 0 0 4px rgba(44,158,246,.08),
+    inset 0 1px 0 rgba(255,255,255,.42),
+    inset 0 -3px 7px rgba(0,61,130,.14) !important;
+}
+
+.download-btn:hover::before,
+.download-button:hover::before,
+.btn-download:hover::before,
+button.download:hover::before,
+a.download:hover::before{
+  left:115%;
+}
+
+.download-btn:active,
+.download-button:active,
+.btn-download:active,
+button.download:active,
+a.download:active{
+  transform:translateY(1px) scale(.98);
+  box-shadow:
+    0 7px 15px rgba(15,126,224,.22),
+    inset 0 3px 8px rgba(0,54,116,.18) !important;
+}
+
+.download-btn svg,
+.download-button svg,
+.btn-download svg,
+button.download svg,
+a.download svg{
+  width:24px !important;
+  height:24px !important;
+  flex:0 0 24px;
+  filter:drop-shadow(0 2px 2px rgba(0,40,90,.18));
+}
+
+.download-btn .download-icon,
+.download-button .download-icon,
+.btn-download .download-icon{
+  font-size:24px !important;
+  line-height:1;
+}
+
+.download-btn span,
+.download-button span,
+.btn-download span{
+  position:relative;
+  z-index:1;
+}
+
+/* Nếu nút chỉ có icon, giữ kiểu gọn và cân đối */
+.download-btn.icon-only,
+.download-button.icon-only,
+.btn-download.icon-only{
+  width:90px;
+  min-width:90px;
+  padding:0 !important;
+}
+
+/* Mobile */
+@media(max-width:520px){
+  .download-btn,
+  .download-button,
+  .btn-download,
+  button.download,
+  a.download{
+    min-width:88px;
+    min-height:68px;
+    border-radius:21px !important;
+    padding:0 15px !important;
+    font-size:14px !important;
+  }
+
+  .download-btn svg,
+  .download-button svg,
+  .btn-download svg,
+  button.download svg,
+  a.download svg{
+    width:23px !important;
+    height:23px !important;
+  }
+
+  .download-btn.icon-only,
+  .download-button.icon-only,
+  .btn-download.icon-only{
+    width:88px;
+    min-width:88px;
+  }
+}
+
+/* Dark mode */
+body.dark .download-btn,
+body.dark .download-button,
+body.dark .btn-download,
+body.dark button.download,
+body.dark a.download{
+  background:linear-gradient(145deg,#42b3ff,#1687e8 52%,#075fb9) !important;
+  border-color:rgba(126,205,255,.38) !important;
+  box-shadow:
+    0 13px 28px rgba(0,103,190,.34),
+    inset 0 1px 0 rgba(255,255,255,.32),
+    inset 0 -3px 8px rgba(0,27,68,.28) !important;
+}
