@@ -184,6 +184,7 @@ document.addEventListener("keydown", e => {
 render("data/apps.json", "apps");
 render("data/keys.json", "keys");
 renderFiles();
+initSiteVisitStats();
 
 
 /* ===== MAP WARNING MODAL ===== */
@@ -252,3 +253,54 @@ if(toggle){
   if(document.readyState==="complete") hideLoader();
   else window.addEventListener("load",hideLoader,{once:true});
 })();
+
+
+/* ===== SITE VISIT STATISTICS =====
+   CounterAPI được dùng để đồng bộ lượt truy cập giữa các thiết bị.
+   Nếu API tạm thời không phản hồi, hệ thống tự dùng bộ đếm local làm dự phòng.
+*/
+async function initSiteVisitStats(){
+  const totalEl = document.getElementById("total-visits");
+  const todayEl = document.getElementById("today-visits");
+  if(!totalEl || !todayEl) return;
+
+  const namespace = "nghialqtv-web";
+  const now = new Date();
+  const dateKey = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,"0")}-${String(now.getDate()).padStart(2,"0")}`;
+  const formatNumber = n => Number(n || 0).toLocaleString("vi-VN");
+
+  try{
+    const [totalRes, todayRes] = await Promise.all([
+      fetch(`https://api.counterapi.dev/v1/${namespace}/total/up`, {cache:"no-store"}),
+      fetch(`https://api.counterapi.dev/v1/${namespace}/today-${dateKey}/up`, {cache:"no-store"})
+    ]);
+
+    if(!totalRes.ok || !todayRes.ok) throw new Error("Counter API unavailable");
+
+    const totalData = await totalRes.json();
+    const todayData = await todayRes.json();
+    const total = Number(totalData.count ?? totalData.up_count ?? 0);
+    const today = Number(todayData.count ?? todayData.up_count ?? 0);
+
+    totalEl.textContent = formatNumber(total);
+    todayEl.textContent = `+${formatNumber(today)}`;
+    return;
+  }catch(error){
+    console.warn("Không thể đồng bộ lượt truy cập online, dùng bộ đếm cục bộ.", error);
+  }
+
+  const localTotalKey = "nghialqtv_total_visits_local";
+  const localDateKey = "nghialqtv_today_date";
+  const localTodayKey = "nghialqtv_today_visits";
+  const storedDate = localStorage.getItem(localDateKey);
+
+  let total = Number(localStorage.getItem(localTotalKey) || 0) + 1;
+  let today = storedDate === dateKey ? Number(localStorage.getItem(localTodayKey) || 0) + 1 : 1;
+
+  localStorage.setItem(localTotalKey, String(total));
+  localStorage.setItem(localDateKey, dateKey);
+  localStorage.setItem(localTodayKey, String(today));
+
+  totalEl.textContent = formatNumber(total);
+  todayEl.textContent = `+${formatNumber(today)}`;
+}

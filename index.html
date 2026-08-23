@@ -69,16 +69,49 @@
 </div>
 <div id="keys"></div>
 
-<!-- Mua Key -->
-<h2 class="section-title"><span>Video Hướng Dẫn</span></h2>
+<!-- ===== THỐNG KÊ WEBSITE + YOUTUBE ===== -->
+<section class="site-stats-section" aria-label="Thống kê website">
+  <div class="stats-card">
+    <div class="stats-live"><span class="live-dot"></span><span>LIVE</span></div>
 
-<div class="big-banner">
-  <img src="assets/banner.jpg" loading="lazy"
-       decoding="async"
-       onerror="this.parentElement.remove()">
-</div>
+    <div class="stat-item">
+      <div class="stat-chart" aria-hidden="true">
+        <svg viewBox="0 0 96 48" role="presentation"><polyline points="6,34 28,15 42,27 64,8 72,16 90,4" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="stat-number" id="total-visits">0</div>
+      <div class="stat-label">TỔNG TRUY CẬP</div>
+    </div>
 
-<div id="files"></div>
+    <div class="stats-divider" aria-hidden="true"></div>
+
+    <div class="stat-item">
+      <div class="stat-chart" aria-hidden="true">
+        <svg viewBox="0 0 96 48" role="presentation"><polyline points="6,34 28,15 42,27 64,8 72,16 90,4" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="stat-number" id="today-visits">+0</div>
+      <div class="stat-label">HÔM NAY</div>
+    </div>
+  </div>
+
+  <div class="stats-plus" aria-hidden="true">+</div>
+
+  <a class="youtube-follow-card" href="https://youtube.com/@nghiatv_04" target="_blank" rel="noopener" aria-label="Theo dõi kênh YouTube Nghĩalq TV">
+    <div class="youtube-follow-icon">
+      <img src="assets/icons/youtube.png" alt="YouTube">
+    </div>
+    <div class="youtube-follow-info">
+      <strong>Theo Dõi Kênh YouTube</strong>
+      <span>Cập nhật video hướng dẫn mới nhất</span>
+    </div>
+    <span class="youtube-subscribe">
+      <span class="youtube-play">▶</span>
+      <span>Subscribe Ngay</span>
+    </span>
+  </a>
+</section>
+
+<!-- Khu vực files cũ được giữ để tương thích dữ liệu, nhưng không hiển thị ở giao diện -->
+<div id="files" class="legacy-files" aria-hidden="true"></div>
 
 <!-- ===== PREVIEW GALLERY ===== -->
 <div id="preview-modal" class="preview-modal" aria-hidden="true">

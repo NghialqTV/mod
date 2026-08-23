@@ -2351,3 +2351,247 @@ body.dark #keys .key-card .update-line{color:#aeb8c2 !important;}
 
 /* Hoa mai rơi đã được tắt hoàn toàn */
 #mai-fall,.mai{display:none !important;}
+
+/* =========================================================
+   THỐNG KÊ WEBSITE + THEO DÕI YOUTUBE
+   Thiết kế theo mẫu card trắng mềm, xanh/tím chuyên nghiệp
+   ========================================================= */
+.site-stats-section{
+  position:relative;
+  margin:30px 16px 34px;
+}
+
+.stats-card{
+  position:relative;
+  display:grid;
+  grid-template-columns:1fr 1px 1fr;
+  align-items:center;
+  min-height:230px;
+  padding:28px 30px;
+  border-radius:34px;
+  background:rgba(255,255,255,.92);
+  border:1px solid rgba(255,255,255,.9);
+  box-shadow:0 16px 40px rgba(68,91,140,.16);
+  overflow:hidden;
+}
+
+.stats-live{
+  position:absolute;
+  top:24px;
+  right:28px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:#25b86a;
+  font-size:15px;
+  font-weight:800;
+  letter-spacing:2px;
+}
+
+.live-dot{
+  width:15px;
+  height:15px;
+  border-radius:50%;
+  background:#20c875;
+  box-shadow:0 0 0 6px rgba(32,200,117,.12),0 0 16px rgba(32,200,117,.45);
+  animation:livePulse 1.8s ease-in-out infinite;
+}
+
+@keyframes livePulse{
+  50%{transform:scale(.82);box-shadow:0 0 0 4px rgba(32,200,117,.10),0 0 9px rgba(32,200,117,.3)}
+}
+
+.stat-item{
+  text-align:center;
+  padding:8px 12px;
+}
+
+.stat-chart{
+  height:40px;
+  margin-bottom:6px;
+  color:#4d74e8;
+  line-height:25px;
+  font-weight:900;
+  transform:rotate(-8deg);
+  text-shadow:0 4px 12px rgba(77,116,232,.18);
+}
+
+.stat-chart svg{
+  width:78px;
+  height:40px;
+  display:block;
+  margin:0 auto;
+}
+
+.stat-number{
+  font-size:clamp(38px,8vw,62px);
+  line-height:1.05;
+  font-weight:850;
+  letter-spacing:1px;
+  background:linear-gradient(90deg,#416fe2,#9a63e8);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  font-variant-numeric:tabular-nums;
+}
+
+.stat-label{
+  margin-top:10px;
+  color:#73839a;
+  font-size:18px;
+  font-weight:750;
+  letter-spacing:1.2px;
+}
+
+.stats-divider{
+  width:1px;
+  height:150px;
+  background:linear-gradient(to bottom,transparent,#d7dce7 18%,#d7dce7 82%,transparent);
+}
+
+.stats-plus{
+  position:relative;
+  z-index:2;
+  width:42px;
+  height:42px;
+  margin:-5px auto -10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#8a6bea;
+  font-size:42px;
+  font-weight:800;
+  text-shadow:0 0 15px rgba(138,107,234,.55);
+}
+
+.youtube-follow-card{
+  display:grid;
+  grid-template-columns:88px 1fr auto;
+  align-items:center;
+  gap:22px;
+  padding:28px 30px;
+  min-height:130px;
+  border-radius:32px;
+  background:rgba(255,255,255,.94);
+  border:1px solid rgba(255,255,255,.9);
+  box-shadow:0 16px 40px rgba(68,91,140,.14);
+  text-decoration:none;
+  color:#171b2b;
+  transition:transform .22s ease,box-shadow .22s ease;
+}
+
+.youtube-follow-card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 20px 44px rgba(68,91,140,.2);
+}
+
+.youtube-follow-icon{
+  width:88px;
+  height:88px;
+  border-radius:25px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#eef1ff;
+  border:1px solid #cfd8ff;
+  box-shadow:0 8px 20px rgba(79,101,190,.12);
+}
+
+.youtube-follow-icon img{
+  width:48px;
+  height:48px;
+  object-fit:contain;
+}
+
+.youtube-follow-info{
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+
+.youtube-follow-info strong{
+  font-size:clamp(22px,5vw,31px);
+  line-height:1.15;
+  font-weight:800;
+}
+
+.youtube-follow-info span{
+  color:#8794a8;
+  font-size:clamp(15px,3.5vw,20px);
+  line-height:1.3;
+}
+
+.youtube-subscribe{
+  min-width:240px;
+  height:64px;
+  padding:0 28px;
+  border-radius:34px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  color:#fff;
+  background:linear-gradient(100deg,#426ff0,#a765eb);
+  box-shadow:0 10px 24px rgba(100,92,232,.3);
+  font-size:22px;
+  font-weight:800;
+  white-space:nowrap;
+}
+
+.youtube-play{
+  width:34px;
+  height:24px;
+  border-radius:7px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#fff;
+  color:#6a69df;
+  font-size:14px;
+  padding-left:2px;
+}
+
+.legacy-files{
+  display:none !important;
+}
+
+body.dark .stats-card,
+body.dark .youtube-follow-card{
+  background:linear-gradient(180deg,#1e2530,#161b22);
+  border-color:#2b3442;
+  box-shadow:0 14px 34px rgba(0,0,0,.45);
+}
+
+body.dark .stat-label,
+body.dark .youtube-follow-info span{
+  color:#9aa7bb;
+}
+
+@media (max-width:700px){
+  .site-stats-section{margin:22px 14px 28px}
+  .stats-card{min-height:200px;padding:24px 12px 22px;border-radius:28px}
+  .stats-live{top:16px;right:20px;font-size:13px}
+  .live-dot{width:12px;height:12px}
+  .stat-chart{height:30px}.stat-chart svg{width:62px;height:30px}
+  .stat-number{font-size:clamp(30px,9vw,44px)}
+  .stat-label{font-size:13px;letter-spacing:.7px}
+  .stats-divider{height:125px}
+  .youtube-follow-card{
+    grid-template-columns:70px 1fr;
+    gap:15px;
+    padding:20px;
+    min-height:auto;
+    border-radius:28px;
+  }
+  .youtube-follow-icon{width:70px;height:70px;border-radius:20px}
+  .youtube-follow-icon img{width:38px;height:38px}
+  .youtube-subscribe{
+    grid-column:1 / -1;
+    min-width:0;
+    width:100%;
+    height:58px;
+    box-sizing:border-box;
+    font-size:19px;
+  }
+}
