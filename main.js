@@ -91,9 +91,9 @@ function render(url, boxId){
                 ${previewButton(i)}
               </div>
             </div>
-            ${boxId === "keys" ? "" : isAndroidApp ? `
+            ${boxId === "keys" ? "" : (isAndroidApp && i.name === "Map Sáng AOV Android V2") ? `
             <button class="download-btn android-choice-btn" type="button"
-              data-app-index="${index}" aria-label="Chọn bản Android">
+              data-app-index="${index}" aria-label="Chọn phiên bản Android V2">
               <span class="download-icon" aria-hidden="true">⇩</span>
             </button>` : `
             <a class="download-btn" href="${escapeHtml(i.link || "#")}" target="_blank" rel="noopener" aria-label="Tải xuống">
@@ -242,33 +242,7 @@ function handleAndroidAction(action){
     key: currentAndroidApp.getKeyLink || ANDROID_V2_LINKS.getKeyLink
   };
 
-  if(action === "paste"){
-    const input = document.getElementById("android-paste-link");
-    const value = input ? input.value.trim() : "";
-    if(!value){
-      if(input) input.focus();
-      return;
-    }
-    openAndroidUrl(value);
-    return;
-  }
-
   openAndroidUrl(links[action] || "");
-}
-
-async function pasteAndroidLink(){
-  const input = document.getElementById("android-paste-link");
-  if(!input) return;
-
-  try{
-    const text = await navigator.clipboard.readText();
-    if(text){
-      input.value = text.trim();
-      input.focus();
-    }
-  }catch(e){
-    input.focus();
-  }
 }
 
 document.addEventListener("click", e => {
@@ -291,19 +265,10 @@ document.addEventListener("click", e => {
   if(e.target.closest("[data-close-android-choice]")){
     closeAndroidChoice();
   }
-
-  if(e.target.closest("[data-paste-android-link]")){
-    pasteAndroidLink();
-  }
 });
 
 document.addEventListener("keydown", e => {
   if(e.key === "Escape") closeAndroidChoice();
-  if(e.key === "Enter" &&
-     document.activeElement &&
-     document.activeElement.id === "android-paste-link"){
-    handleAndroidAction("paste");
-  }
 });
 
 
