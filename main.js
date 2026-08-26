@@ -238,6 +238,17 @@ function openAndroidUrl(url){
   }
 }
 
+function openKeyWithAd(url){
+  if(!url) return;
+  try {
+    const parsed = new URL(url, window.location.href);
+    if(!/^https?:$/i.test(parsed.protocol)) return;
+    window.location.href = parsed.href;
+  } catch(e) {
+    console.error("Link key không hợp lệ:", e);
+  }
+}
+
 function handleAndroidAction(action){
   if(!currentAndroidApp) return;
 
