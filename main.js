@@ -186,35 +186,9 @@ function closeLightbox(){
 
 /* ===== ANDROID DOWNLOAD CHOICE + PASTE LINK ===== */
 
-/* ===== QUẢNG CÁO CHUNG =====
-   CHỈ CẦN SỬA AD_URL để đổi link quảng cáo.
-   Các mục/link/nút trên trang sẽ gọi quảng cáo chung này.
+/* ===== QUẢNG CÁO MONETAG =====
+   Quảng cáo được nạp trực tiếp từ Monetag trong index.html.
 */
-const AD_URL = "https://omg10.com/4/11655155";
-
-function openAd(){
-  if(!AD_URL) return;
-  try {
-    const w = window.open(AD_URL, "_blank", "noopener,noreferrer");
-    if(w) w.opener = null;
-  } catch(e) {
-    console.warn("Không mở được quảng cáo:", e);
-  }
-}
-
-/* Dùng cho các luồng chuyển trang sau khi quảng cáo đã được mở. */
-function openKeyWithAd(url){
-  if(!url) return;
-  setTimeout(() => {
-    try {
-      const parsed = new URL(url, window.location.href);
-      if(!/^https?:$/i.test(parsed.protocol)) return;
-      window.location.href = parsed.href;
-    } catch(e) {
-      console.error("Link không hợp lệ:", e);
-    }
-  }, 300);
-}
 
 const ANDROID_V2_LINKS = {
   getKeyLink: "https://nghialqtv.github.io/SubUnlock/?id=keyandroidv2",
@@ -282,24 +256,7 @@ function handleAndroidAction(action){
   openAndroidUrl(url);
 }
 
-/* ===== MỞ QUẢNG CÁO KHI BẤM MỤC TRÊN TRANG ===== */
-document.addEventListener("click", function(e){
-  const target = e.target.closest(
-    'a[href], .app-card, .mod-item, .download-btn, .preview-btn, ' +
-    '.notice-link, .notice-button, .android-choice-btn, [data-android-action], ' +
-    '.key-card'
-  );
-  if(!target) return;
-
-  // Không quảng cáo cho các thao tác đóng modal / xem ảnh bên trong modal.
-  if(target.closest("#preview-modal, #image-lightbox, #android-choice-modal")) return;
-  if(target.matches('[data-close-preview], [data-close-lightbox], [data-close-android-choice], [data-close-map-warning]')) return;
-
-  // Không quảng cáo cho phần tử chỉ dùng để đóng/đổi giao diện.
-  if(target.id === "dark-toggle" || target.id === "theme-toggle") return;
-
-  openAd();
-}, true);
+/* ===== KHÔNG DÙNG QUẢNG CÁO TIKTOK ===== */
 
 document.addEventListener("click", e => {
   const androidBtn = e.target.closest(".android-choice-btn");
