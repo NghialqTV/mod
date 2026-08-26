@@ -7,21 +7,21 @@
 
     <script>
         (function () {
-            const OLD_PREFIX = "/mod";
             const NEW_SITE = "https://nghialqtv.github.io";
 
+            // Đường dẫn mà người dùng đang truy cập
             const path = window.location.pathname;
             const query = window.location.search;
             const hash = window.location.hash;
 
-            // Chỉ xử lý các URL cũ có /mod
-            if (path === "/mod" || path.startsWith("/mod/")) {
+            // Nếu là link cũ /mod/...
+            if (path === "/mod" || path.indexOf("/mod/") === 0) {
 
-                // Bỏ "/mod" khỏi đường dẫn cũ
-                let newPath = path.substring(OLD_PREFIX.length);
+                // Bỏ /mod ở đầu
+                let newPath = path.substring(4);
 
-                // /mod hoặc /mod/ → /
-                if (!newPath || newPath === "") {
+                // Đảm bảo có /
+                if (newPath === "" || newPath === "/") {
                     newPath = "/";
                 }
 
@@ -35,15 +35,21 @@
                 return;
             }
 
-            // URL 404 khác → trang chủ
+            // Nếu không phải link /mod/ thì đưa về trang chủ
             window.location.replace(NEW_SITE + "/");
+
         })();
     </script>
 </head>
 
 <body>
-    <p style="text-align:center;margin-top:100px;font-family:Arial">
-        Đang chuyển hướng sang website mới...
-    </p>
+    <div style="
+        text-align:center;
+        margin-top:100px;
+        font-family:Arial,sans-serif;
+    ">
+        <h2>Đang chuyển hướng...</h2>
+        <p>Vui lòng chờ...</p>
+    </div>
 </body>
 </html>
