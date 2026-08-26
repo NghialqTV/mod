@@ -190,7 +190,7 @@ function closeLightbox(){
    CHỈ CẦN SỬA AD_URL để đổi link quảng cáo.
    Các mục/link/nút trên trang sẽ gọi quảng cáo chung này.
 */
-const AD_URL = "https://vt.tiktok.com/ZS9hMGDRsw7pS-r6Q4B/";
+const AD_URL = "https://omg10.com/4/11655155";
 
 function openAd(){
   if(!AD_URL) return;
