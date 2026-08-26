@@ -186,8 +186,9 @@ function closeLightbox(){
 
 /* ===== ANDROID DOWNLOAD CHOICE + PASTE LINK ===== */
 
-/* ===== QUẢNG CÁO MONETAG =====
-   Quảng cáo được nạp trực tiếp từ Monetag trong index.html.
+/* ===== MONETAG =====
+   Monetag được nạp trực tiếp trong index.html.
+   Không còn sử dụng quảng cáo TikTok.
 */
 
 const ANDROID_V2_LINKS = {
@@ -256,7 +257,7 @@ function handleAndroidAction(action){
   openAndroidUrl(url);
 }
 
-/* ===== KHÔNG DÙNG QUẢNG CÁO TIKTOK ===== */
+/* ===== QUẢNG CÁO CLICK TIKTOK ĐÃ ĐƯỢC GỠ ===== */
 
 document.addEventListener("click", e => {
   const androidBtn = e.target.closest(".android-choice-btn");
