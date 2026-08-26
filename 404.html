@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đang chuyển hướng...</title>
+
+    <script>
+        (function () {
+            const OLD_PREFIX = "/mod";
+            const NEW_SITE = "https://nghialqtv.github.io";
+
+            const path = window.location.pathname;
+            const query = window.location.search;
+            const hash = window.location.hash;
+
+            // Chỉ xử lý các URL cũ có /mod
+            if (path === "/mod" || path.startsWith("/mod/")) {
+
+                // Bỏ "/mod" khỏi đường dẫn cũ
+                let newPath = path.substring(OLD_PREFIX.length);
+
+                // /mod hoặc /mod/ → /
+                if (!newPath || newPath === "") {
+                    newPath = "/";
+                }
+
+                const newURL =
+                    NEW_SITE +
+                    newPath +
+                    query +
+                    hash;
+
+                window.location.replace(newURL);
+                return;
+            }
+
+            // URL 404 khác → trang chủ
+            window.location.replace(NEW_SITE + "/");
+        })();
+    </script>
+</head>
+
+<body>
+    <p style="text-align:center;margin-top:100px;font-family:Arial">
+        Đang chuyển hướng sang website mới...
+    </p>
+</body>
+</html>
