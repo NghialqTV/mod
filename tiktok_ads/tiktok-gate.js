@@ -1,20 +1,55 @@
+/* TikTok Ads - 1 ad per user action, then destination */
 (function(){
-  const ADS = Array.isArray(window.TIKTOK_AD_LINKS) ? window.TIKTOK_AD_LINKS.filter(Boolean) : [];
+  const ADS = Array.isArray(window.TIKTOK_AD_LINKS)
+    ? window.TIKTOK_AD_LINKS.filter(u => /^https?:\/\//i.test(String(u)))
+    : [];
   const WAIT_MS = 1800;
-  function pick(){ return ADS[Math.floor(Math.random() * ADS.length)]; }
-  function go(destination){
-    if(!destination) return;
-    if(!ADS.length){ window.location.href = destination; return; }
-    const ad = pick();
-    try { sessionStorage.setItem('tiktok_return_url', destination); } catch(e) {}
-    const popup = window.open(ad, '_blank', 'noopener,noreferrer');
-    if(popup){
-      setTimeout(function(){ window.location.href = destination; }, WAIT_MS);
-    } else {
-      window.location.href = ad;
+  let queue = [];
+  let busy = false;
+
+  function refillQueue(){
+    queue = ADS.slice();
+    for(let i = queue.length - 1; i > 0; i--){
+      const j = Math.floor(Math.random() * (i + 1));
+      [queue[i], queue[j]] = [queue[j], queue[i]];
     }
   }
+
+  function pick(){
+    if(!queue.length) refillQueue();
+    return queue.shift();
+  }
+
+  function go(destination){
+    if(!destination || busy) return false;
+    if(!ADS.length){
+      window.location.assign(destination);
+      return false;
+    }
+
+    busy = true;
+    const ad = pick();
+
+    // Open exactly ONE random TikTok link for this action.
+    // Because this runs directly from a user click, the popup is normally allowed.
+    let adWindow = null;
+    try {
+      adWindow = window.open(ad, '_blank', 'noopener,noreferrer');
+    } catch(e) {}
+
+    // If the browser blocks the new tab, do not leave the user stuck on an ad page.
+    // Continue to the requested destination instead.
+    setTimeout(function(){
+      busy = false;
+      window.location.assign(destination);
+    }, adWindow ? WAIT_MS : 0);
+
+    return true;
+  }
+
   window.tiktokAdGate = go;
+
+  // Covers dynamically-created download/key/resource links.
   document.addEventListener('click', function(e){
     const el = e.target.closest('a[data-tiktok-gate],button[data-tiktok-destination]');
     if(!el) return;
