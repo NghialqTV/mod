@@ -9,7 +9,7 @@ fetch("data/resources.json?v=" + Date.now())
             <b>${i.name}</b>
             <div>${i.version || ""}</div>
           </div>
-          <a href="${i.link}" target="_blank">✓</a>
+          <a href="${i.link}" data-tiktok-gate target="_blank" rel="noopener">✓</a>
         </div>
 
         ${i.banner ? `

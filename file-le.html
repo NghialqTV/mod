@@ -317,7 +317,7 @@ data.forEach(item => {
 
   div.onclick = () => {
     if (item.link && item.link !== "#") {
-      window.open(item.link, "_blank");
+      tiktokAdGate(item.link);
     } else {
       alert("File này chưa có link!");
     }
@@ -325,14 +325,6 @@ data.forEach(item => {
 
   list.appendChild(div);
 });
-</script>
-<script>
-document.addEventListener('click', function(e){
-  var a=e.target.closest('a[href]');
-  if(!a || a.classList.contains('back')) return;
-  var href=a.getAttribute('href');
-  if(href && /^https?:/i.test(href)){ e.preventDefault(); tiktokAdGate(href); }
-}, true);
 </script>
 
 </body>
