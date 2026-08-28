@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="style.css">
-</head>
+<script src="tiktok_ads/config.js"></script><script src="tiktok_ads/tiktok-gate.js"></script></head>
 <body class="dark">
 
 <header class="top">
@@ -18,14 +18,14 @@
 <!-- FILE LẺ -->
 <div id="resources">
 
-  <div class="resource-item" onclick="window.location.href='file-le.html'">
+  <div class="resource-item" onclick="tiktokAdGate('file-le.html')">
     📁 File Lẻ
   </div>
 
 </div>
 <!-- NÚT QUAY LẠI -->
 <div style="text-align:center;margin:24px">
-  <a href="index.html" class="back-btn">← Quay lại</a>
+  <a data-tiktok-gate href="index.html" class="back-btn">← Quay lại</a>
 </div>
 
 <script src="resources.js"></script>
