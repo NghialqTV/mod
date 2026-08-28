@@ -126,7 +126,9 @@
       background: rgba(56,189,248,0.1);
     }
   </style>
-<script src="tiktok_ads/config.js"></script><script src="tiktok_ads/tiktok-gate.js"></script></head>
+<script src="tiktok_ads/config.js"></script>
+<script src="tiktok_ads/tiktok-gate.js"></script>
+</head>
 
 <body>
 
@@ -137,7 +139,7 @@
 
 <div class="container" id="list"></div>
 
-<a data-tiktok-gate class="back" href="resources.html">⬅ Quay lại Tài Nguyên</a>
+<a class="back" href="resources.html">⬅ Quay lại Tài Nguyên</a>
 
 <script>
 /* ========= DATA FILE LẺ ========= */
@@ -323,6 +325,14 @@ data.forEach(item => {
 
   list.appendChild(div);
 });
+</script>
+<script>
+document.addEventListener('click', function(e){
+  var a=e.target.closest('a[href]');
+  if(!a || a.classList.contains('back')) return;
+  var href=a.getAttribute('href');
+  if(href && /^https?:/i.test(href)){ e.preventDefault(); tiktokAdGate(href); }
+}, true);
 </script>
 
 </body>
