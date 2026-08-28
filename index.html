@@ -13,7 +13,38 @@
   transform-origin: center center;
   display: inline-block;
 }
-@keyframes keyIconR"loader-ring"></span>
+@keyframes keyIconRotate {
+  0%, 20%   { transform: rotate(0deg); }
+  45%       { transform: rotate(18deg); }
+  70%       { transform: rotate(-18deg); }
+  100%      { transform: rotate(0deg); }
+}
+</style>
+
+
+<script src="tiktok_ads/config.js"></script>
+<script src="tiktok_ads/tiktok-gate.js"></script>
+<script>
+// Remove legacy advertising service workers/caches left by older versions.
+(function(){
+  if (!('serviceWorker' in navigator)) return;
+  navigator.serviceWorker.getRegistrations().then(function(regs){
+    regs.forEach(function(reg){ reg.unregister(); });
+  }).catch(function(){});
+  if (window.caches && caches.keys) {
+    caches.keys().then(function(keys){ keys.forEach(function(k){ caches.delete(k); }); }).catch(function(){});
+  }
+})();
+</script>
+</head>
+<body>
+
+<!-- ===== PROFESSIONAL PAGE LOADER ===== -->
+<div id="page-loader" aria-label="Đang tải trang">
+  <div class="loader-card">
+    <div class="loader-logo-wrap">
+      <img src="assets/icons/logo.png" alt="Nghĩalq TV" class="loader-logo">
+      <span class="loader-ring"></span>
     </div>
     <div class="loader-brand">Nghĩalq TV</div>
     <div class="loader-status">Đang tải dữ liệu...</div>
@@ -64,7 +95,7 @@
   
 <!--  GET KEY -->
 <div class="getkey-heading">
-  <a data-tiktok-gate class="getkey-kicker" href="#keys" aria-label="Xem danh sách Get Key">
+  <a class="getkey-kicker" href="#keys" aria-label="Xem danh sách Get Key">
     <span class="getkey-kicker-icon">⌕</span><span>GET KEY</span>
   </a>
 </div>
@@ -99,7 +130,7 @@
 
   <div class="stats-plus" aria-hidden="true">+</div>
 
-  <a data-tiktok-gate class="youtube-follow-card" href="https://youtube.com/@nghiatv_04" target="_blank" rel="noopener" aria-label="Theo dõi kênh YouTube Nghĩalq TV">
+  <a class="youtube-follow-card" href="https://youtube.com/@nghiatv_04" target="_blank" rel="noopener" aria-label="Theo dõi kênh YouTube Nghĩalq TV">
     <div class="youtube-follow-icon">
       <img src="assets/icons/youtube.png" alt="YouTube">
     </div>
