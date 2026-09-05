@@ -1,23 +1,23 @@
 [
   {
-    "name": "Key iOS",
+    "name": "Key Mod Skin iOS",
     "version": "Vượt 2 Lần",
     "icon": "assets/icons/key-white.png",
     "platform": "ios",
     "link": "https://nghialqtv.github.io/SubUnlock/?id=keymenuios"
   },
   {
-    "name": "Key Android V1",
-    "version": "Vượt 1 Lần",
+    "name": "Key Map IOS",
+    "version": "Vượt 2 Lần",
     "icon": "assets/icons/key-white.png",
     "platform": "ios",
-    "link": "https://nghialqtv.github.io/SubUnlock/?id=keyandroid"
+    "link": "https://nghialqtv.github.io/SubUnlock/?id=keymapios"
   },
   {
-    "name": "Key Android V2",
+    "name": "Key Map Android V2",
     "version": "Vượt 1 Lần",
     "icon": "assets/icons/key-white.png",
-    "platform": "android",
+    "platform": "android"
     "link": "https://nghialqtv.github.io/SubUnlock/?id=keyandroidv2"
   }
 ]
